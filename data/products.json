@@ -1,0 +1,60 @@
+[
+  {
+    "id": "candle-soja-001",
+    "name": "Vela de Soja Premium",
+    "category": "Velas",
+    "price": 3500,
+    "description": "Vela de cera de soja vertida a mano, ecológica y de larga duración.",
+    "variants": [
+      {
+        "aroma": "Vainilla y Coco",
+        "color": "Crema"
+      },
+      {
+        "aroma": "Lavanda Relajante",
+        "color": "Lila Suave"
+      },
+      {
+        "aroma": "Frutos Rojos",
+        "color": "Rosa Pastel"
+      }
+    ],
+    "image": "/images/vela-soja.jpg"
+  },
+  {
+    "id": "difusor-001",
+    "name": "Difusor de Ambiente con Varillas",
+    "category": "Difusores",
+    "price": 4200,
+    "description": "Difusor de vidrio con varillas de ratán para una dispersión continua del aroma.",
+    "variants": [
+        { "aroma": "Jazmín", "color": "Transparente" },
+        { "aroma": "Limón y Jengibre", "color": "Transparente" }
+    ],
+    "image": "/images/difusor.jpg"
+  },
+  {
+    "id": "aceite-001",
+    "name": "Aceite Esencial Puro",
+    "category": "Aceites",
+    "price": 1800,
+    "description": "Aceite esencial concentrado para hornillos y aromaterapia.",
+    "variants": [
+        { "aroma": "Eucalipto", "size": "10ml" },
+        { "aroma": "Naranja", "size": "10ml" }
+    ],
+    "image": "/images/aceite.jpg"
+  },
+  {
+    "id": "perfume-001",
+    "name": "Simil Perfume Importado",
+    "category": "Perfumería",
+    "price": 5500,
+    "description": "Fragancia persistente inspirada en grandes marcas internacionales.",
+    "variants": [
+        { "aroma": "Floral Intenso", "gender": "Femenino" },
+        { "aroma": "Amaderado", "gender": "Masculino" }
+    ],
+    "image": "/images/perfume.jpg"
+  }
+]
