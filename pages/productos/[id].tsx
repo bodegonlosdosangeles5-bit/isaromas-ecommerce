@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import NextImage from 'next/image';
 import { ShoppingCart, ArrowLeft, Star, Truck, ShieldCheck, ShoppingBag } from 'lucide-react';
 import Footer from '@/components/Footer';
 import { useCart } from '@/context/CartContext';
@@ -43,7 +44,16 @@ export default function ProductDetail() {
       {/* Navbar (Simple) */}
       <nav className="bg-white shadow-sm sticky top-0 z-30">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-gray-800 tracking-tight">ISAROMAS</Link>
+          <Link href="/">
+            <NextImage 
+              src="/isaromas_logo.png" 
+              alt="Logo ISAROMAS" 
+              width={150} 
+              height={50} 
+              className="object-contain"
+              priority
+            />
+          </Link>
           <div className="flex items-center gap-4">
             <Link href="/catalogo" className="text-gray-600 hover:text-isaromas-pink flex items-center gap-1">
                 <ArrowLeft size={18} /> Volver

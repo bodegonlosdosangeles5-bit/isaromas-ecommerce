@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import NextImage from 'next/image';
 import { Geist, Geist_Mono } from "next/font/google";
 import { Sparkles, Palette, Clock, Heart, ArrowRight, ShoppingBag } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
@@ -32,7 +33,16 @@ export default function Home() {
 
       {/* Navbar Placeholder (Simple) */}
       <nav className="absolute top-0 left-0 w-full z-10 p-6 flex justify-between items-center">
-        <div className="text-2xl font-bold text-gray-800 tracking-tight">ISAROMAS</div>
+        <Link href="/">
+          <NextImage 
+            src="/isaromas_logo.png" 
+            alt="Logo ISAROMAS" 
+            width={150} 
+            height={50} 
+            className="object-contain"
+            priority
+          />
+        </Link>
         <div className="flex items-center gap-6">
             <Link href="/catalogo" className="text-gray-600 hover:text-isaromas-pink font-medium transition-colors">
             Catálogo
