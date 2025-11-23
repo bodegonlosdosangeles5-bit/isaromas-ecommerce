@@ -56,7 +56,7 @@ const CheckoutDrawer: React.FC = () => {
     e.preventDefault();
     if (items.length === 0) return;
     
-    const whatsappUrl = `https://wa.me/541125782862?text=${generateWhatsAppMessage()}`;
+    const whatsappUrl = `https://wa.me/5491125146197?text=${generateWhatsAppMessage()}`;
     window.open(whatsappUrl, '_blank');
     
     // Optional: clear cart after sending? 

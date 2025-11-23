@@ -48,8 +48,8 @@ export default function ProductDetail() {
             <NextImage 
               src="/isaromas_logo.png" 
               alt="Logo ISAROMAS" 
-              width={150} 
-              height={50} 
+              width={100} 
+              height={33} 
               className="object-contain"
               priority
             />

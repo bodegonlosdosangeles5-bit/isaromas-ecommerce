@@ -22,12 +22,12 @@ const Footer: React.FC = () => {
           <div className="text-center md:text-right">
             <p className="text-sm text-gray-500 mb-1">Contacto</p>
             <a 
-                href="https://wa.me/541125782862" 
+                href="https://wa.me/5491125146197" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-lg font-semibold text-gray-800 hover:text-isaromas-pink transition-colors"
             >
-                +54 11 2578-2862
+                +54 9 11 2514-6197
             </a>
           </div>
         </div>
