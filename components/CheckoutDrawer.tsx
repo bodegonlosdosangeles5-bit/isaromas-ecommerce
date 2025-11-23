@@ -43,7 +43,11 @@ const CheckoutDrawer: React.FC = () => {
     
     message += `\n*Forma de Pago:*\n`;
     message += `Transferencia al Alias: ISAROMAS.VENTAS\n`;
-    message += `(Envío comprobante a la brevedad)`;
+    message += `(Envío comprobante a la brevedad)\n\n`;
+
+    message += `*Importante:*\n`;
+    message += `⚠️ El costo de envío se confirmará al momento de procesar el pedido.\n`;
+    message += `⚠️ El pedido se procesará únicamente al recibir el comprobante de pago.`;
 
     return encodeURIComponent(message);
   };
@@ -140,23 +144,23 @@ const CheckoutDrawer: React.FC = () => {
                 <div className="grid grid-cols-2 gap-3">
                     <input 
                         type="text" name="name" placeholder="Nombre y Apellido" required 
-                        className="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm focus:ring-2 focus:ring-isaromas-pink/20 outline-none"
+                        className="w-full px-3 py-2 rounded-lg border border-gray-300 bg-white text-gray-800 text-sm focus:ring-2 focus:ring-isaromas-pink/50 outline-none shadow-sm"
                         value={formData.name} onChange={handleInputChange}
                     />
                     <input 
                         type="tel" name="phone" placeholder="Teléfono" required 
-                        className="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm focus:ring-2 focus:ring-isaromas-pink/20 outline-none"
+                        className="w-full px-3 py-2 rounded-lg border border-gray-300 bg-white text-gray-800 text-sm focus:ring-2 focus:ring-isaromas-pink/50 outline-none shadow-sm"
                         value={formData.phone} onChange={handleInputChange}
                     />
                 </div>
                 <input 
                     type="text" name="address" placeholder="Dirección o Zona de entrega" required 
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm focus:ring-2 focus:ring-isaromas-pink/20 outline-none"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 bg-white text-gray-800 text-sm focus:ring-2 focus:ring-isaromas-pink/50 outline-none shadow-sm"
                     value={formData.address} onChange={handleInputChange}
                 />
                 <textarea 
                     name="notes" placeholder="Notas (ej: aroma preferido, horario...)" rows={2}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm focus:ring-2 focus:ring-isaromas-pink/20 outline-none resize-none"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 bg-white text-gray-800 text-sm focus:ring-2 focus:ring-isaromas-pink/50 outline-none resize-none shadow-sm"
                     value={formData.notes} onChange={handleInputChange}
                 />
             </div>

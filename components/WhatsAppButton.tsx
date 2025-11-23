@@ -1,7 +1,12 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
+import { useCart } from '@/context/CartContext';
 
 const WhatsAppButton: React.FC = () => {
+  const { isCartOpen } = useCart();
+
+  if (isCartOpen) return null;
+
   return (
     <a
       href="https://wa.me/541125782862"
