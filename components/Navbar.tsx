@@ -1,137 +1,402 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ShoppingBag, Menu, X, Home } from 'lucide-react';
+import { ShoppingBag, Menu, X, Home, HelpCircle, Sparkles } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
   const { toggleCart, totalItems } = useCart();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const [mounted, setMounted] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
 
   // Evitar error de hidratación - solo mostrar badge después de montar en cliente
-  React.useEffect(() => {
+  useEffect(() => {
     setMounted(true);
+  }, []);
+
+  // Scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Mouse position for gradient effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (navRef.current) {
+        const rect = navRef.current.getBoundingClientRect();
+        setMousePosition({
+          x: ((e.clientX - rect.left) / rect.width) * 100,
+          y: ((e.clientY - rect.top) / rect.height) * 100,
+        });
+      }
+    };
+
+    const nav = navRef.current;
+    if (nav) {
+      nav.addEventListener('mousemove', handleMouseMove);
+      return () => nav.removeEventListener('mousemove', handleMouseMove);
+    }
   }, []);
 
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-isaromas-card-border shadow-sm">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-20">
+    <nav
+      ref={navRef}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? 'bg-white/80 backdrop-blur-2xl border-b border-white/30 shadow-lg shadow-isaromas-pink-light/10'
+          : 'bg-white/60 backdrop-blur-xl border-b border-white/20 shadow-md shadow-isaromas-pink-light/5'
+      }`}
+      style={{
+        background: scrolled
+          ? `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 
+              rgba(245, 208, 254, 0.15) 0%, 
+              rgba(255, 237, 213, 0.1) 50%,
+              rgba(255, 246, 248, 0.12) 100%
+            ),
+            linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 246, 248, 0.75))`
+          : `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 
+              rgba(245, 208, 254, 0.2) 0%, 
+              rgba(255, 237, 213, 0.15) 50%,
+              rgba(255, 246, 248, 0.18) 100%
+            ),
+            linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 246, 248, 0.6))`,
+      }}
+    >
+      {/* Floating particles in navbar */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          className="absolute top-0 right-[10%] w-32 h-32 rounded-full blur-2xl opacity-20 animate-gradient-float"
+          style={{
+            background: 'radial-gradient(circle, rgba(219, 39, 119, 0.2), rgba(168, 85, 247, 0.15), transparent 70%)',
+            animation: 'float 15s ease-in-out infinite',
+          }}
+        />
+        <div
+          className="absolute bottom-0 left-[15%] w-24 h-24 rounded-full blur-xl opacity-15 animate-gradient-float"
+          style={{
+            background: 'radial-gradient(circle, rgba(244, 63, 94, 0.2), rgba(236, 72, 153, 0.15), transparent 70%)',
+            animation: 'float 12s ease-in-out infinite reverse',
+            animationDelay: '2s',
+          }}
+        />
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo/Brand Text */}
           <Link 
             href="/" 
-            className="group flex items-center gap-2 transition-all duration-300 hover:scale-105"
+            className="group flex items-center gap-2 transition-all duration-300 hover:scale-105 relative"
           >
             <div className="relative">
-              <span className="text-2xl md:text-3xl font-extrabold text-isaromas-text-main">
-                ISAROMAS
-              </span>
-              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-isaromas-primary group-hover:w-full transition-all duration-300"></div>
+              {scrolled ? (
+                <span 
+                  className="text-xl sm:text-2xl md:text-3xl font-extrabold relative z-10 transition-all duration-300"
+                  style={{
+                    background: 'linear-gradient(135deg, #DB2777, #EC4899, #F472B6)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    backgroundSize: '200% 200%',
+                    animation: 'gradient-text 3s ease infinite',
+                  }}
+                >
+                  ISAROMAS
+                </span>
+              ) : (
+                <span className="text-xl sm:text-2xl md:text-3xl font-extrabold text-isaromas-text-main relative z-10 transition-all duration-300">
+                  ISAROMAS
+                </span>
+              )}
+              <div 
+                className="absolute -bottom-1 left-0 h-0.5 rounded-full transition-all duration-500 group-hover:w-full"
+                style={{
+                  width: isActive('/') ? '100%' : '0',
+                  background: 'linear-gradient(90deg, #DB2777, #EC4899, #F472B6)',
+                  backgroundSize: '200% 100%',
+                  animation: isActive('/') ? 'gradient 3s ease infinite' : 'none',
+                }}
+              />
+              {/* Sparkle decoration */}
+              {isActive('/') && (
+                <Sparkles className="absolute -top-1 -right-6 w-4 h-4 text-isaromas-primary animate-sparkle opacity-60" />
+              )}
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             <Link
               href="/"
-              className={`relative px-2 py-2 font-medium text-sm tracking-wide transition-colors link-underline ${
-                isActive('/')
-                  ? 'text-isaromas-primary font-bold'
-                  : 'text-isaromas-text-menu hover:text-isaromas-primary'
-              }`}
+              className="group relative px-4 py-2 font-medium text-sm tracking-wide transition-all duration-300 nav-link"
             >
-              INICIO
+              <span
+                className={`relative z-10 transition-all duration-300 ${
+                  isActive('/')
+                    ? 'font-bold nav-link-active'
+                    : 'text-isaromas-text-menu group-hover:font-semibold'
+                }`}
+              >
+                INICIO
+              </span>
+              <div
+                className={`absolute bottom-0 left-0 h-0.5 rounded-full nav-underline ${
+                  isActive('/') ? 'nav-underline-active' : ''
+                }`}
+              />
             </Link>
             <Link
               href="/catalogo"
-              className={`relative px-2 py-2 font-medium text-sm tracking-wide transition-colors link-underline ${
-                isActive('/catalogo')
-                  ? 'text-isaromas-primary font-bold'
-                  : 'text-isaromas-text-menu hover:text-isaromas-primary'
-              }`}
+              className="group relative px-4 py-2 font-medium text-sm tracking-wide transition-all duration-300 nav-link"
             >
-              CATÁLOGO
+              <span
+                className={`relative z-10 transition-all duration-300 ${
+                  isActive('/catalogo')
+                    ? 'font-bold nav-link-active'
+                    : 'text-isaromas-text-menu group-hover:font-semibold'
+                }`}
+              >
+                CATÁLOGO
+              </span>
+              <div
+                className={`absolute bottom-0 left-0 h-0.5 rounded-full nav-underline ${
+                  isActive('/catalogo') ? 'nav-underline-active' : ''
+                }`}
+              />
+            </Link>
+            <Link
+              href="/#faq"
+              className="group relative px-4 py-2 font-medium text-sm tracking-wide transition-all duration-300 text-isaromas-text-menu hover:font-semibold nav-link"
+            >
+              <span className="relative z-10">FAQ</span>
+              <div className="absolute bottom-0 left-0 h-0.5 rounded-full nav-underline" />
             </Link>
             <Link
               href="/#contacto"
-              className="text-sm font-medium text-isaromas-text-menu hover:text-isaromas-primary tracking-wide transition-colors link-underline"
+              className="group relative px-4 py-2 font-medium text-sm tracking-wide transition-all duration-300 text-isaromas-text-menu hover:font-semibold nav-link"
             >
-              CONTACTO
+              <span className="relative z-10">CONTACTO</span>
+              <div className="absolute bottom-0 left-0 h-0.5 rounded-full nav-underline" />
             </Link>
           </div>
 
           {/* Cart Icon */}
           <button 
             onClick={toggleCart} 
-            className="hidden md:block relative p-2 text-isaromas-text-main hover:text-isaromas-primary transition-colors hover-button"
+            className="group hidden md:block relative p-3 rounded-xl backdrop-blur-sm bg-white/30 border border-white/30 hover:bg-white/50 hover:border-white/50 transition-all duration-300 hover-button"
+            style={{
+              boxShadow: '0 4px 16px rgba(239, 163, 182, 0.15)',
+            }}
             aria-label="Abrir carrito"
           >
-            <ShoppingBag size={24} strokeWidth={2} />
+            {totalItems > 0 ? (
+              <ShoppingBag 
+                size={22} 
+                strokeWidth={2}
+                className="transition-all duration-300"
+                style={{
+                  background: 'linear-gradient(135deg, #DB2777, #EC4899)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              />
+            ) : (
+              <ShoppingBag 
+                size={22} 
+                strokeWidth={2}
+                className="text-isaromas-text-main group-hover:text-isaromas-primary transition-colors duration-300"
+              />
+            )}
             {mounted && totalItems > 0 && (
-              <span className="absolute -top-1 -right-1 bg-isaromas-primary text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-md animate-pulse ring-2 ring-white">
+              <span 
+                className="absolute -top-1 -right-1 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-lg ring-2 ring-white animate-bounce-slow"
+                style={{
+                  background: 'linear-gradient(135deg, #DB2777, #EC4899, #F472B6)',
+                  boxShadow: '0 2px 8px rgba(219, 39, 119, 0.4)',
+                }}
+              >
                 {totalItems}
               </span>
             )}
           </button>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="md:hidden flex items-center gap-3">
             <button
               onClick={toggleCart}
-              className="relative p-2 text-isaromas-icon-muted hover:text-isaromas-primary transition-all duration-300"
+              className="relative p-2.5 rounded-xl backdrop-blur-sm bg-white/30 border border-white/30 hover:bg-white/50 transition-all duration-300"
+              style={{
+                boxShadow: '0 2px 8px rgba(239, 163, 182, 0.15)',
+              }}
               aria-label="Abrir carrito"
             >
-              <ShoppingBag size={24} strokeWidth={2} />
+              {totalItems > 0 ? (
+                <ShoppingBag 
+                  size={22} 
+                  strokeWidth={2}
+                  className="transition-all duration-300"
+                  style={{
+                    background: 'linear-gradient(135deg, #DB2777, #EC4899)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                />
+              ) : (
+                <ShoppingBag 
+                  size={22} 
+                  strokeWidth={2}
+                  className="text-isaromas-text-main transition-colors duration-300"
+                />
+              )}
               {mounted && totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-isaromas-primary text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full shadow-md animate-pulse">
+                <span 
+                  className="absolute -top-1 -right-1 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full shadow-md animate-bounce-slow ring-1 ring-white"
+                  style={{
+                    background: 'linear-gradient(135deg, #DB2777, #EC4899)',
+                    boxShadow: '0 2px 6px rgba(219, 39, 119, 0.4)',
+                  }}
+                >
                   {totalItems}
                 </span>
               )}
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-isaromas-icon-muted hover:text-isaromas-primary transition-colors"
+              className="p-2.5 rounded-xl backdrop-blur-sm bg-white/30 border border-white/30 hover:bg-white/50 transition-all duration-300"
+              style={{
+                boxShadow: '0 2px 8px rgba(239, 163, 182, 0.15)',
+              }}
               aria-label="Menú"
             >
-              {isMobileMenuOpen ? <X size={26} strokeWidth={2} /> : <Menu size={26} strokeWidth={2} />}
+              {isMobileMenuOpen ? (
+                <X 
+                  size={24} 
+                  strokeWidth={2}
+                  className="text-isaromas-primary transition-colors duration-300"
+                  style={{
+                    color: 'transparent',
+                    background: 'linear-gradient(135deg, #DB2777, #EC4899)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                />
+              ) : (
+                <Menu 
+                  size={24} 
+                  strokeWidth={2}
+                  className="text-isaromas-text-main hover:text-isaromas-primary transition-colors duration-300"
+                />
+              )}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-isaromas-card-border py-4 animate-fade-in">
+          <div 
+            className="md:hidden border-t border-white/20 py-4 animate-fade-in backdrop-blur-xl bg-white/40"
+            style={{
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 246, 248, 0.4))',
+            }}
+          >
             <div className="flex flex-col gap-2">
               <Link
                 href="/"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                className={`group px-4 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden ${
                   isActive('/')
-                    ? 'bg-isaromas-primary text-white shadow-lg'
-                    : 'text-isaromas-text-secondary hover:bg-pink-50 hover:text-isaromas-primary'
+                    ? 'text-white shadow-lg'
+                    : 'text-isaromas-text-secondary hover:text-white'
                 }`}
+                style={
+                  isActive('/')
+                    ? {
+                        background: 'linear-gradient(135deg, #DB2777, #EC4899, #F472B6)',
+                        backgroundSize: '200% 200%',
+                        boxShadow: '0 4px 16px rgba(219, 39, 119, 0.3)',
+                      }
+                    : {
+                        background: 'rgba(255, 255, 255, 0.3)',
+                      }
+                }
               >
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 relative z-10">
                   <Home size={18} />
                   Inicio
                 </div>
+                {!isActive('/') && (
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: 'linear-gradient(135deg, #DB2777, #EC4899, #F472B6)',
+                      backgroundSize: '200% 200%',
+                    }}
+                  />
+                )}
               </Link>
               <Link
                 href="/catalogo"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                className={`group px-4 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden ${
                   isActive('/catalogo')
-                    ? 'bg-isaromas-primary text-white shadow-lg'
-                    : 'text-isaromas-text-secondary hover:bg-pink-50 hover:text-isaromas-primary'
+                    ? 'text-white shadow-lg'
+                    : 'text-isaromas-text-secondary hover:text-white'
                 }`}
+                style={
+                  isActive('/catalogo')
+                    ? {
+                        background: 'linear-gradient(135deg, #DB2777, #EC4899, #F472B6)',
+                        backgroundSize: '200% 200%',
+                        boxShadow: '0 4px 16px rgba(219, 39, 119, 0.3)',
+                      }
+                    : {
+                        background: 'rgba(255, 255, 255, 0.3)',
+                      }
+                }
               >
-                Catálogo
+                <span className="relative z-10">Catálogo</span>
+                {!isActive('/catalogo') && (
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: 'linear-gradient(135deg, #DB2777, #EC4899, #F472B6)',
+                      backgroundSize: '200% 200%',
+                    }}
+                  />
+                )}
+              </Link>
+              <Link
+                href="/#faq"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="group px-4 py-3 rounded-xl font-semibold text-isaromas-text-secondary hover:text-white transition-all duration-300 relative overflow-hidden"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.3)',
+                }}
+              >
+                <div className="flex items-center gap-2 relative z-10">
+                  <HelpCircle size={18} />
+                  FAQ
+                </div>
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background: 'linear-gradient(135deg, #DB2777, #EC4899, #F472B6)',
+                    backgroundSize: '200% 200%',
+                  }}
+                />
               </Link>
             </div>
           </div>

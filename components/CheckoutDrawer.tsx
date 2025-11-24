@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Trash2, ShoppingBag, MessageCircle, Info } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
@@ -66,6 +66,29 @@ const CheckoutDrawer: React.FC = () => {
     // toggleCart();
   };
 
+  // Bloquear scroll del body cuando el carrito está abierto
+  useEffect(() => {
+    if (isCartOpen) {
+      // Guardar la posición actual del scroll
+      const scrollY = window.scrollY;
+      
+      // Bloquear el scroll del body
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      
+      return () => {
+        // Restaurar el scroll cuando se cierra el carrito
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isCartOpen]);
+
   if (!isCartOpen) return null;
 
   return (
@@ -77,12 +100,12 @@ const CheckoutDrawer: React.FC = () => {
       />
 
       {/* Drawer Mejorado */}
-      <div className="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-white shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out">
+      <div className="fixed inset-y-0 right-0 z-50 w-full max-w-full sm:max-w-md bg-white shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out">
         
         {/* Header Mejorado */}
-        <div className="p-5 border-b border-isaromas-card-border flex justify-between items-center bg-isaromas-cream">
-          <h2 className="text-xl font-bold text-isaromas-text-main flex items-center gap-2 tracking-tight">
-            <ShoppingBag size={22} className="text-isaromas-primary" strokeWidth={2} /> 
+        <div className="p-4 sm:p-5 border-b border-isaromas-card-border flex justify-between items-center bg-isaromas-cream">
+          <h2 className="text-lg sm:text-xl font-bold text-isaromas-text-main flex items-center gap-2 tracking-tight">
+            <ShoppingBag size={20} className="sm:w-[22px] sm:h-[22px] text-isaromas-primary" strokeWidth={2} /> 
             Tu Carrito
           </h2>
           <button 
@@ -95,9 +118,9 @@ const CheckoutDrawer: React.FC = () => {
         </div>
 
         {/* Cart Items (Scrollable) */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        <div className="flex-1 overflow-y-auto bg-isaromas-cream">
           {items.length === 0 ? (
-            <div className="h-full flex flex-col items-center justify-center text-isaromas-text-secondary space-y-4">
+            <div className="h-full flex flex-col items-center justify-center text-isaromas-text-secondary space-y-4 p-8">
               <ShoppingBag size={48} className="opacity-20 text-isaromas-icon-muted" strokeWidth={1.5} />
               <p className="font-light">Tu carrito está vacío</p>
               <button onClick={toggleCart} className="text-isaromas-primary font-semibold hover:text-isaromas-primary-hover hover:underline tracking-wide">
@@ -105,98 +128,186 @@ const CheckoutDrawer: React.FC = () => {
               </button>
             </div>
           ) : (
-            items.map((item, index) => (
-              <div key={`${item.product.id}-${index}`} className="flex gap-4 bg-white p-4 rounded-2xl border border-isaromas-card-border shadow-sm hover:shadow-md transition-all duration-300 hover:border-isaromas-primary/50">
-                <div className="w-24 h-24 bg-gradient-to-br from-isaromas-cream to-pink-50 rounded-xl overflow-hidden flex-shrink-0 shadow-sm border border-isaromas-card-border">
-                  <img src={item.product.image} alt={item.product.name} className="w-full h-full object-cover" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-isaromas-text-main line-clamp-1 mb-1 tracking-tight">{item.product.name}</h3>
-                  <p className="text-xs text-isaromas-text-secondary mb-3 font-medium">
-                    {[item.variant?.aroma, item.variant?.color, item.variant?.size].filter(Boolean).join(' • ')}
-                  </p>
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center border border-isaromas-card-border rounded-xl overflow-hidden shadow-sm">
-                      <button 
-                        className="px-3 py-1.5 text-isaromas-text-secondary hover:bg-pink-50 font-bold transition-colors"
-                        onClick={() => updateQuantity(item.product.id, item.quantity - 1, item.variant)}
-                        aria-label="Disminuir cantidad"
-                      >-</button>
-                      <span className="px-3 text-sm font-bold text-isaromas-text-main min-w-[2rem] text-center">{item.quantity}</span>
-                      <button 
-                        className="px-3 py-1.5 text-isaromas-text-secondary hover:bg-pink-50 font-bold transition-colors"
-                        onClick={() => updateQuantity(item.product.id, item.quantity + 1, item.variant)}
-                        aria-label="Aumentar cantidad"
-                      >+</button>
-                    </div>
-                    <div className="text-right">
-                        <p className="font-bold text-isaromas-text-main text-lg">${(item.product.price * item.quantity).toLocaleString()}</p>
-                        <button 
+            <div className="p-4 space-y-3">
+              {items.map((item, index) => (
+                <div 
+                  key={`${item.product.id}-${index}`} 
+                  className="bg-white rounded-2xl border-2 border-isaromas-card-border shadow-md hover:shadow-lg hover:border-isaromas-primary/40 transition-all duration-300 overflow-hidden"
+                >
+                  {/* Card Principal */}
+                  <div className="p-4">
+                    {/* Header: Imagen y Info Principal */}
+                    <div className="flex gap-3 sm:gap-4 mb-3 sm:mb-4">
+                      {/* Imagen más grande y destacada */}
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-gradient-to-br from-isaromas-pink-light to-white rounded-xl sm:rounded-2xl overflow-hidden shrink-0 shadow-lg border-2 border-white">
+                        <img 
+                          src={item.product.image} 
+                          alt={item.product.name} 
+                          className="w-full h-full object-cover" 
+                        />
+                      </div>
+                      
+                      {/* Información Principal */}
+                      <div className="flex-1 min-w-0 pt-1">
+                        <div className="flex justify-between items-start gap-2 mb-2">
+                          <h3 className="font-bold text-isaromas-text-main text-sm sm:text-base leading-snug tracking-tight line-clamp-2 flex-1">
+                            {item.product.name}
+                          </h3>
+                          <button 
                             onClick={() => removeFromCart(item.product.id, item.variant)}
-                            className="text-isaromas-rose-light hover:text-isaromas-rose text-xs mt-1.5 flex items-center gap-1.5 ml-auto font-semibold transition-colors"
-                        >
-                            <Trash2 size={14} /> Eliminar
-                        </button>
+                            className="text-isaromas-icon-muted hover:text-isaromas-rose p-1.5 sm:p-2 rounded-lg sm:rounded-xl hover:bg-pink-50 transition-all duration-200 shrink-0"
+                            aria-label="Eliminar producto"
+                          >
+                            <Trash2 size={16} className="sm:w-[18px] sm:h-[18px]" strokeWidth={2} />
+                          </button>
+                        </div>
+                        
+                        {/* Variantes con mejor presentación */}
+                        {item.variant && (item.variant.aroma || item.variant.color || item.variant.size) && (
+                          <div className="flex flex-wrap gap-1.5 mb-3">
+                            {item.variant.aroma && (
+                              <span className="inline-block px-2.5 py-1 bg-isaromas-pink-light/30 text-isaromas-primary text-xs font-semibold rounded-lg border border-isaromas-pink-light/50">
+                                {item.variant.aroma}
+                              </span>
+                            )}
+                            {item.variant.color && (
+                              <span className="inline-block px-2.5 py-1 bg-isaromas-pink-light/30 text-isaromas-primary text-xs font-semibold rounded-lg border border-isaromas-pink-light/50">
+                                {item.variant.color}
+                              </span>
+                            )}
+                            {item.variant.size && (
+                              <span className="inline-block px-2.5 py-1 bg-isaromas-pink-light/30 text-isaromas-primary text-xs font-semibold rounded-lg border border-isaromas-pink-light/50">
+                                {item.variant.size}
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Footer: Cantidad, Precio Unitario y Total */}
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-2 pt-3 border-t border-isaromas-card-border">
+                      {/* Precio Unitario */}
+                      <div className="flex flex-row sm:flex-col items-center sm:items-start justify-between sm:justify-start">
+                        <span className="text-xs text-isaromas-text-muted font-medium mb-0 sm:mb-0.5">Precio unitario</span>
+                        <span className="text-sm font-bold text-isaromas-text-secondary sm:ml-0 ml-2">
+                          ${item.product.price.toLocaleString()}
+                        </span>
+                      </div>
+
+                      {/* Controles de Cantidad Mejorados */}
+                      <div className="flex flex-row sm:flex-col items-center justify-between sm:items-center">
+                        <span className="text-xs text-isaromas-text-muted font-medium mb-0 sm:mb-1.5">Cantidad</span>
+                        <div className="flex items-center gap-1 bg-isaromas-cream rounded-lg sm:rounded-xl p-1 border-2 border-isaromas-card-border shadow-sm">
+                          <button 
+                            className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-isaromas-text-secondary hover:bg-white hover:text-isaromas-primary font-bold text-base sm:text-lg rounded-md sm:rounded-lg transition-all duration-200 shadow-sm"
+                            onClick={() => updateQuantity(item.product.id, item.quantity - 1, item.variant)}
+                            aria-label="Disminuir cantidad"
+                          >
+                            −
+                          </button>
+                          <span className="w-8 sm:w-10 text-center font-bold text-sm sm:text-base text-isaromas-text-main bg-white px-1.5 sm:px-2 py-1 rounded-md sm:rounded-lg border border-isaromas-card-border">
+                            {item.quantity}
+                          </span>
+                          <button 
+                            className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-isaromas-text-secondary hover:bg-white hover:text-isaromas-primary font-bold text-base sm:text-lg rounded-md sm:rounded-lg transition-all duration-200 shadow-sm"
+                            onClick={() => updateQuantity(item.product.id, item.quantity + 1, item.variant)}
+                            aria-label="Aumentar cantidad"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Precio Total Destacado */}
+                      <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start">
+                        <span className="text-xs text-isaromas-text-muted font-medium mb-0 sm:mb-0.5">Subtotal</span>
+                        <span className="text-lg sm:text-xl font-extrabold text-isaromas-primary tracking-tight">
+                          ${(item.product.price * item.quantity).toLocaleString()}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))
+              ))}
+            </div>
           )}
         </div>
 
-        {/* Footer / Checkout Form Mejorado */}
+        {/* Footer / Checkout Form Compacto */}
         {items.length > 0 && (
-          <div className="border-t border-isaromas-card-border bg-isaromas-cream p-5 space-y-5">
-            <div className="space-y-4">
-                <h3 className="font-bold text-isaromas-text-main text-sm uppercase tracking-widest border-b border-isaromas-primary/30 pb-2 inline-block">Datos para el pedido</h3>
-                <div className="grid grid-cols-2 gap-3">
-                    <input 
-                        type="text" name="name" placeholder="Nombre y Apellido" required 
-                        className="w-full px-4 py-3 rounded-xl border border-isaromas-card-border bg-white text-isaromas-text-main text-sm font-medium focus:ring-2 focus:ring-isaromas-pink-light focus:border-isaromas-primary outline-none shadow-sm transition-all placeholder:text-isaromas-text-muted"
-                        value={formData.name} onChange={handleInputChange}
-                    />
-                    <input 
-                        type="tel" name="phone" placeholder="Teléfono" required 
-                        className="w-full px-4 py-3 rounded-xl border border-isaromas-card-border bg-white text-isaromas-text-main text-sm font-medium focus:ring-2 focus:ring-isaromas-pink-light focus:border-isaromas-primary outline-none shadow-sm transition-all placeholder:text-isaromas-text-muted"
-                        value={formData.phone} onChange={handleInputChange}
-                    />
-                </div>
-                <input 
-                    type="text" name="address" placeholder="Dirección o Zona de entrega" required 
-                    className="w-full px-4 py-3 rounded-xl border border-isaromas-card-border bg-white text-isaromas-text-main text-sm font-medium focus:ring-2 focus:ring-isaromas-pink-light focus:border-isaromas-primary outline-none shadow-sm transition-all placeholder:text-isaromas-text-muted"
-                    value={formData.address} onChange={handleInputChange}
-                />
-                <textarea 
-                    name="notes" placeholder="Notas (ej: aroma preferido, horario...)" rows={2}
-                    className="w-full px-4 py-3 rounded-xl border border-isaromas-card-border bg-white text-isaromas-text-main text-sm font-medium focus:ring-2 focus:ring-isaromas-pink-light focus:border-isaromas-primary outline-none resize-none shadow-sm transition-all placeholder:text-isaromas-text-muted"
-                    value={formData.notes} onChange={handleInputChange}
-                />
-            </div>
-
-            <div className="bg-white p-4 rounded-2xl border border-isaromas-card-border text-sm text-isaromas-text-main shadow-sm">
-                <p className="font-bold mb-2 text-base tracking-tight">Cómo Pagar:</p>
-                <p className="font-medium text-isaromas-text-secondary">Alias Mercado Pago: <span className="font-mono font-bold bg-isaromas-pink-light/30 px-2 py-1 rounded text-isaromas-primary ml-1">ISAROMAS.VENTAS</span></p>
-                <p className="text-xs mt-2 text-isaromas-text-muted font-medium flex items-center gap-1">
-                  <Info size={12} /> Envianos el comprobante por WhatsApp al finalizar.
-                </p>
-            </div>
-
-            <div className="flex justify-between items-center pt-3 border-t border-isaromas-card-border">
-                <span className="text-isaromas-text-main font-bold text-lg tracking-tight">Total estimado:</span>
-                <span className="text-3xl font-extrabold text-isaromas-primary tracking-tight">
+          <div className="border-t-2 border-isaromas-card-border bg-isaromas-cream">
+            {/* Sección de Total y Botón - Siempre Visible */}
+            <div className="p-4 border-b border-isaromas-card-border">
+              <div className="flex justify-between items-center mb-3">
+                <span className="text-isaromas-text-main font-bold text-base tracking-tight">Total:</span>
+                <span className="text-2xl font-extrabold text-isaromas-primary tracking-tight">
                   ${totalPrice.toLocaleString()}
                 </span>
-            </div>
-
-            <button 
+              </div>
+              <button 
                 onClick={handleCheckout}
                 disabled={!formData.name || !formData.phone || !formData.address}
-                className="w-full bg-isaromas-primary hover:bg-isaromas-primary-hover disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 text-lg hover-button disabled:shadow-none tracking-wide"
-            >
-                <MessageCircle size={22} strokeWidth={2.5} />
-                Enviar Pedido por WhatsApp
-            </button>
+                className="w-full bg-isaromas-primary hover:bg-isaromas-primary-hover disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-base hover-button disabled:shadow-none tracking-wide"
+              >
+                <MessageCircle size={20} strokeWidth={2.5} />
+                Enviar por WhatsApp
+              </button>
+            </div>
+
+            {/* Formulario Colapsable/Compacto */}
+            <div className="p-4 space-y-3">
+              <h3 className="font-bold text-isaromas-text-main text-xs uppercase tracking-wider pb-2 border-b border-isaromas-primary/20">Datos del pedido</h3>
+              
+              <div className="grid grid-cols-2 gap-2">
+                <input 
+                  type="text" 
+                  name="name" 
+                  placeholder="Nombre" 
+                  required 
+                  className="w-full px-3 py-2 rounded-lg border border-isaromas-card-border bg-white text-isaromas-text-main text-sm font-medium focus:ring-2 focus:ring-isaromas-pink-light focus:border-isaromas-primary outline-none shadow-sm transition-all placeholder:text-isaromas-text-muted"
+                  value={formData.name} 
+                  onChange={handleInputChange}
+                />
+                <input 
+                  type="tel" 
+                  name="phone" 
+                  placeholder="Teléfono" 
+                  required 
+                  className="w-full px-3 py-2 rounded-lg border border-isaromas-card-border bg-white text-isaromas-text-main text-sm font-medium focus:ring-2 focus:ring-isaromas-pink-light focus:border-isaromas-primary outline-none shadow-sm transition-all placeholder:text-isaromas-text-muted"
+                  value={formData.phone} 
+                  onChange={handleInputChange}
+                />
+              </div>
+              
+              <input 
+                type="text" 
+                name="address" 
+                placeholder="Dirección/Zona" 
+                required 
+                className="w-full px-3 py-2 rounded-lg border border-isaromas-card-border bg-white text-isaromas-text-main text-sm font-medium focus:ring-2 focus:ring-isaromas-pink-light focus:border-isaromas-primary outline-none shadow-sm transition-all placeholder:text-isaromas-text-muted"
+                value={formData.address} 
+                onChange={handleInputChange}
+              />
+              
+              <textarea 
+                name="notes" 
+                placeholder="Notas (opcional)" 
+                rows={1}
+                className="w-full px-3 py-2 rounded-lg border border-isaromas-card-border bg-white text-isaromas-text-main text-sm font-medium focus:ring-2 focus:ring-isaromas-pink-light focus:border-isaromas-primary outline-none resize-none shadow-sm transition-all placeholder:text-isaromas-text-muted"
+                value={formData.notes} 
+                onChange={handleInputChange}
+              />
+
+              {/* Información de Pago Compacta */}
+              <div className="bg-white p-3 rounded-lg border border-isaromas-card-border text-xs text-isaromas-text-main shadow-sm">
+                <p className="font-bold mb-1.5 text-xs">Pago: <span className="font-mono font-bold bg-isaromas-pink-light/30 px-2 py-0.5 rounded text-isaromas-primary">ISAROMAS.VENTAS</span></p>
+                <p className="text-xs text-isaromas-text-muted font-medium flex items-start gap-1 leading-tight">
+                  <Info size={11} className="mt-0.5 flex-shrink-0" /> 
+                  <span>Envía el comprobante por WhatsApp al finalizar</span>
+                </p>
+              </div>
+            </div>
           </div>
         )}
       </div>

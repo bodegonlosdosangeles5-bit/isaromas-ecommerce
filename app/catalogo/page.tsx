@@ -46,15 +46,15 @@ export default function CatalogoPage() {
     <div className="min-h-screen flex flex-col bg-isaromas-cream">
       <Navbar />
 
-      <main className="flex-grow pt-28 pb-16 px-4 container mx-auto">
+      <main className="flex-grow pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 container mx-auto">
         <ScrollReveal>
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
           
-          <h1 className="text-4xl md:text-5xl font-bold text-isaromas-text-main mb-4 tracking-tight relative inline-block">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-isaromas-text-main mb-3 sm:mb-4 tracking-tight relative inline-block">
             Nuestro Catálogo
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-isaromas-primary/50 rounded-full"></div>
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 sm:w-20 h-1 bg-isaromas-primary/50 rounded-full"></div>
           </h1>
-          <p className="text-lg text-isaromas-text-secondary font-light max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-isaromas-text-secondary font-light max-w-2xl mx-auto px-4">
             Explorá nuestra colección completa de aromas y encontrá el perfecto para vos.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function CatalogoPage() {
 
 
 
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8">
           
           {/* Mobile Filter Toggle */}
           <button 
@@ -145,21 +145,21 @@ export default function CatalogoPage() {
           {/* Product Grid */}
           <div className="flex-1">
             {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {filteredProducts.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}
               </div>
             ) : (
-              <div className="text-center py-24 bg-white rounded-3xl border border-isaromas-card-border">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-isaromas-pink-light/30 rounded-2xl mb-6 text-isaromas-primary shadow-sm">
-                  <Search size={36} />
+              <div className="text-center py-12 sm:py-16 md:py-24 bg-white rounded-2xl sm:rounded-3xl border border-isaromas-card-border px-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-isaromas-pink-light/30 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 text-isaromas-primary shadow-sm">
+                  <Search size={28} className="sm:w-9 sm:h-9" />
                 </div>
-                <h3 className="text-2xl font-bold text-isaromas-text-main mb-2 tracking-tight">No encontramos productos</h3>
-                <p className="text-isaromas-text-secondary mb-6 font-light">Intenta con otra búsqueda o categoría.</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-isaromas-text-main mb-2 tracking-tight">No encontramos productos</h3>
+                <p className="text-sm sm:text-base text-isaromas-text-secondary mb-4 sm:mb-6 font-light">Intenta con otra búsqueda o categoría.</p>
                 <button 
                     onClick={() => {setSearchTerm(''); setSelectedCategory(null);}}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-isaromas-primary text-white font-bold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-isaromas-primary-hover tracking-wide"
+                    className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-isaromas-primary text-white font-bold rounded-lg sm:rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-isaromas-primary-hover tracking-wide text-sm sm:text-base"
                 >
                     Limpiar filtros
                 </button>
