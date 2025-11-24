@@ -29,7 +29,7 @@ export default function CatalogoPage() {
   const categories = useMemo(() => {
     const cats = new Set(products.map(p => p.category));
     return Array.from(cats);
-  }, []);
+  }, [products]);
 
   // Filtrar productos
   const filteredProducts = useMemo(() => {
@@ -40,7 +40,7 @@ export default function CatalogoPage() {
       
       return matchesSearch && matchesCategory;
     });
-  }, [searchTerm, selectedCategory]);
+  }, [products, searchTerm, selectedCategory]);
 
   return (
     <div className="min-h-screen flex flex-col bg-isaromas-cream">
@@ -74,17 +74,23 @@ export default function CatalogoPage() {
 
           {/* Sidebar Filters */}
           <aside className={`
-            fixed inset-0 z-40 bg-white p-6 transform transition-transform duration-300 lg:relative lg:transform-none lg:w-64 lg:bg-transparent lg:p-0 lg:block
+            fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 lg:relative lg:transform-none lg:w-64 lg:bg-transparent lg:shadow-none lg:inset-auto lg:max-w-none flex flex-col
             ${isMobileFilterOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
           `}>
-            <div className="flex justify-between items-center mb-6 lg:hidden">
+            {/* Header con botón cerrar más visible */}
+            <div className="flex justify-between items-center p-4 sm:p-6 border-b border-isaromas-card-border lg:mb-6 lg:border-0 lg:p-0">
               <h2 className="text-xl font-bold text-isaromas-text-main">Filtros</h2>
-              <button onClick={() => setIsMobileFilterOpen(false)} className="text-isaromas-text-secondary">
-                <X size={24} />
+              <button 
+                onClick={() => setIsMobileFilterOpen(false)} 
+                className="lg:hidden text-isaromas-text-secondary hover:text-isaromas-primary p-2 rounded-lg hover:bg-pink-50 transition-all duration-200"
+                aria-label="Cerrar filtros"
+              >
+                <X size={24} strokeWidth={2} />
               </button>
             </div>
 
-            <div className="space-y-8">
+            {/* Contenido scrolleable */}
+            <div className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-0 space-y-6 sm:space-y-8">
               {/* Search */}
               <div>
                 <label className="block text-sm font-bold text-isaromas-text-main mb-3 uppercase tracking-wide">Buscar</label>
@@ -95,6 +101,11 @@ export default function CatalogoPage() {
                     className="w-full pl-11 pr-4 py-3 rounded-xl border border-isaromas-card-border focus:border-isaromas-primary focus:ring-2 focus:ring-isaromas-pink-light outline-none transition-all bg-white shadow-sm hover:shadow-md text-isaromas-text-main placeholder:text-isaromas-text-muted"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        setIsMobileFilterOpen(false);
+                      }
+                    }}
                   />
                   <Search className="absolute left-4 top-3.5 text-isaromas-icon-muted" size={18} />
                 </div>
@@ -112,7 +123,10 @@ export default function CatalogoPage() {
                         ? 'bg-isaromas-primary text-white shadow-lg scale-105' 
                         : 'text-isaromas-text-secondary hover:bg-isaromas-pink-light/50 hover:text-isaromas-primary hover:scale-105 border border-isaromas-card-border'
                     }`}
-                    onClick={() => setSelectedCategory(null)}
+                    onClick={() => {
+                      setSelectedCategory(null);
+                      setIsMobileFilterOpen(false);
+                    }}
                   >
                     Todos
                   </button>
@@ -124,7 +138,10 @@ export default function CatalogoPage() {
                           ? 'bg-isaromas-primary text-white shadow-lg scale-105' 
                           : 'text-isaromas-text-secondary hover:bg-isaromas-pink-light/50 hover:text-isaromas-primary hover:scale-105 border border-isaromas-card-border'
                       }`}
-                      onClick={() => setSelectedCategory(category)}
+                      onClick={() => {
+                        setSelectedCategory(category);
+                        setIsMobileFilterOpen(false);
+                      }}
                     >
                       {category}
                     </button>
@@ -132,12 +149,31 @@ export default function CatalogoPage() {
                 </div>
               </div>
             </div>
+
+            {/* Botones de acción en móvil */}
+            <div className="lg:hidden border-t border-isaromas-card-border p-4 sm:p-6 bg-isaromas-cream space-y-3">
+              <button
+                onClick={() => setIsMobileFilterOpen(false)}
+                className="w-full bg-isaromas-primary hover:bg-isaromas-primary-hover text-white py-3 px-6 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <Search size={20} strokeWidth={2.5} />
+                Ver Resultados
+              </button>
+              <button
+                onClick={() => {
+                  setIsMobileFilterOpen(false);
+                }}
+                className="w-full bg-white hover:bg-pink-50 text-isaromas-text-secondary border-2 border-isaromas-card-border py-2.5 px-6 rounded-xl font-semibold transition-all duration-300"
+              >
+                Cancelar
+              </button>
+            </div>
           </aside>
 
           {/* Overlay for mobile */}
           {isMobileFilterOpen && (
             <div 
-              className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+              className="fixed inset-0 bg-black/50 z-40 lg:hidden"
               onClick={() => setIsMobileFilterOpen(false)}
             />
           )}
