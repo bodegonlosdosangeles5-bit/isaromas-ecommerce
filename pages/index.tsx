@@ -1,136 +1,114 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import NextImage from 'next/image';
-import { Geist, Geist_Mono } from "next/font/google";
-import { Sparkles, Palette, Clock, Heart, ArrowRight, ShoppingBag } from 'lucide-react';
+import { Sparkles, Palette, Clock, Heart, ArrowRight } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
 import productsData from '@/data/products.json';
-import { useCart } from '@/context/CartContext';
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export default function Home() {
   // Simulating best sellers by taking the first 3 products
   const bestSellers = productsData.slice(0, 3);
-  const { toggleCart, totalItems } = useCart();
 
   return (
-    <div className={`${geistSans.className} ${geistMono.className} min-h-screen flex flex-col bg-white font-sans`}>
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-white via-rose-50/30 to-pink-50/20">
       <Head>
         <title>ISAROMAS | Esencias que iluminan</title>
         <meta name="description" content="Velas de soja, difusores y esencias artesanales personalizadas." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* Navbar Placeholder (Simple) */}
-      <nav className="absolute top-0 left-0 w-full z-10 p-6 flex justify-between items-center">
-        <Link href="/">
-          <NextImage 
-            src="/isaromas_logo.png" 
-            alt="Logo ISAROMAS" 
-            width={100} 
-            height={33} 
-            className="object-contain"
-            priority
-          />
-        </Link>
-        <div className="flex items-center gap-6">
-            <Link href="/catalogo" className="text-gray-600 hover:text-isaromas-pink font-medium transition-colors">
-            Catálogo
-            </Link>
-            <button 
-                onClick={toggleCart}
-                className="relative text-gray-600 hover:text-isaromas-pink transition-colors"
-            >
-                <ShoppingBag size={24} />
-                {totalItems > 0 && (
-                    <span className="absolute -top-2 -right-2 bg-isaromas-pink text-gray-800 text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
-                        {totalItems}
-                    </span>
-                )}
-            </button>
-        </div>
-      </nav>
+      <Navbar />
 
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative h-[80vh] flex items-center justify-center bg-isaromas-cream/30 overflow-hidden">
-           {/* Abstract Background Shapes */}
-           <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-isaromas-pink/20 rounded-full blur-3xl"></div>
-           <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-isaromas-cream rounded-full blur-3xl"></div>
+      <main className="flex-grow pt-20">
+        {/* Hero Section Mejorado */}
+        <section className="relative h-[85vh] md:h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-rose-50/50 via-pink-50/30 to-white">
+           {/* Abstract Background Shapes Mejorados */}
+           <div className="absolute top-[-15%] right-[-5%] w-[500px] h-[500px] bg-gradient-to-br from-pink-400/20 to-rose-400/20 rounded-full blur-3xl animate-pulse"></div>
+           <div className="absolute bottom-[-15%] left-[-5%] w-[500px] h-[500px] bg-gradient-to-tr from-rose-300/30 to-pink-300/20 rounded-full blur-3xl"></div>
+           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-pink-300/15 to-rose-300/15 rounded-full blur-3xl"></div>
 
-          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-            <span className="inline-block py-1 px-3 rounded-full bg-white border border-isaromas-pink/30 text-isaromas-pink text-sm font-semibold mb-6 tracking-wide uppercase">
+          <div className="relative z-10 text-center px-4 md:px-6 max-w-5xl mx-auto animate-fade-in">
+            <span className="inline-flex items-center gap-2 py-2 px-4 rounded-full bg-white/90 backdrop-blur-sm border-2 border-pink-300 text-pink-600 text-xs md:text-sm font-bold mb-8 tracking-wider uppercase shadow-lg">
+              <Heart size={14} className="fill-pink-500" />
               Artesanal & Hecho a Mano
             </span>
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-6 tracking-tight leading-tight">
-              Iluminá tus momentos con <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400">esencias únicas</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6 tracking-tight leading-[1.1]">
+              Iluminá tus momentos con{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 animate-gradient">
+                esencias únicas
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
               Creamos velas de soja y aromas personalizados que transforman tu hogar en un refugio de paz y armonía.
             </p>
             <Link 
               href="/catalogo" 
-              className="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition-all hover:scale-105 shadow-lg hover:shadow-xl"
+              className="group inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg font-bold hover:from-pink-600 hover:to-rose-600 transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-3xl hover:shadow-pink-500/40"
             >
-              Comprar Ahora <ArrowRight size={20} />
+              <span>Comprar Ahora</span>
+              <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </section>
 
-        {/* Best Sellers Section */}
-        <section className="py-20 px-4 container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Más Vendidos</h2>
-            <p className="text-gray-500">Los favoritos de nuestra comunidad</p>
+        {/* Best Sellers Section Mejorado */}
+        <section className="py-24 md:py-32 px-4 container mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
+              Más Vendidos
+            </h2>
+            <p className="text-lg text-gray-600 font-light">Los favoritos de nuestra comunidad</p>
+            <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-purple-400 mx-auto mt-4 rounded-full"></div>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {bestSellers.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
           
-          <div className="text-center mt-12">
-            <Link href="/catalogo" className="text-isaromas-pink font-semibold hover:text-pink-400 transition-colors border-b-2 border-isaromas-pink pb-1">
-              Ver todos los productos
+          <div className="text-center mt-16">
+            <Link 
+              href="/catalogo" 
+              className="group inline-flex items-center gap-2 text-pink-600 font-bold hover:text-rose-600 transition-all duration-300 text-lg border-b-2 border-transparent hover:border-pink-500 pb-1"
+            >
+              <span>Ver todos los productos</span>
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </section>
 
-        {/* Customization / Info Section */}
-        <section className="py-20 bg-isaromas-gray/50">
+        {/* Customization / Info Section Mejorado */}
+        <section className="py-24 md:py-32 bg-gradient-to-b from-white via-rose-50/20 to-pink-50/10">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Personalizá tu Pedido</h2>
-              <p className="text-lg text-gray-600">
+            <div className="max-w-4xl mx-auto text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
+                Personalizá tu Pedido
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
                 Cada producto es creado especialmente para vos. Elegí el aroma, el color y el envase que más te guste.
-                Debido a nuestro proceso artesanal, los pedidos tienen una demora de producción de <span className="font-bold text-gray-800">1 a 5 días hábiles</span>.
+                Debido a nuestro proceso artesanal, los pedidos tienen una demora de producción de{' '}
+                <span className="font-bold text-gray-900 bg-pink-100 px-2 py-1 rounded">1 a 5 días hábiles</span>.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {[
-                { icon: Sparkles, title: "Calidad Premium", desc: "Cera de soja 100% natural y esencias puras." },
-                { icon: Palette, title: "Personalizado", desc: "Elegí tus colores y aromas favoritos." },
-                { icon: Clock, title: "Tiempo de Dedicación", desc: "Producción artesanal en 1-5 días." },
-                { icon: Heart, title: "Hecho con Amor", desc: "Cada pieza es única y hecha a mano." },
+                { icon: Sparkles, title: "Calidad Premium", desc: "Cera de soja 100% natural y esencias puras.", color: "from-amber-400 to-orange-400" },
+                { icon: Palette, title: "Personalizado", desc: "Elegí tus colores y aromas favoritos.", color: "from-pink-500 to-rose-500" },
+                { icon: Clock, title: "Tiempo de Dedicación", desc: "Producción artesanal en 1-5 días.", color: "from-pink-400 to-rose-400" },
+                { icon: Heart, title: "Hecho con Amor", desc: "Cada pieza es única y hecha a mano.", color: "from-rose-500 to-pink-500" },
               ].map((item, index) => (
-                <div key={index} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow text-center">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-isaromas-pink/20 text-isaromas-pink rounded-xl mb-6">
-                    <item.icon size={24} />
+                <div 
+                  key={index} 
+                  className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center border-2 border-gray-100 hover:-translate-y-2 hover:border-pink-300"
+                >
+                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${item.color} text-white rounded-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <item.icon size={28} strokeWidth={2.5} />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">{item.title}</h3>
-                  <p className="text-gray-500">{item.desc}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>

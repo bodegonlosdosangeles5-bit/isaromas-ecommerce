@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "zip": "rm -f zipCode.zip && git ls-files | zip zipCode.zip -x 'src/app/api/*' -@"
   },
   "dependencies": {
     "lucide-react": "^0.554.0",

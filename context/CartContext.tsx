@@ -1,3 +1,5 @@
+'use client';
+
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 interface Product {
@@ -33,20 +35,21 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [items, setItems] = useState<CartItem[]>([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
-  // Load from localStorage on mount
-  useEffect(() => {
-    const savedCart = localStorage.getItem('isaromas-cart');
-    if (savedCart) {
-      try {
-        setItems(JSON.parse(savedCart));
-      } catch (e) {
-        console.error("Failed to parse cart from local storage", e);
+  // Initialize state from localStorage using lazy initialization
+  const [items, setItems] = useState<CartItem[]>(() => {
+    if (typeof window !== 'undefined') {
+      const savedCart = localStorage.getItem('isaromas-cart');
+      if (savedCart) {
+        try {
+          return JSON.parse(savedCart);
+        } catch (e) {
+          console.error("Failed to parse cart from local storage", e);
+        }
       }
     }
-  }, []);
+    return [];
+  });
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Save to localStorage on change
   useEffect(() => {
