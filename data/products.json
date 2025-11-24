@@ -19,7 +19,7 @@
         "color": "Rosa Pastel"
       }
     ],
-    "image": "/images/vela-soja.jpg"
+    "image": "/images/products/vela-premium-600.webp"
   },
   {
     "id": "difusor-001",
@@ -28,8 +28,14 @@
     "price": 4200,
     "description": "Difusor de vidrio con varillas de ratán para una dispersión continua del aroma.",
     "variants": [
-        { "aroma": "Jazmín", "color": "Transparente" },
-        { "aroma": "Limón y Jengibre", "color": "Transparente" }
+      {
+        "aroma": "Jazmín",
+        "color": "Transparente"
+      },
+      {
+        "aroma": "Limón y Jengibre",
+        "color": "Transparente"
+      }
     ],
     "image": "/images/difusor.jpg"
   },
@@ -40,8 +46,14 @@
     "price": 1800,
     "description": "Aceite esencial concentrado para hornillos y aromaterapia.",
     "variants": [
-        { "aroma": "Eucalipto", "size": "10ml" },
-        { "aroma": "Naranja", "size": "10ml" }
+      {
+        "aroma": "Eucalipto",
+        "size": "10ml"
+      },
+      {
+        "aroma": "Naranja",
+        "size": "10ml"
+      }
     ],
     "image": "/images/aceite.jpg"
   },
@@ -52,8 +64,14 @@
     "price": 5500,
     "description": "Fragancia persistente inspirada en grandes marcas internacionales.",
     "variants": [
-        { "aroma": "Floral Intenso", "gender": "Femenino" },
-        { "aroma": "Amaderado", "gender": "Masculino" }
+      {
+        "aroma": "Floral Intenso",
+        "gender": "Femenino"
+      },
+      {
+        "aroma": "Amaderado",
+        "gender": "Masculino"
+      }
     ],
     "image": "/images/perfume.jpg"
   }
