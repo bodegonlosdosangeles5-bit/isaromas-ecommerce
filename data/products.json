@@ -37,7 +37,7 @@
         "color": "Transparente"
       }
     ],
-    "image": "/images/difusor.jpg"
+    "image": "/images/products/difusor-de-ambiente-con-varilla.webp"
   },
   {
     "id": "aceite-001",
@@ -55,7 +55,7 @@
         "size": "10ml"
       }
     ],
-    "image": "/images/aceite.jpg"
+    "image": "/images/products/aceite-esencial-puro.webp"
   },
   {
     "id": "perfume-001",
@@ -73,6 +73,28 @@
         "gender": "Masculino"
       }
     ],
-    "image": "/images/perfume.jpg"
+    "image": "/images/products/simil-perfume-importado.webp"
+  },
+  {
+    "id": "perfumina-001",
+    "name": "Perfumina",
+    "category": "Perfuminas",
+    "price": 2800,
+    "description": "Fragancia persistente para telas, ropa de cama y ambientes. No mancha.",
+    "variants": [
+      {
+        "aroma": "Coniglio",
+        "size": "250ml"
+      },
+      {
+        "aroma": "Wanama",
+        "size": "250ml"
+      },
+      {
+        "aroma": "Flores Blancas",
+        "size": "250ml"
+      }
+    ],
+    "image": "/images/products/perfumina.webp"
   }
 ]

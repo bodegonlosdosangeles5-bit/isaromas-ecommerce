@@ -65,14 +65,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </span>
           </div>
           
-          <button 
+          <div 
             className="group/btn flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white px-5 py-2.5 rounded-xl font-bold transition-all duration-300 shadow-md hover:shadow-lg active:scale-95"
-            aria-label="Ver producto"
-            onClick={(e) => e.preventDefault()}
           >
             <ShoppingCart size={18} className="transition-transform group-hover/btn:scale-110" />
             <span>Ver</span>
-          </button>
+          </div>
         </div>
       </div>
     </Link>
