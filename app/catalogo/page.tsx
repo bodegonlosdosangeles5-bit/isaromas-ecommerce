@@ -11,7 +11,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import ScrollReveal from '@/components/ScrollReveal';
-import PaymentNotice from '@/components/PaymentNotice';
+
 
 // Datos
 import productsData from '@/data/products.json';
@@ -60,10 +60,7 @@ export default function CatalogoPage() {
         </div>
         </ScrollReveal>
 
-        {/* Payment Notice */}
-        <div className="mb-8">
-          <PaymentNotice />
-        </div>
+
 
         <div className="flex flex-col lg:flex-row gap-8">
           

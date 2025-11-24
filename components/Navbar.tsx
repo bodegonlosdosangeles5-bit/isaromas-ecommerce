@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
           {/* Cart Icon */}
           <button 
             onClick={toggleCart} 
-            className="relative p-2 text-isaromas-text-main hover:text-isaromas-primary transition-colors hover-button"
+            className="hidden md:block relative p-2 text-isaromas-text-main hover:text-isaromas-primary transition-colors hover-button"
             aria-label="Abrir carrito"
           >
             <ShoppingBag size={24} strokeWidth={2} />

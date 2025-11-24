@@ -10,7 +10,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import ScrollReveal from '@/components/ScrollReveal';
-import PaymentNotice from '@/components/PaymentNotice';
+
 
 // Datos
 import productsData from '@/data/products.json';
@@ -70,10 +70,7 @@ export default function Home() {
             </div>
         </section>
 
-        {/* Payment Notice */}
-        <div className="container mx-auto px-4 -mt-12 relative z-20">
-          <PaymentNotice />
-        </div>
+
 
         {/* Featured Products Section */}
         <section id="destacados" className="py-24 bg-white">
@@ -143,7 +140,7 @@ export default function Home() {
                 </div>
                 <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white hover-image">
                 <img 
-                    src="/images/products/difusor-de-ambiente-con-varilla.webp" 
+                    src="/images/personaliza-experiencia.webp" 
                     alt="Personalización" 
                     className="w-full h-full object-cover"
                 />

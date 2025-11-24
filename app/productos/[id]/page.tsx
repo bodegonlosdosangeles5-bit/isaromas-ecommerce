@@ -107,9 +107,11 @@ export default function ProductDetailPage() {
                   </div>
                 )}
                 <div className="flex items-baseline gap-4 mb-6 pb-6 border-b border-isaromas-card-border">
-                    <span className="text-4xl font-bold text-isaromas-text-main">
-                        ${product.price.toLocaleString()}
-                    </span>
+                    {product.id !== 'experiencia-personalizada-001' && (
+                        <span className="text-4xl font-bold text-isaromas-text-main">
+                            ${product.price.toLocaleString()}
+                        </span>
+                    )}
                 </div>
                 <p className="text-lg text-isaromas-text-secondary leading-relaxed font-light mb-8">
                     {product.description}
@@ -139,26 +141,42 @@ export default function ProductDetailPage() {
               )}
 
               {/* Controles de Cantidad y Agregar al Carrito */}
-              <div className="flex flex-col sm:flex-row gap-4 mt-auto pt-8 border-t border-isaromas-card-border">
-                <div className="flex items-center border border-isaromas-card-border rounded-xl bg-isaromas-cream">
-                    <button 
-                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        className="px-5 py-3 text-isaromas-text-secondary hover:text-isaromas-primary transition-colors font-bold text-lg"
-                    >-</button>
-                    <span className="px-5 font-bold text-isaromas-text-main text-lg min-w-[3rem] text-center">{quantity}</span>
-                    <button 
-                        onClick={() => setQuantity(quantity + 1)}
-                        className="px-5 py-3 text-isaromas-text-secondary hover:text-isaromas-primary transition-colors font-bold text-lg"
-                    >+</button>
+              {product.id === 'experiencia-personalizada-001' ? (
+                <div className="mt-auto pt-8 border-t border-isaromas-card-border">
+                    <div className="bg-isaromas-pink-light/20 border border-isaromas-pink-light rounded-xl p-6 text-center">
+                        <p className="text-isaromas-text-main font-medium text-lg mb-2">
+                            Esta es una experiencia personalizada.
+                        </p>
+                        <p className="text-isaromas-text-secondary mb-4">
+                            Nuestras velas de soja se realizan a pedido con el diseño, aroma y colores que vos elijas.
+                        </p>
+                        <p className="text-isaromas-primary font-bold">
+                            Escribinos por WhatsApp para crear tu combinación ideal.
+                        </p>
+                    </div>
                 </div>
-                <button 
-                    onClick={handleAddToCart}
-                    className="flex-1 bg-isaromas-primary hover:bg-isaromas-primary-hover text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 tracking-wide hover:-translate-y-1"
-                >
-                    <ShoppingBag size={22} strokeWidth={2.5} />
-                    Agregar al Carrito
-                </button>
-              </div>
+              ) : (
+                <div className="flex flex-col sm:flex-row gap-4 mt-auto pt-8 border-t border-isaromas-card-border">
+                    <div className="flex items-center border border-isaromas-card-border rounded-xl bg-isaromas-cream">
+                        <button 
+                            onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                            className="px-5 py-3 text-isaromas-text-secondary hover:text-isaromas-primary transition-colors font-bold text-lg"
+                        >-</button>
+                        <span className="px-5 font-bold text-isaromas-text-main text-lg min-w-[3rem] text-center">{quantity}</span>
+                        <button 
+                            onClick={() => setQuantity(quantity + 1)}
+                            className="px-5 py-3 text-isaromas-text-secondary hover:text-isaromas-primary transition-colors font-bold text-lg"
+                        >+</button>
+                    </div>
+                    <button 
+                        onClick={handleAddToCart}
+                        className="flex-1 bg-isaromas-primary hover:bg-isaromas-primary-hover text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 tracking-wide hover:-translate-y-1"
+                    >
+                        <ShoppingBag size={22} strokeWidth={2.5} />
+                        Agregar al Carrito
+                    </button>
+                </div>
+              )}
 
               {/* Info Adicional */}
               <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-isaromas-card-border">

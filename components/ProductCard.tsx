@@ -54,9 +54,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </p>
           
           <div className="mt-auto flex items-center justify-between pt-4 border-t border-isaromas-card-border/50">
-            <span className="text-xl font-bold text-isaromas-text-main">
-                ${product.price.toLocaleString()}
-            </span>
+            {product.id !== 'experiencia-personalizada-001' ? (
+                <span className="text-xl font-bold text-isaromas-text-main">
+                    ${product.price.toLocaleString()}
+                </span>
+            ) : (
+                <span className="text-sm font-bold text-isaromas-primary uppercase tracking-wider">
+                    Personalizar
+                </span>
+            )}
             <div className="bg-isaromas-primary text-white p-2 rounded-full shadow-md hover-button group-hover:bg-isaromas-primary-hover">
                 <ArrowRight size={18} strokeWidth={2.5} />
             </div>

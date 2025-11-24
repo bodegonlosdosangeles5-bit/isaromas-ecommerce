@@ -119,5 +119,43 @@
       }
     ],
     "image": "/images/products/perfumina.webp"
+  },
+  {
+    "id": "experiencia-personalizada-001",
+    "name": "Experiencia Personalizada",
+    "category": "Kits",
+    "price": 6500,
+    "description": "Creá tu propia combinación de aromas y envases para un regalo único o para tu hogar.",
+    "benefits": [
+      "100% Personalizable",
+      "Regalo perfecto"
+    ],
+    "imageFit": "cover",
+    "variants": [
+      {
+        "aroma": "A elección",
+        "size": "Kit Completo"
+      }
+    ],
+    "image": "/images/personaliza-experiencia.webp"
+  },
+  {
+    "id": "osito-rose-home",
+    "name": "Osito Rosé 'Home'",
+    "category": "Velas",
+    "price": 6500,
+    "description": "Vela artesanal de soja en frasco de vidrio con un osito en relieve. Delicada, romántica y perfecta para regalos especiales o para decorar con ternura cualquier rincón. Hecha a mano con amor por ISAROMAS.",
+    "benefits": [
+      "Ideal para regalar",
+      "Decorativa"
+    ],
+    "imageFit": "cover",
+    "variants": [
+      {
+        "aroma": "Aroma a elección",
+        "color": "Rosado Pastel"
+      }
+    ],
+    "image": "/images/products/osito-rose-home.webp"
   }
 ]
