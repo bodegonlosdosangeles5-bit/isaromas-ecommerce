@@ -18,13 +18,15 @@ import { useCart } from '@/context/CartContext';
 
 // Datos
 import productsData from '@/data/products.json';
+import { normalizeProduct } from '@/types/product';
 
 export default function ProductDetailPage() {
   const params = useParams();
   const id = params?.id as string;
   const { addToCart } = useCart();
 
-  const product = productsData.find(p => p.id === id);
+  const rawProduct = productsData.find(p => p.id === id);
+  const product = rawProduct ? normalizeProduct(rawProduct) : null;
 
   const [selectedVariant, setSelectedVariant] = useState<{
     aroma: string;

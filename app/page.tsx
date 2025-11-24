@@ -14,6 +14,7 @@ import PaymentNotice from '@/components/PaymentNotice';
 
 // Datos
 import productsData from '@/data/products.json';
+import { normalizeProduct } from '@/types/product';
 
 export const metadata: Metadata = {
   title: 'ISAROMAS | Esencias que iluminan',
@@ -21,8 +22,8 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  // Obtener los productos más vendidos (primeros 3)
-  const bestSellers = productsData.slice(0, 3);
+  // Obtener los productos más vendidos (primeros 3) y normalizarlos
+  const bestSellers = productsData.slice(0, 3).map(normalizeProduct);
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-white via-rose-50/30 to-pink-50/20">

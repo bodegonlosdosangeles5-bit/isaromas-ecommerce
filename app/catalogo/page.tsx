@@ -15,21 +15,25 @@ import PaymentNotice from '@/components/PaymentNotice';
 
 // Datos
 import productsData from '@/data/products.json';
+import { normalizeProduct, Product } from '@/types/product';
 
 export default function CatalogoPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
+  // Normalize products to ensure proper typing
+  const products: Product[] = productsData.map(normalizeProduct);
+
   // Extraer categorías únicas
   const categories = useMemo(() => {
-    const cats = new Set(productsData.map(p => p.category));
+    const cats = new Set(products.map(p => p.category));
     return Array.from(cats);
   }, []);
 
   // Filtrar productos
   const filteredProducts = useMemo(() => {
-    return productsData.filter(product => {
+    return products.filter(product => {
       const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                             product.description.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = selectedCategory ? product.category === selectedCategory : true;

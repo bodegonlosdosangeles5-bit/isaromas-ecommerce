@@ -3,25 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ShoppingCart, ArrowRight } from 'lucide-react';
-
-interface ProductVariant {
-  aroma: string;
-  color?: string;
-  size?: string;
-  gender?: string;
-}
-
-interface Product {
-  id: string;
-  name: string;
-  category: string;
-  price: number;
-  description: string;
-  benefits?: string[]; // Nuevo: beneficios del producto
-  imageFit?: "contain" | "cover"; // Nuevo: control de ajuste de imagen
-  variants: ProductVariant[];
-  image: string;
-}
+import { Product } from '@/types/product';
 
 interface ProductCardProps {
   product: Product;
