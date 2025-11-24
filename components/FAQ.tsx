@@ -91,7 +91,7 @@ const FAQ: React.FC = () => {
                         }
                       `}
                     >
-                      {item.icon && React.cloneElement(item.icon, { className: 'w-5 h-5 sm:w-6 sm:h-6' })}
+                      {item.icon && React.isValidElement(item.icon) && React.cloneElement(item.icon, { className: 'w-5 h-5 sm:w-6 sm:h-6' } as any)}
                     </div>
                     <h3
                       className={`
