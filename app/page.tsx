@@ -1,32 +1,38 @@
-import Head from 'next/head';
+// Next.js
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+// Iconos
 import { Sparkles, Palette, Clock, Heart, ArrowRight } from 'lucide-react';
-import ProductCard from '@/components/ProductCard';
-import Footer from '@/components/Footer';
+
+// Componentes
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import ProductCard from '@/components/ProductCard';
+
+// Datos
 import productsData from '@/data/products.json';
 
+export const metadata: Metadata = {
+  title: 'ISAROMAS | Esencias que iluminan',
+  description: 'Velas de soja, difusores y esencias artesanales personalizadas.',
+};
+
 export default function Home() {
-  // Simulating best sellers by taking the first 3 products
+  // Obtener los productos más vendidos (primeros 3)
   const bestSellers = productsData.slice(0, 3);
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-white via-rose-50/30 to-pink-50/20">
-      <Head>
-        <title>ISAROMAS | Esencias que iluminan</title>
-        <meta name="description" content="Velas de soja, difusores y esencias artesanales personalizadas." />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <Navbar />
 
       <main className="flex-grow pt-20">
-        {/* Hero Section Mejorado */}
+        {/* Hero Section */}
         <section className="relative h-[85vh] md:h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-rose-50/50 via-pink-50/30 to-white">
-           {/* Abstract Background Shapes Mejorados */}
-           <div className="absolute top-[-15%] right-[-5%] w-[500px] h-[500px] bg-gradient-to-br from-pink-400/20 to-rose-400/20 rounded-full blur-3xl animate-pulse"></div>
-           <div className="absolute bottom-[-15%] left-[-5%] w-[500px] h-[500px] bg-gradient-to-tr from-rose-300/30 to-pink-300/20 rounded-full blur-3xl"></div>
-           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-pink-300/15 to-rose-300/15 rounded-full blur-3xl"></div>
+          {/* Abstract Background Shapes */}
+          <div className="absolute top-[-15%] right-[-5%] w-[500px] h-[500px] bg-gradient-to-br from-pink-400/20 to-rose-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-[-15%] left-[-5%] w-[500px] h-[500px] bg-gradient-to-tr from-rose-300/30 to-pink-300/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-pink-300/15 to-rose-300/15 rounded-full blur-3xl"></div>
 
           <div className="relative z-10 text-center px-4 md:px-6 max-w-5xl mx-auto animate-fade-in">
             <span className="inline-flex items-center gap-2 py-2 px-4 rounded-full bg-white/90 backdrop-blur-sm border-2 border-pink-300 text-pink-600 text-xs md:text-sm font-bold mb-8 tracking-wider uppercase shadow-lg">
@@ -52,14 +58,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Best Sellers Section Mejorado */}
+        {/* Sección Más Vendidos */}
         <section className="py-24 md:py-32 px-4 container mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
               Más Vendidos
             </h2>
             <p className="text-lg text-gray-600 font-light">Los favoritos de nuestra comunidad</p>
-            <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-purple-400 mx-auto mt-4 rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-rose-500 mx-auto mt-4 rounded-full"></div>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
@@ -79,7 +85,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Customization / Info Section Mejorado */}
+        {/* Sección Personalización */}
         <section className="py-24 md:py-32 bg-gradient-to-b from-white via-rose-50/20 to-pink-50/10">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center mb-20">
@@ -120,3 +126,4 @@ export default function Home() {
     </div>
   );
 }
+

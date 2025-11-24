@@ -1,15 +1,23 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { ShoppingBag, Menu, X, Home } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
 const Navbar: React.FC = () => {
-  const router = useRouter();
+  const pathname = usePathname();
   const { toggleCart, totalItems } = useCart();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [mounted, setMounted] = React.useState(false);
 
-  const isActive = (path: string) => router.pathname === path;
+  // Evitar error de hidratación - solo mostrar badge después de montar en cliente
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isActive = (path: string) => pathname === path;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-pink-100/50 shadow-sm">
@@ -62,7 +70,7 @@ const Navbar: React.FC = () => {
               aria-label="Abrir carrito"
             >
               <ShoppingBag size={22} strokeWidth={2} className="group-hover:stroke-pink-600" />
-              {totalItems > 0 && (
+              {mounted && totalItems > 0 && (
                 <span className="absolute -top-1 -right-1 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-lg animate-pulse ring-2 ring-white">
                   {totalItems}
                 </span>
@@ -78,7 +86,7 @@ const Navbar: React.FC = () => {
               aria-label="Abrir carrito"
             >
               <ShoppingBag size={22} strokeWidth={2} />
-              {totalItems > 0 && (
+              {mounted && totalItems > 0 && (
                 <span className="absolute -top-1 -right-1 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-lg animate-pulse">
                   {totalItems}
                 </span>

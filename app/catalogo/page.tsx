@@ -1,23 +1,31 @@
-import React, { useState, useMemo } from 'react';
-import Head from 'next/head';
+'use client';
+
+// React
+import { useState, useMemo } from 'react';
+
+// Iconos
 import { Search, Filter, X } from 'lucide-react';
-import ProductCard from '@/components/ProductCard';
-import Footer from '@/components/Footer';
+
+// Componentes
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import ProductCard from '@/components/ProductCard';
+
+// Datos
 import productsData from '@/data/products.json';
 
-export default function Catalogo() {
+export default function CatalogoPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
-  // Extract unique categories
+  // Extraer categorías únicas
   const categories = useMemo(() => {
     const cats = new Set(productsData.map(p => p.category));
     return Array.from(cats);
   }, []);
 
-  // Filter products
+  // Filtrar productos
   const filteredProducts = useMemo(() => {
     return productsData.filter(product => {
       const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -30,17 +38,12 @@ export default function Catalogo() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-white via-rose-50/20 to-pink-50/10">
-      <Head>
-        <title>Catálogo | ISAROMAS</title>
-        <meta name="description" content="Explorá nuestra colección completa de aromas." />
-      </Head>
-
       <Navbar />
 
       <main className="flex-grow container mx-auto px-4 py-8 pt-28">
         <div className="flex flex-col lg:flex-row gap-8">
           
-          {/* Mobile Filter Toggle Mejorado */}
+          {/* Mobile Filter Toggle */}
           <button 
             className="lg:hidden flex items-center gap-2 bg-white p-3 rounded-xl shadow-lg border-2 border-pink-200 text-pink-700 font-semibold hover:bg-pink-50 transition-all duration-300 hover:scale-105"
             onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
@@ -61,7 +64,7 @@ export default function Catalogo() {
             </div>
 
             <div className="space-y-8">
-              {/* Search Mejorado */}
+              {/* Search */}
               <div>
                 <label className="block text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">Buscar</label>
                 <div className="relative">
@@ -76,7 +79,7 @@ export default function Catalogo() {
                 </div>
               </div>
 
-              {/* Categories Mejorado */}
+              {/* Categories */}
               <div>
                 <h3 className="font-bold text-gray-800 mb-4 flex items-center justify-between uppercase tracking-wide text-sm">
                   Categorías
@@ -149,3 +152,4 @@ export default function Catalogo() {
     </div>
   );
 }
+
