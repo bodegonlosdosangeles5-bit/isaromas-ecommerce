@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 
 // Next.js
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Poppins } from "next/font/google";
 
 // Contextos
 import { CartProvider } from "@/context/CartContext";
@@ -13,17 +13,18 @@ import CheckoutDrawer from "@/components/CheckoutDrawer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 // Configuración de fuentes
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -37,8 +38,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="antialiased">
+    <html lang="es" className={`${playfair.variable} ${poppins.variable}`}>
+      <body className="antialiased bg-isaromas-cream text-isaromas-text-main">
         <CartProvider>
           {children}
           <CheckoutDrawer />

@@ -1,30 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FFF6F8;
+  --foreground: #2B2B2B;
+  --ease-out-elegant: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  /* Paleta de colores rosa mejorada con buen contraste */
-  --color-isaromas-pink: #EC4899;
-  --color-isaromas-pink-light: #F9A8D4;
+  --font-sans: var(--font-poppins);
+  --font-serif: var(--font-playfair);
+
+  /* Paleta de colores ISAROMAS Modernizada */
+  --color-isaromas-cream: #FFF6F8;
+  --color-isaromas-white: #FFFFFF;
+  --color-isaromas-card-border: #F1E6EA;
+  --color-isaromas-text-main: #2B2B2B;
+  --color-isaromas-text-secondary: #666666;
+
+  --color-isaromas-primary: #EFA3B6;
+  --color-isaromas-primary-hover: #E58EA5;
+
+  --color-isaromas-pink: #EFA3B6;
+  /* Mantenemos alias por compatibilidad pero con nuevo color */
+  --color-isaromas-pink-light: #F7DDE4;
+  /* Nuevo color para badges/acentos */
   --color-isaromas-pink-lighter: #FCE7F3;
   --color-isaromas-rose: #F43F5E;
   --color-isaromas-rose-light: #FDA4AF;
-  --color-isaromas-cream: #FFF1F2;
   --color-isaromas-gray: #F9FAFB;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Nuevos colores para refinamiento estético */
+  --color-isaromas-icon-muted: #C9A7B1;
+  --color-isaromas-text-muted: #9A9A9A;
+  --color-isaromas-badge-new: #F7DDE4;
 }
 
 * {
@@ -39,24 +49,83 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  font-feature-settings: 'kern' 1, 'liga' 1;
-  text-rendering: optimizeLegibility;
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-size: clamp(0.9375rem, 1.2vw, 1rem);
+  /* 15-16px */
+  font-weight: 400;
   line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* Typography Scale */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-playfair), Georgia, 'Times New Roman', serif;
   font-weight: 700;
-  letter-spacing: -0.02em;
   line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 3.2vw, 2.625rem);
+  /* 28-42px */
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: clamp(1.375rem, 2.4vw, 1.875rem);
+  /* 22-30px */
+  line-height: 1.2;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  /* 18-22px */
+  line-height: 1.25;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 p {
-  line-height: 1.7;
+  margin-bottom: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Texto secundario */
+.text-secondary,
+small {
+  font-size: clamp(0.8125rem, 1vw, 0.875rem);
+  /* 13-14px */
+  line-height: 1.5;
+}
+
+/* Botones y CTAs */
+button,
+.btn {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: clamp(0.9375rem, 1.2vw, 1rem);
+  /* 15-16px */
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  /* 0.4px aprox */
 }
 
 /* Smooth transitions for interactive elements */
-button, a, input, textarea, select {
+button,
+a,
+input,
+textarea,
+select {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -85,6 +154,7 @@ button, a, input, textarea, select {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -92,9 +162,12 @@ button, a, input, textarea, select {
 }
 
 @keyframes gradient {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -107,4 +180,159 @@ button, a, input, textarea, select {
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradient 3s ease infinite;
+}
+
+/* --- Nuevas Animaciones Sutiles --- */
+
+/* Keyframes */
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes underline-slide {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: 100%;
+    opacity: 0.6;
+  }
+}
+
+/* Utilities */
+
+/* Scroll Reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s var(--ease-out-elegant), transform 0.8s var(--ease-out-elegant);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays escalonados */
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+/* Hover Card */
+.hover-card {
+  transition: transform 0.28s var(--ease-out-elegant), box-shadow 0.28s var(--ease-out-elegant), border-color 0.28s var(--ease-out-elegant);
+}
+
+.hover-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(239, 163, 182, 0.15), 0 8px 10px -6px rgba(239, 163, 182, 0.1);
+  border-color: rgba(239, 163, 182, 0.5);
+}
+
+/* Hover Image */
+.hover-image {
+  overflow: hidden;
+  border-radius: inherit;
+  /* Hereda el borde redondeado del padre */
+}
+
+.hover-image img {
+  transition: transform 0.25s ease-out;
+  will-change: transform;
+}
+
+.hover-image:hover img {
+  transform: scale(1.03);
+}
+
+/* Hover Button */
+.hover-button {
+  transition: transform 0.22s var(--ease-out-elegant), filter 0.22s var(--ease-out-elegant), background-color 0.22s;
+}
+
+.hover-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.hover-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Link Underline */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-isaromas-primary);
+  opacity: 0;
+  transition: width 0.25s ease-out, opacity 0.25s ease-out;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+  opacity: 0.6;
+}
+
+/* Badge Pulse */
+.badge-pulse {
+  animation: pulse-slow 3.5s infinite ease-in-out;
+}
+
+/* Accesibilidad: Reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hover-card:hover,
+  .hover-button:hover,
+  .hover-image:hover img {
+    transform: none;
+  }
+
+  .badge-pulse {
+    animation: none;
+  }
+
+  .link-underline::after {
+    display: none;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

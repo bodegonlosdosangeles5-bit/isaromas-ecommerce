@@ -9,6 +9,7 @@ import { Sparkles, Palette, Clock, Heart, ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
+import ScrollReveal from '@/components/ScrollReveal';
 
 // Datos
 import productsData from '@/data/products.json';
@@ -28,97 +29,125 @@ export default function Home() {
 
       <main className="flex-grow pt-20">
         {/* Hero Section */}
-        <section className="relative h-[85vh] md:h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-rose-50/50 via-pink-50/30 to-white">
-          {/* Abstract Background Shapes */}
-          <div className="absolute top-[-15%] right-[-5%] w-[500px] h-[500px] bg-gradient-to-br from-pink-400/20 to-rose-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-[-15%] left-[-5%] w-[500px] h-[500px] bg-gradient-to-tr from-rose-300/30 to-pink-300/20 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-pink-300/15 to-rose-300/15 rounded-full blur-3xl"></div>
-
-          <div className="relative z-10 text-center px-4 md:px-6 max-w-5xl mx-auto animate-fade-in">
-            <span className="inline-flex items-center gap-2 py-2 px-4 rounded-full bg-white/90 backdrop-blur-sm border-2 border-pink-300 text-pink-600 text-xs md:text-sm font-bold mb-8 tracking-wider uppercase shadow-lg">
-              <Heart size={14} className="fill-pink-500" />
-              Artesanal & Hecho a Mano
-            </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6 tracking-tight leading-[1.1]">
-              Iluminá tus momentos con{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 animate-gradient">
-                esencias únicas
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-              Creamos velas de soja y aromas personalizados que transforman tu hogar en un refugio de paz y armonía.
-            </p>
-            <Link 
-              href="/catalogo" 
-              className="group inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg font-bold hover:from-pink-600 hover:to-rose-600 transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-3xl hover:shadow-pink-500/40"
-            >
-              <span>Comprar Ahora</span>
-              <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-        </section>
-
-        {/* Sección Más Vendidos */}
-        <section className="py-24 md:py-32 px-4 container mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
-              Más Vendidos
-            </h2>
-            <p className="text-lg text-gray-600 font-light">Los favoritos de nuestra comunidad</p>
-            <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-rose-500 mx-auto mt-4 rounded-full"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-            {bestSellers.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-          
-          <div className="text-center mt-16">
-            <Link 
-              href="/catalogo" 
-              className="group inline-flex items-center gap-2 text-pink-600 font-bold hover:text-rose-600 transition-all duration-300 text-lg border-b-2 border-transparent hover:border-pink-500 pb-1"
-            >
-              <span>Ver todos los productos</span>
-              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-        </section>
-
-        {/* Sección Personalización */}
-        <section className="py-24 md:py-32 bg-gradient-to-b from-white via-rose-50/20 to-pink-50/10">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
-                Personalizá tu Pedido
-              </h2>
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
-                Cada producto es creado especialmente para vos. Elegí el aroma, el color y el envase que más te guste.
-                Debido a nuestro proceso artesanal, los pedidos tienen una demora de producción de{' '}
-                <span className="font-bold text-gray-900 bg-pink-100 px-2 py-1 rounded">1 a 5 días hábiles</span>.
-              </p>
+        <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-isaromas-cream">
+            {/* Background Elements */}
+            <div className="absolute inset-0 z-0">
+                <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-white/40 to-transparent"></div>
+                <div className="absolute -top-20 -right-20 w-[600px] h-[600px] bg-isaromas-pink-light/20 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-isaromas-pink-light/20 rounded-full blur-3xl"></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-              {[
-                { icon: Sparkles, title: "Calidad Premium", desc: "Cera de soja 100% natural y esencias puras.", color: "from-amber-400 to-orange-400" },
-                { icon: Palette, title: "Personalizado", desc: "Elegí tus colores y aromas favoritos.", color: "from-pink-500 to-rose-500" },
-                { icon: Clock, title: "Tiempo de Dedicación", desc: "Producción artesanal en 1-5 días.", color: "from-pink-400 to-rose-400" },
-                { icon: Heart, title: "Hecho con Amor", desc: "Cada pieza es única y hecha a mano.", color: "from-rose-500 to-pink-500" },
-              ].map((item, index) => (
-                <div 
-                  key={index} 
-                  className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center border-2 border-gray-100 hover:-translate-y-2 hover:border-pink-300"
+            <div className="container mx-auto px-4 z-10 text-center">
+            <ScrollReveal className="space-y-8 max-w-4xl mx-auto">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-isaromas-card-border text-isaromas-primary text-sm font-bold tracking-widest uppercase shadow-sm mb-4">
+                    Nueva Colección 2024
+                </span>
+                <h1 className="text-5xl md:text-7xl font-bold text-isaromas-text-main leading-tight tracking-tight">
+                Aromas que <span className="text-isaromas-primary relative inline-block">
+                    Enamoran
+                    <svg className="absolute w-full h-3 -bottom-1 left-0 text-isaromas-pink-light opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
+                    </svg>
+                </span>
+                </h1>
+                <p className="text-xl md:text-2xl text-isaromas-text-secondary font-light max-w-2xl mx-auto leading-relaxed">
+                Descubrí nuestra línea exclusiva de fragancias artesanales para transformar cada rincón de tu hogar.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                <Link 
+                    href="/catalogo" 
+                    className="bg-isaromas-primary hover:bg-isaromas-primary-hover text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all hover-button tracking-wide"
                 >
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${item.color} text-white rounded-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <item.icon size={28} strokeWidth={2.5} />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                    Ver Catálogo
+                </Link>
+                <Link 
+                    href="#destacados" 
+                    className="bg-white hover:bg-isaromas-cream text-isaromas-text-main border border-isaromas-card-border px-10 py-4 rounded-full font-bold text-lg shadow-sm hover:shadow-md transition-all hover-button tracking-wide"
+                >
+                    Más Vendidos
+                </Link>
                 </div>
-              ))}
+            </ScrollReveal>
             </div>
-          </div>
+        </section>
+
+        {/* Featured Products Section */}
+        <section id="destacados" className="py-24 bg-white">
+            <div className="container mx-auto px-4">
+            <ScrollReveal>
+            <div className="text-center mb-16 max-w-2xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-isaromas-text-main mb-4 tracking-tight relative inline-block">
+                Productos Destacados
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-isaromas-primary/50 rounded-full"></div>
+                </h2>
+                <p className="text-isaromas-text-secondary text-lg font-light mt-6">
+                Las fragancias favoritas de nuestros clientes, creadas para perdurar.
+                </p>
+            </div>
+            </ScrollReveal>
+            
+            <ScrollReveal delay={100}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                {bestSellers.map((product) => (
+                <ProductCard key={product.id} product={product} />
+                ))}
+            </div>
+            </ScrollReveal>
+            
+            <div className="text-center mt-16">
+                <Link 
+                    href="/catalogo" 
+                    className="inline-flex items-center gap-2 text-isaromas-primary font-bold text-lg hover:text-isaromas-primary-hover link-underline transition-all"
+                >
+                    Ver todos los productos <ArrowRight size={20} />
+                </Link>
+            </div>
+            </div>
+        </section>
+
+        {/* Personalization Section */}
+        <section className="py-24 bg-isaromas-cream border-t border-isaromas-card-border">
+            <div className="container mx-auto px-4">
+            <ScrollReveal>
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+                <div className="space-y-8">
+                <h2 className="text-3xl md:text-4xl font-bold text-isaromas-text-main tracking-tight relative inline-block">
+                    Personaliz á tu Experiencia
+                    <div className="absolute -bottom-2 left-0 w-16 h-1 bg-isaromas-primary/50 rounded-full"></div>
+                </h2>
+                <p className="text-lg text-isaromas-text-secondary font-light leading-relaxed">
+                    En ISAROMAS creemos que cada hogar es único. Por eso te ofrecemos la posibilidad de personalizar tus fragancias favoritas.
+                </p>
+                
+                <div className="space-y-6">
+                    {[
+                    { title: "Elegí tu Aroma", desc: "Más de 20 esencias exclusivas." },
+                    { title: "Seleccioná el Envase", desc: "Diseños que decoran tu espacio." },
+                    { title: "Creá tu Momento", desc: "Disfrutá de un ambiente único." }
+                    ].map((item, idx) => (
+                    <div key={idx} className="flex gap-4 p-4 bg-white rounded-2xl border border-isaromas-card-border shadow-sm hover:shadow-md transition-all hover:border-isaromas-primary/30">
+                        <div className="w-12 h-12 bg-isaromas-pink-light/30 rounded-full flex items-center justify-center text-isaromas-primary font-bold text-xl">
+                        {idx + 1}
+                        </div>
+                        <div>
+                        <h3 className="font-bold text-isaromas-text-main text-lg tracking-tight">{item.title}</h3>
+                        <p className="text-isaromas-text-secondary font-light">{item.desc}</p>
+                        </div>
+                    </div>
+                    ))}
+                </div>
+                </div>
+                <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white hover-image">
+                <img 
+                    src="/images/products/difusor-de-ambiente-con-varilla.webp" 
+                    alt="Personalización" 
+                    className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                </div>
+            </div>
+            </ScrollReveal>
+            </div>
         </section>
       </main>
 
@@ -126,4 +155,3 @@ export default function Home() {
     </div>
   );
 }
-

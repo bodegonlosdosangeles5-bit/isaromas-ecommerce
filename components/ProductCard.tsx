@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, ArrowRight } from 'lucide-react';
 
 interface ProductVariant {
   aroma: string;
@@ -27,49 +27,40 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <Link href={`/productos/${product.id}`} className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2 hover:border-isaromas-pink/40 block">
-      {/* Image Container Mejorado */}
-      <div className="relative h-72 w-full overflow-hidden bg-gradient-to-br from-isaromas-gray/40 to-isaromas-pink/10">
-        <div className="absolute inset-0 flex items-center justify-center">
-            <img 
-                src={product.image} 
-                alt={product.name} 
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                    (e.target as HTMLImageElement).parentElement!.classList.add('bg-gradient-to-br', 'from-isaromas-pink/20', 'to-isaromas-cream/30');
-                }}
-            />
-        </div>
-        {/* Overlay sutil en hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        {/* Badge de categoría mejorado */}
-        <div className="absolute top-4 right-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg border-2 border-white/50">
-            {product.category}
-        </div>
-      </div>
-
-      {/* Content Mejorado */}
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-pink-500 group-hover:to-rose-500 transition-all duration-300">
-            {product.name}
-        </h3>
-        <p className="text-sm text-gray-600 mb-5 line-clamp-2 leading-relaxed">
-            {product.description}
-        </p>
-
-        <div className="flex items-center justify-between mt-auto">
-          <div>
-            <span className="text-2xl font-extrabold text-gray-900">
-              ${product.price.toLocaleString()}
+    <Link href={`/productos/${product.id}`} className="block group h-full">
+      <div className="bg-white rounded-2xl overflow-hidden border border-isaromas-card-border shadow-sm hover-card h-full flex flex-col relative">
+        {/* Badge de Categoría */}
+        <div className="absolute top-3 left-3 z-10">
+            <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-xs font-bold text-isaromas-text-secondary rounded-full shadow-sm border border-isaromas-card-border">
+                {product.category}
             </span>
-          </div>
+        </div>
+
+        {/* Imagen */}
+        <div className="aspect-square bg-gradient-to-br from-isaromas-cream to-pink-50 relative overflow-hidden p-6 flex items-center justify-center hover-image">
+          <img 
+            src={product.image} 
+            alt={product.name} 
+            className="w-full h-full object-contain drop-shadow-md"
+          />
+        </div>
+
+        {/* Contenido */}
+        <div className="p-5 flex flex-col flex-grow">
+          <h3 className="font-bold text-lg text-isaromas-text-main mb-1 leading-tight tracking-tight group-hover:text-isaromas-primary transition-colors">
+            {product.name}
+          </h3>
+          <p className="text-sm text-isaromas-text-secondary line-clamp-2 mb-4 font-light">
+            {product.description}
+          </p>
           
-          <div 
-            className="group/btn flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white px-5 py-2.5 rounded-xl font-bold transition-all duration-300 shadow-md hover:shadow-lg active:scale-95"
-          >
-            <ShoppingCart size={18} className="transition-transform group-hover/btn:scale-110" />
-            <span>Ver</span>
+          <div className="mt-auto flex items-center justify-between pt-4 border-t border-isaromas-card-border/50">
+            <span className="text-xl font-bold text-isaromas-text-main">
+                ${product.price.toLocaleString()}
+            </span>
+            <div className="bg-isaromas-primary text-white p-2 rounded-full shadow-md hover-button group-hover:bg-isaromas-primary-hover">
+                <ArrowRight size={18} strokeWidth={2.5} />
+            </div>
           </div>
         </div>
       </div>

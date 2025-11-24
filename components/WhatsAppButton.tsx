@@ -14,7 +14,7 @@ const WhatsAppButton: React.FC = () => {
       href="https://wa.me/5491125146197"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group"
+      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-isaromas-primary hover:bg-isaromas-primary-hover text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group"
       aria-label="Contactar por WhatsApp"
     >
       <MessageCircle size={24} className="fill-white text-white" />
