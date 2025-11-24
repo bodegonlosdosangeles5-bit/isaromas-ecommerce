@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
               className={`relative px-2 py-2 font-medium text-sm tracking-wide transition-colors link-underline ${
                 isActive('/')
                   ? 'text-isaromas-primary font-bold'
-                  : 'text-isaromas-text-secondary hover:text-isaromas-primary'
+                  : 'text-isaromas-text-menu hover:text-isaromas-primary'
               }`}
             >
               INICIO
@@ -53,14 +53,14 @@ const Navbar: React.FC = () => {
               className={`relative px-2 py-2 font-medium text-sm tracking-wide transition-colors link-underline ${
                 isActive('/catalogo')
                   ? 'text-isaromas-primary font-bold'
-                  : 'text-isaromas-text-secondary hover:text-isaromas-primary'
+                  : 'text-isaromas-text-menu hover:text-isaromas-primary'
               }`}
             >
               CATÁLOGO
             </Link>
             <Link
               href="/#contacto"
-              className="text-sm font-medium text-isaromas-text-secondary hover:text-isaromas-primary tracking-wide transition-colors link-underline"
+              className="text-sm font-medium text-isaromas-text-menu hover:text-isaromas-primary tracking-wide transition-colors link-underline"
             >
               CONTACTO
             </Link>

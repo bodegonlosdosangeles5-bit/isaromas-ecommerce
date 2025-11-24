@@ -87,9 +87,23 @@ export default function ProductDetailPage() {
                 <span className="inline-block px-4 py-1.5 rounded-full bg-isaromas-pink-light text-isaromas-text-main text-xs font-bold tracking-widest uppercase mb-4 shadow-sm border border-white/50">
                     {product.category}
                 </span>
-                <h1 className="text-3xl md:text-4xl font-bold text-isaromas-text-main mb-4 tracking-tight leading-tight">
+                <h1 className="text-3xl md:text-4xl font-bold text-isaromas-text-main mb-3 tracking-tight leading-tight">
                     {product.name}
                 </h1>
+                
+                {/* Benefits */}
+                {product.benefits && product.benefits.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {product.benefits.map((benefit: string, index: number) => (
+                      <span 
+                        key={index}
+                        className="px-3 py-1.5 bg-isaromas-bg-hover text-sm font-medium text-isaromas-primary-hover rounded-full border border-isaromas-card-border"
+                      >
+                        {benefit}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 <div className="flex items-baseline gap-4 mb-6 pb-6 border-b border-isaromas-card-border">
                     <span className="text-4xl font-bold text-isaromas-text-main">
                         ${product.price.toLocaleString()}

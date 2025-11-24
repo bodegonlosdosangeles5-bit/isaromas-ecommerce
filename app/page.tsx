@@ -10,6 +10,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import ScrollReveal from '@/components/ScrollReveal';
+import PaymentNotice from '@/components/PaymentNotice';
 
 // Datos
 import productsData from '@/data/products.json';
@@ -39,9 +40,6 @@ export default function Home() {
 
             <div className="container mx-auto px-4 z-10 text-center">
             <ScrollReveal className="space-y-8 max-w-4xl mx-auto">
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-isaromas-card-border text-isaromas-primary text-sm font-bold tracking-widest uppercase shadow-sm mb-4">
-                    Nueva Colección 2024
-                </span>
                 <h1 className="text-5xl md:text-7xl font-bold text-isaromas-text-main leading-tight tracking-tight">
                 Aromas que <span className="text-isaromas-primary relative inline-block">
                     Enamoran
@@ -62,7 +60,7 @@ export default function Home() {
                 </Link>
                 <Link 
                     href="#destacados" 
-                    className="bg-white hover:bg-isaromas-cream text-isaromas-text-main border border-isaromas-card-border px-10 py-4 rounded-full font-bold text-lg shadow-sm hover:shadow-md transition-all hover-button tracking-wide"
+                    className="bg-white hover:bg-isaromas-bg-hover text-isaromas-text-main border-2 border-isaromas-primary/60 px-10 py-4 rounded-full font-bold text-lg shadow-sm hover:shadow-md transition-all hover-button tracking-wide"
                 >
                     Más Vendidos
                 </Link>
@@ -70,6 +68,11 @@ export default function Home() {
             </ScrollReveal>
             </div>
         </section>
+
+        {/* Payment Notice */}
+        <div className="container mx-auto px-4 -mt-12 relative z-20">
+          <PaymentNotice />
+        </div>
 
         {/* Featured Products Section */}
         <section id="destacados" className="py-24 bg-white">

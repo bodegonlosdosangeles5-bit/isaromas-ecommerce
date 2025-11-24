@@ -17,15 +17,16 @@
   --color-isaromas-white: #FFFFFF;
   --color-isaromas-card-border: #F1E6EA;
   --color-isaromas-text-main: #2B2B2B;
-  --color-isaromas-text-secondary: #666666;
+  --color-isaromas-text-secondary: #555555;
+  /* Mejorado para mejor contraste */
+  --color-isaromas-text-menu: #444444;
+  /* Nuevo para menú */
 
   --color-isaromas-primary: #EFA3B6;
   --color-isaromas-primary-hover: #E58EA5;
 
   --color-isaromas-pink: #EFA3B6;
-  /* Mantenemos alias por compatibilidad pero con nuevo color */
   --color-isaromas-pink-light: #F7DDE4;
-  /* Nuevo color para badges/acentos */
   --color-isaromas-pink-lighter: #FCE7F3;
   --color-isaromas-rose: #F43F5E;
   --color-isaromas-rose-light: #FDA4AF;
@@ -33,8 +34,13 @@
 
   /* Nuevos colores para refinamiento estético */
   --color-isaromas-icon-muted: #C9A7B1;
-  --color-isaromas-text-muted: #9A9A9A;
+  --color-isaromas-text-muted: #888888;
+  /* Mejorado para placeholders */
   --color-isaromas-badge-new: #F7DDE4;
+  --color-isaromas-border-focus: #EFD7DE;
+  /* Nuevo para inputs */
+  --color-isaromas-bg-hover: #FFF0F4;
+  /* Nuevo para botones secundarios */
 }
 
 * {
@@ -92,6 +98,7 @@ h3 {
   font-size: clamp(1.125rem, 2vw, 1.375rem);
   /* 18-22px */
   line-height: 1.25;
+  /* Mejorado para títulos largos */
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
@@ -239,14 +246,16 @@ select {
   transition-delay: 300ms;
 }
 
-/* Hover Card */
+/* Hover Card - Mejorado con mejor sombra */
 .hover-card {
   transition: transform 0.28s var(--ease-out-elegant), box-shadow 0.28s var(--ease-out-elegant), border-color 0.28s var(--ease-out-elegant);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  /* Sombra más notoria pero suave */
 }
 
 .hover-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px -5px rgba(239, 163, 182, 0.15), 0 8px 10px -6px rgba(239, 163, 182, 0.1);
+  box-shadow: 0 12px 32px rgba(239, 163, 182, 0.15), 0 8px 16px rgba(0, 0, 0, 0.08);
   border-color: rgba(239, 163, 182, 0.5);
 }
 
@@ -254,7 +263,6 @@ select {
 .hover-image {
   overflow: hidden;
   border-radius: inherit;
-  /* Hereda el borde redondeado del padre */
 }
 
 .hover-image img {

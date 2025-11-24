@@ -5,6 +5,10 @@
     "category": "Velas",
     "price": 3500,
     "description": "Vela de cera de soja vertida a mano, ecológica y de larga duración.",
+    "benefits": [
+      "Eco friendly",
+      "Larga duración"
+    ],
     "variants": [
       {
         "aroma": "Vainilla y Coco",
@@ -27,6 +31,10 @@
     "category": "Difusores",
     "price": 4200,
     "description": "Difusor de vidrio con varillas de ratán para una dispersión continua del aroma.",
+    "benefits": [
+      "Aroma continuo",
+      "Dura 30-45 días"
+    ],
     "variants": [
       {
         "aroma": "Jazmín",
@@ -45,6 +53,11 @@
     "category": "Aceites",
     "price": 1800,
     "description": "Aceite esencial concentrado para hornillos y aromaterapia.",
+    "benefits": [
+      "Aromaterapia",
+      "Concentrado"
+    ],
+    "imageFit": "cover",
     "variants": [
       {
         "aroma": "Eucalipto",
@@ -63,6 +76,11 @@
     "category": "Perfumería",
     "price": 5500,
     "description": "Fragancia persistente inspirada en grandes marcas internacionales.",
+    "benefits": [
+      "Inspiración premium",
+      "Alta fijación"
+    ],
+    "imageFit": "cover",
     "variants": [
       {
         "aroma": "Floral Intenso",
@@ -81,6 +99,11 @@
     "category": "Perfuminas",
     "price": 2800,
     "description": "Fragancia persistente para telas, ropa de cama y ambientes. No mancha.",
+    "benefits": [
+      "Aroma duradero",
+      "Uso diario"
+    ],
+    "imageFit": "cover",
     "variants": [
       {
         "aroma": "Coniglio",

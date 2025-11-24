@@ -17,6 +17,8 @@ interface Product {
   category: string;
   price: number;
   description: string;
+  benefits?: string[]; // Nuevo: beneficios del producto
+  imageFit?: "contain" | "cover"; // Nuevo: control de ajuste de imagen
   variants: ProductVariant[];
   image: string;
 }
@@ -31,25 +33,40 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className="bg-white rounded-2xl overflow-hidden border border-isaromas-card-border shadow-sm hover-card h-full flex flex-col relative">
         {/* Badge de Categoría */}
         <div className="absolute top-3 left-3 z-10">
-            <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-xs font-bold text-isaromas-text-secondary rounded-full shadow-sm border border-isaromas-card-border">
+            <span className="px-3 py-1.5 bg-white/90 backdrop-blur-sm text-xs font-semibold text-isaromas-primary rounded-full shadow-sm border border-isaromas-pink-light">
                 {product.category}
             </span>
         </div>
 
         {/* Imagen */}
-        <div className="aspect-square bg-gradient-to-br from-isaromas-cream to-pink-50 relative overflow-hidden p-6 flex items-center justify-center hover-image">
+        <div className="aspect-[4/5] bg-gradient-to-br from-isaromas-cream to-pink-50 relative overflow-hidden p-6 flex items-center justify-center hover-image">
           <img 
             src={product.image} 
             alt={product.name} 
-            className="w-full h-full object-contain drop-shadow-md"
+            className={`w-full h-full ${product.imageFit === "cover" ? "object-cover" : "object-contain"} drop-shadow-md`}
           />
         </div>
 
         {/* Contenido */}
         <div className="p-5 flex flex-col flex-grow">
-          <h3 className="font-bold text-lg text-isaromas-text-main mb-1 leading-tight tracking-tight group-hover:text-isaromas-primary transition-colors">
+          <h3 className="font-bold text-lg text-isaromas-text-main mb-2 leading-tight tracking-tight group-hover:text-isaromas-primary transition-colors">
             {product.name}
           </h3>
+          
+          {/* Benefits */}
+          {product.benefits && product.benefits.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-3">
+              {product.benefits.map((benefit, index) => (
+                <span 
+                  key={index}
+                  className="px-2.5 py-1 bg-isaromas-bg-hover text-xs font-medium text-isaromas-primary-hover rounded-full border border-isaromas-card-border"
+                >
+                  {benefit}
+                </span>
+              ))}
+            </div>
+          )}
+          
           <p className="text-sm text-isaromas-text-secondary line-clamp-2 mb-4 font-light">
             {product.description}
           </p>
