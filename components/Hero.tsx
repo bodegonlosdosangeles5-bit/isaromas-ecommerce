@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Sparkles, ArrowRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
+import Image from 'next/image';
 
 const Hero: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
@@ -149,109 +150,143 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Main Content with Glass Morphism */}
-      <div className="container mx-auto px-4 z-10 text-center relative">
-        <ScrollReveal className="space-y-8 max-w-5xl mx-auto">
-          {/* Title */}
-          <div className="mb-4 px-2">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-isaromas-text-main leading-tight tracking-tight">
-              Aromas que{' '}
-              <span className="relative inline-block">
-                <span 
-                  className="text-transparent bg-clip-text animate-gradient-text"
+      <div className="container mx-auto px-4 z-10 relative h-full flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 pt-20 md:pt-0">
+        
+        {/* Text Content */}
+        <div className="w-full md:w-1/2 text-center md:text-left order-1 md:pr-8">
+            <ScrollReveal className="space-y-6 md:space-y-8 max-w-2xl mx-auto md:mx-0">
+              {/* Title */}
+              <div className="mb-4 px-2 md:px-0">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-isaromas-text-main leading-tight tracking-tight">
+                  Aromas que{' '}
+                  <span className="relative inline-block">
+                    <span 
+                      className="text-transparent bg-clip-text animate-gradient-text"
+                      style={{
+                        backgroundImage: 'linear-gradient(135deg, #DB2777, #EC4899, #F472B6, #EFA3B6, #FBCFE8)',
+                        backgroundSize: '200% 200%',
+                        WebkitBackgroundClip: 'text',
+                      }}
+                    >
+                      Enamoran
+                    </span>
+                    <svg 
+                      className="absolute w-full h-4 -bottom-2 left-0 opacity-60"
+                      viewBox="0 0 100 15" 
+                      preserveAspectRatio="none"
+                    >
+                      <path 
+                        d="M0 7 Q 50 12 100 7" 
+                        stroke="url(#gradient-underline)" 
+                        strokeWidth="3" 
+                        fill="none"
+                        strokeDasharray="200"
+                        strokeDashoffset="200"
+                        className="animate-draw-path"
+                      />
+                      <defs>
+                        <linearGradient id="gradient-underline" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#DB2777" stopOpacity="0.8" />
+                          <stop offset="50%" stopColor="#EC4899" stopOpacity="0.9" />
+                          <stop offset="100%" stopColor="#F472B6" stopOpacity="0.6" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </span>
+                </h1>
+              </div>
+
+              {/* Subtitle */}
+              <div className="max-w-3xl mx-auto md:mx-0 px-4 md:px-0">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-isaromas-text-secondary font-light leading-relaxed">
+                  Descubrí nuestra línea exclusiva de fragancias artesanales para transformar cada rincón de tu hogar.
+                </p>
+              </div>
+
+              {/* CTA Buttons with Enhanced Glass Effect */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start pt-6 sm:pt-8 px-4 md:px-0">
+                <Link 
+                  href="/catalogo" 
+                  className="group relative overflow-hidden px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg shadow-2xl hover:shadow-3xl transition-all hover-button"
                   style={{
-                    backgroundImage: 'linear-gradient(135deg, #DB2777, #EC4899, #F472B6, #EFA3B6, #FBCFE8)',
+                    background: 'linear-gradient(135deg, #DB2777, #EC4899, #F472B6)',
                     backgroundSize: '200% 200%',
-                    WebkitBackgroundClip: 'text',
+                    color: 'white',
                   }}
                 >
-                  Enamoran
-                </span>
-                <svg 
-                  className="absolute w-full h-4 -bottom-2 left-0 opacity-60"
-                  viewBox="0 0 100 15" 
-                  preserveAspectRatio="none"
-                >
-                  <path 
-                    d="M0 7 Q 50 12 100 7" 
-                    stroke="url(#gradient-underline)" 
-                    strokeWidth="3" 
-                    fill="none"
-                    strokeDasharray="200"
-                    strokeDashoffset="200"
-                    className="animate-draw-path"
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    Ver Catálogo
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{
+                      background: 'linear-gradient(135deg, #EC4899, #F472B6, #EFA3B6)',
+                      backgroundSize: '200% 200%',
+                      animation: 'gradient 3s ease infinite',
+                    }}
                   />
-                  <defs>
-                    <linearGradient id="gradient-underline" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#DB2777" stopOpacity="0.8" />
-                      <stop offset="50%" stopColor="#EC4899" stopOpacity="0.9" />
-                      <stop offset="100%" stopColor="#F472B6" stopOpacity="0.6" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </span>
-            </h1>
-          </div>
+                </Link>
+                
+                <Link 
+                  href="#destacados" 
+                  className="relative px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg border-2 transition-all hover-button backdrop-blur-xl"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7))',
+                    borderColor: 'rgba(239, 163, 182, 0.6)',
+                    color: '#2B2B2B',
+                    boxShadow: '0 8px 32px 0 rgba(239, 163, 182, 0.2)',
+                  }}
+                >
+                  <span className="relative z-10">Más Vendidos</span>
+                  <div 
+                    className="absolute inset-0 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(239, 163, 182, 0.1), rgba(244, 63, 94, 0.05))',
+                    }}
+                  />
+                </Link>
+              </div>
 
-          {/* Subtitle */}
-          <div className="max-w-3xl mx-auto px-4">
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-isaromas-text-secondary font-light leading-relaxed">
-              Descubrí nuestra línea exclusiva de fragancias artesanales para transformar cada rincón de tu hogar.
-            </p>
-          </div>
+              {/* Decorative Sparkles */}
+              <div className="absolute -top-4 left-1/4 opacity-30 animate-sparkle">
+                <Sparkles className="w-6 h-6 text-isaromas-primary" />
+              </div>
+              <div className="absolute -bottom-8 right-1/4 opacity-25 animate-sparkle-delayed">
+                <Sparkles className="w-5 h-5 text-isaromas-rose" />
+              </div>
+            </ScrollReveal>
+        </div>
 
-          {/* CTA Buttons with Enhanced Glass Effect */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-6 sm:pt-8 px-4">
-            <Link 
-              href="/catalogo" 
-              className="group relative overflow-hidden px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg shadow-2xl hover:shadow-3xl transition-all hover-button"
-              style={{
-                background: 'linear-gradient(135deg, #DB2777, #EC4899, #F472B6)',
-                backgroundSize: '200% 200%',
-                color: 'white',
-              }}
-            >
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                Ver Catálogo
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-              <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background: 'linear-gradient(135deg, #EC4899, #F472B6, #EFA3B6)',
-                  backgroundSize: '200% 200%',
-                  animation: 'gradient 3s ease infinite',
-                }}
-              />
-            </Link>
-            
-            <Link 
-              href="#destacados" 
-              className="relative px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg border-2 transition-all hover-button backdrop-blur-xl"
-              style={{
-                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7))',
-                borderColor: 'rgba(239, 163, 182, 0.6)',
-                color: '#2B2B2B',
-                boxShadow: '0 8px 32px 0 rgba(239, 163, 182, 0.2)',
-              }}
-            >
-              <span className="relative z-10">Más Vendidos</span>
-              <div 
-                className="absolute inset-0 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(239, 163, 182, 0.1), rgba(244, 63, 94, 0.05))',
-                }}
-              />
-            </Link>
-          </div>
+        {/* Image Content */}
+        <div className="w-full md:w-1/2 order-2 flex justify-center md:justify-end items-center relative h-full md:h-auto">
+             <ScrollReveal className="w-full max-w-lg md:max-w-none h-full flex items-center justify-center" delay={200}>
+                {/* Desktop Image */}
+                <div className="hidden md:block relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl shadow-pink-100/50">
+                    <Image
+                        src="/images/hero-isaromas-desktop.webp"
+                        alt="Velas de soja artesanales ISAROMAS con frutillas, en tonos pastel"
+                        fill
+                        className="object-cover object-center hover:scale-105 transition-transform duration-700"
+                        priority
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                </div>
 
-          {/* Decorative Sparkles */}
-          <div className="absolute -top-4 left-1/4 opacity-30 animate-sparkle">
-            <Sparkles className="w-6 h-6 text-isaromas-primary" />
-          </div>
-          <div className="absolute -bottom-8 right-1/4 opacity-25 animate-sparkle-delayed">
-            <Sparkles className="w-5 h-5 text-isaromas-rose" />
-          </div>
-        </ScrollReveal>
+                {/* Mobile Image */}
+                <div className="block md:hidden relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-pink-100/50 mt-8 mb-20">
+                    <Image
+                        src="/images/hero-isaromas-mobile.webp"
+                        alt="Velas de soja artesanales ISAROMAS con frutillas, en tonos pastel"
+                        fill
+                        className="object-cover object-center"
+                        priority
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                </div>
+            </ScrollReveal>
+        </div>
+
       </div>
 
       {/* Scroll Indicator */}
