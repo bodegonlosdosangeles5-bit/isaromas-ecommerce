@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 import Image from 'next/image';
 
@@ -51,20 +51,59 @@ const Hero: React.FC = () => {
       style={{
         height: '100vh',
         minHeight: '600px',
-        background: `
-          radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 
-            rgba(245, 208, 254, 0.4) 0%, 
-            rgba(255, 237, 213, 0.3) 25%,
-            rgba(255, 246, 248, 0.2) 50%,
-            rgba(254, 240, 250, 0.3) 75%,
-            rgba(255, 237, 213, 0.2) 100%
-          ),
-          linear-gradient(135deg, #FFF6F8 0%, #FFF0F4 50%, #FFF6F8 100%)
-        `,
       }}
     >
-      {/* Animated Gradient Orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Imagen de fondo - Desktop y Mobile */}
+      <div className="absolute inset-0 z-0 w-full h-full">
+        {/* Desktop Image Background */}
+        <div className="hidden md:block absolute inset-0 w-full h-full">
+          <Image
+            src="/images/hero-isaromas-desktop.webp"
+            alt="Velas de soja artesanales ISAROMAS"
+            fill
+            className="object-cover object-center w-full h-full"
+            priority
+            sizes="100vw"
+            quality={90}
+          />
+        </div>
+        {/* Mobile Image Background - Ocupa todo el fondo */}
+        <div className="block md:hidden absolute inset-0 w-full h-full">
+          <Image
+            src="/images/hero-isaromas-mobile.webp"
+            alt="Velas de soja artesanales ISAROMAS"
+            fill
+            className="object-cover object-center w-full h-full"
+            priority
+            sizes="100vw"
+            quality={90}
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center',
+              width: '100%',
+              height: '100%',
+            }}
+          />
+        </div>
+        {/* Overlay gradient para mejorar legibilidad y efectos */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: `
+              radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 
+                rgba(245, 208, 254, 0.3) 0%, 
+                rgba(255, 237, 213, 0.2) 25%,
+                rgba(255, 246, 248, 0.15) 50%,
+                rgba(254, 240, 250, 0.2) 75%,
+                rgba(255, 237, 213, 0.15) 100%
+              ),
+              linear-gradient(135deg, rgba(255, 246, 248, 0.4) 0%, rgba(255, 240, 250, 0.3) 50%, rgba(255, 246, 248, 0.4) 100%)
+            `,
+          }}
+        />
+      </div>
+      {/* Animated Gradient Orbs - Capa sobre la imagen */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
         {/* Orb 1 - Top Right - Purple/Pink */}
         <div 
           className="absolute -top-20 -right-20 sm:-top-40 sm:-right-40 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] md:w-[800px] md:h-[800px] rounded-full blur-3xl opacity-30 sm:opacity-40 animate-gradient-float"
@@ -113,8 +152,8 @@ const Hero: React.FC = () => {
         ))}
       </div>
 
-      {/* Liquid Glass Cards - Floating Elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* Liquid Glass Cards - Floating Elements - Capa sobre la imagen */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-[1]">
         {/* Glass Card 1 */}
         <div 
           className="absolute top-20 right-[10%] w-32 h-32 rounded-3xl backdrop-blur-xl bg-white/20 border border-white/30 shadow-2xl animate-float-glass"
@@ -149,16 +188,28 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      {/* Main Content with Glass Morphism */}
-      <div className="container mx-auto px-4 z-10 relative h-full flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 pt-20 md:pt-0">
+      {/* Main Content - Capa superior con z-index alto */}
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 z-10 relative h-full flex flex-col items-start justify-center">
         
         {/* Text Content */}
-        <div className="w-full md:w-1/2 text-center md:text-left order-1 md:pr-8">
-            <ScrollReveal className="space-y-6 md:space-y-8 max-w-2xl mx-auto md:mx-0">
+        <div className="w-full max-w-3xl text-left">
+            <ScrollReveal className="space-y-5 md:space-y-6 max-w-3xl relative">
+              {/* Fondo liquid glass solo en móvil */}
+              <div 
+                className="md:hidden absolute inset-0 -inset-x-4 -inset-y-3 rounded-2xl -z-10 backdrop-blur-xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 246, 248, 0.85), rgba(255, 255, 255, 0.9))',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5)',
+                }}
+              />
+              
+              {/* Contenido */}
+              <div className="relative z-10 p-4 md:p-0">
               {/* Title */}
-              <div className="mb-4 px-2 md:px-0">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-isaromas-text-main leading-tight tracking-tight">
-                  Aromas que{' '}
+              <div className="mb-4">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-tight">
+                  <span className="text-isaromas-text-main">Aromas que</span>{' '}
                   <span className="relative inline-block">
                     <span 
                       className="text-transparent bg-clip-text animate-gradient-text"
@@ -197,14 +248,14 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Subtitle */}
-              <div className="max-w-3xl mx-auto md:mx-0 px-4 md:px-0">
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-isaromas-text-secondary font-light leading-relaxed">
+              <div className="max-w-xl">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-isaromas-text-main font-light leading-relaxed">
                   Descubrí nuestra línea exclusiva de fragancias artesanales para transformar cada rincón de tu hogar.
                 </p>
               </div>
 
               {/* CTA Buttons with Enhanced Glass Effect */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start pt-6 sm:pt-8 px-4 md:px-0">
+              <div className="flex flex-col items-center sm:items-start sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-start pt-4 sm:pt-5 md:pt-6">
                 <Link 
                   href="/catalogo" 
                   className="group relative overflow-hidden px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg shadow-2xl hover:shadow-3xl transition-all hover-button"
@@ -247,43 +298,8 @@ const Hero: React.FC = () => {
                   />
                 </Link>
               </div>
-
-              {/* Decorative Sparkles */}
-              <div className="absolute -top-4 left-1/4 opacity-30 animate-sparkle">
-                <Sparkles className="w-6 h-6 text-isaromas-primary" />
               </div>
-              <div className="absolute -bottom-8 right-1/4 opacity-25 animate-sparkle-delayed">
-                <Sparkles className="w-5 h-5 text-isaromas-rose" />
-              </div>
-            </ScrollReveal>
-        </div>
-
-        {/* Image Content */}
-        <div className="w-full md:w-1/2 order-2 flex justify-center md:justify-end items-center relative h-full md:h-auto">
-             <ScrollReveal className="w-full max-w-lg md:max-w-none h-full flex items-center justify-center" delay={200}>
-                {/* Desktop Image */}
-                <div className="hidden md:block relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl shadow-pink-100/50">
-                    <Image
-                        src="/images/hero-isaromas-desktop.webp"
-                        alt="Velas de soja artesanales ISAROMAS con frutillas, en tonos pastel"
-                        fill
-                        className="object-cover object-center hover:scale-105 transition-transform duration-700"
-                        priority
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                </div>
-
-                {/* Mobile Image */}
-                <div className="block md:hidden relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-pink-100/50 mt-8 mb-20">
-                    <Image
-                        src="/images/hero-isaromas-mobile.webp"
-                        alt="Velas de soja artesanales ISAROMAS con frutillas, en tonos pastel"
-                        fill
-                        className="object-cover object-center"
-                        priority
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                </div>
+              {/* Fin del contenido relativo */}
             </ScrollReveal>
         </div>
 
