@@ -157,5 +157,100 @@
       }
     ],
     "image": "/images/products/osito-rose-home.webp"
+  },
+  {
+    "id": "copa-frutilla-cream",
+    "name": "Copa Frutilla Cream",
+    "category": "Velas",
+    "price": 6500,
+    "description": "Vela gourmet de soja en copa tipo postre, con frutillas en relieve y efecto crema rosada. Súper decorativa, ideal para regalar o darle un toque dulce y delicado a tu espacio. Hecha a mano por ISAROMAS.",
+    "benefits": [
+      "Decorativa",
+      "Ideal para regalar"
+    ],
+    "imageFit": "cover",
+    "variants": [
+      {
+        "aroma": "Frutilla con crema",
+        "color": "Rosado Pastel y Blanco"
+      }
+    ],
+    "image": "/images/products/frutilla-cream.webp"
+  },
+  {
+    "id": "muffin-choco-rose",
+    "name": "Muffin Choco Rosé",
+    "category": "Velas",
+    "price": 6500,
+    "description": "Vela gourmet de soja estilo muffin, con detalles de chocolate en relieve y moño delicado. Súper realista, decorativa y perfecta para regalos dulces o para darle un toque cálido y elegante a tu espacio. Hecha a mano por ISAROMAS.",
+    "benefits": [
+      "Súper realista",
+      "Ideal para regalar"
+    ],
+    "imageFit": "cover",
+    "variants": [
+      {
+        "aroma": "Chocolate vainilla",
+        "color": "Rosado nude + chocolate"
+      }
+    ],
+    "image": "/images/products/muffin-choco-rose.webp"
+  },
+  {
+    "id": "torta-candy-pastel",
+    "name": "Torta Candy Pastel",
+    "category": "Velas",
+    "price": 7500,
+    "description": "Vela gourmet de soja estilo torta decorada con confites y dulces en tonos pastel. Alegre, delicada y súper llamativa para regalar o decorar mesas dulces y rincones especiales. Hecha a mano por ISAROMAS.",
+    "benefits": [
+      "Alegre y delicada",
+      "Ideal para regalar"
+    ],
+    "imageFit": "cover",
+    "variants": [
+      {
+        "aroma": "Dulce vainilla / algodón de azúcar",
+        "color": "Mix pastel multicolor"
+      }
+    ],
+    "image": "/images/products/torta-candy-pastel.webp"
+  },
+  {
+    "id": "duo-berry-sweet",
+    "name": "Dúo Berry Sweet",
+    "category": "Velas",
+    "price": 7500,
+    "description": "Vela gourmet de soja estilo postre con crema y frutos rojos en relieve. Súper realista, dulce y llamativa, ideal para regalar o decorar espacios especiales. Hecha a mano por ISAROMAS.",
+    "benefits": [
+      "Súper realista",
+      "Ideal para regalar"
+    ],
+    "imageFit": "cover",
+    "variants": [
+      {
+        "aroma": "Frutos rojos con crema / berries dulces",
+        "color": "Tonos nude + rojo frutal + blanco crema"
+      }
+    ],
+    "image": "/images/products/duo-berry-sweet.webp"
+  },
+  {
+    "id": "mini-torta-ruby",
+    "name": "Mini Torta Ruby",
+    "category": "Velas",
+    "price": 8500,
+    "description": "Vela gourmet de soja estilo mini torta blanca con frutos rojos en relieve y detalle de cinta roja. Elegante, dulce y perfecta para regalos especiales o mesas decorativas. Hecha a mano por ISAROMAS.",
+    "benefits": [
+      "Elegante",
+      "Ideal para regalar"
+    ],
+    "imageFit": "cover",
+    "variants": [
+      {
+        "aroma": "Frutos rojos / frambuesa dulce",
+        "color": "Blanco crema + rojo frutal"
+      }
+    ],
+    "image": "/images/products/mini-torta-ruby.webp"
   }
 ]
