@@ -1,51 +1,117 @@
 [
   {
-    "id": "candle-soja-001",
-    "name": "Vela de Soja Premium",
-    "category": "Velas",
-    "price": 3500,
-    "description": "Vela de cera de soja vertida a mano, ecológica y de larga duración.",
+    "id": "vela-vestido-001",
+    "name": "Vela Vestido \"Noche de Gala\"",
+    "category": "Souvenirs / Eventos",
+    "price": 3200,
+    "description": "Elegante vela de soja con forma de vestido de alta costura, decorada con lazos de organza y detalles de perlas de cera. El souvenir ideal para Quinceañeras, Bodas y eventos exclusivos. (Consultar precio por cantidad).",
     "benefits": [
-      "Eco friendly",
-      "Larga duración"
+      "Souvenir ideal",
+      "Alta costura"
     ],
+    "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Vainilla y Coco",
-        "color": "Crema"
+        "color": "Rosa Pastel",
+        "aroma": "Jazmín y Rosas"
       },
       {
-        "aroma": "Lavanda Relajante",
-        "color": "Lila Suave"
+        "color": "Azul Noche",
+        "aroma": "Jazmín y Rosas"
       },
       {
-        "aroma": "Frutos Rojos",
-        "color": "Rosa Pastel"
+        "color": "Blanco Perlado",
+        "aroma": "Jazmín y Rosas"
       }
     ],
-    "image": "/images/products/vela-premium-600.webp"
+    "image": "/images/products/vela-vestido-gala.webp"
   },
   {
-    "id": "difusor-001",
-    "name": "Difusor de Ambiente con Varillas",
-    "category": "Difusores",
-    "price": 4200,
-    "description": "Difusor de vidrio con varillas de ratán para una dispersión continua del aroma.",
+    "id": "mini-torta-ruby",
+    "name": "Mini Torta Ruby",
+    "category": "Velas",
+    "price": 8500,
+    "description": "Vela gourmet de soja estilo mini torta blanca con frutos rojos en relieve y detalle de cinta roja. Elegante, dulce y perfecta para regalos especiales o mesas decorativas. Hecha a mano por ISAROMAS.",
     "benefits": [
-      "Aroma continuo",
-      "Dura 30-45 días"
+      "Elegante",
+      "Ideal para regalar"
     ],
+    "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Jazmín",
-        "color": "Transparente"
-      },
-      {
-        "aroma": "Limón y Jengibre",
-        "color": "Transparente"
+        "aroma": "Frutos rojos / frambuesa dulce",
+        "color": "Blanco crema + rojo frutal"
       }
     ],
-    "image": "/images/products/difusor-de-ambiente-con-varilla.webp"
+    "image": "/images/products/mini-torta-ruby.webp"
+  },
+  {
+    "id": "vela-margarita-001",
+    "name": "Vela Cuenco \"Margarita Púrpura\"",
+    "category": "Velas Decorativas",
+    "price": 4200,
+    "description": "Delicada vela de cera de soja con forma de margarita y centro púrpura, presentada en un elegante cuenco acanalado con un pequeño lazo decorativo. Un detalle floral perfecto para iluminar y perfumar.",
+    "benefits": [
+      "Detalle floral",
+      "Ideal para regalar"
+    ],
+    "imageFit": "cover",
+    "variants": [
+      {
+        "aroma": "Flores Blancas"
+      },
+      {
+        "aroma": "Jazmín y Lavanda"
+      }
+    ],
+    "image": "/images/products/vela-margarita-purpura.webp"
+  },
+  {
+    "id": "perfume-001",
+    "name": "Simil Perfume Importado",
+    "category": "Perfumería",
+    "price": 5500,
+    "description": "Fragancia persistente inspirada en grandes marcas internacionales.",
+    "benefits": [
+      "Inspiración premium",
+      "Alta fijación"
+    ],
+    "imageFit": "cover",
+    "variants": [
+      {
+        "aroma": "Floral Intenso",
+        "gender": "Femenino"
+      },
+      {
+        "aroma": "Amaderado",
+        "gender": "Masculino"
+      }
+    ],
+    "image": "/images/products/simil-perfume-importado.webp"
+  },
+  {
+    "id": "vela-candy-shop-001",
+    "name": "Vela Cupcake \"Candy Shop\"",
+    "category": "Velas Gourmand",
+    "price": 4000,
+    "description": "¡Una explosión de dulzura! Vela de soja en base plateada con 'crema' batida rosa, decorada con un mix de golosinas de cera: donas, caramelos y chocolates. El toque divertido que le falta a tu rincón favorito.",
+    "benefits": [
+      "Toque divertido",
+      "Ideal para regalar"
+    ],
+    "imageFit": "cover",
+    "variants": [
+      {
+        "aroma": "Chicle (Bubblegum)"
+      },
+      {
+        "aroma": "Algodón de Azúcar"
+      },
+      {
+        "aroma": "Frutos Rojos con Crema"
+      }
+    ],
+    "image": "/images/products/vela-candy-shop.webp"
   },
   {
     "id": "aceite-001",
@@ -71,27 +137,30 @@
     "image": "/images/products/aceite-esencial-puro.webp"
   },
   {
-    "id": "perfume-001",
-    "name": "Simil Perfume Importado",
-    "category": "Perfumería",
-    "price": 5500,
-    "description": "Fragancia persistente inspirada en grandes marcas internacionales.",
+    "id": "candle-soja-001",
+    "name": "Vela de Soja Premium",
+    "category": "Velas",
+    "price": 3500,
+    "description": "Vela de cera de soja vertida a mano, ecológica y de larga duración.",
     "benefits": [
-      "Inspiración premium",
-      "Alta fijación"
+      "Eco friendly",
+      "Larga duración"
     ],
-    "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Floral Intenso",
-        "gender": "Femenino"
+        "aroma": "Vainilla y Coco",
+        "color": "Crema"
       },
       {
-        "aroma": "Amaderado",
-        "gender": "Masculino"
+        "aroma": "Lavanda Relajante",
+        "color": "Lila Suave"
+      },
+      {
+        "aroma": "Frutos Rojos",
+        "color": "Rosa Pastel"
       }
     ],
-    "image": "/images/products/simil-perfume-importado.webp"
+    "image": "/images/products/vela-premium-600.webp"
   },
   {
     "id": "perfumina-001",
@@ -235,22 +304,46 @@
     "image": "/images/products/duo-berry-sweet.webp"
   },
   {
-    "id": "mini-torta-ruby",
-    "name": "Mini Torta Ruby",
-    "category": "Velas",
-    "price": 8500,
-    "description": "Vela gourmet de soja estilo mini torta blanca con frutos rojos en relieve y detalle de cinta roja. Elegante, dulce y perfecta para regalos especiales o mesas decorativas. Hecha a mano por ISAROMAS.",
+    "id": "difusor-001",
+    "name": "Difusor de Ambiente con Varillas",
+    "category": "Difusores",
+    "price": 4200,
+    "description": "Difusor de vidrio con varillas de ratán para una dispersión continua del aroma.",
     "benefits": [
-      "Elegante",
-      "Ideal para regalar"
+      "Aroma continuo",
+      "Dura 30-45 días"
+    ],
+    "variants": [
+      {
+        "aroma": "Jazmín",
+        "color": "Transparente"
+      },
+      {
+        "aroma": "Limón y Jengibre",
+        "color": "Transparente"
+      }
+    ],
+    "image": "/images/products/difusor-de-ambiente-con-varilla.webp"
+  },
+  {
+    "id": "vela-cupcake-001",
+    "name": "Vela Cupcake Confetti",
+    "category": "Velas Gourmand",
+    "price": 3800,
+    "description": "¡La vela más dulce de la tienda! Vela de soja con diseño realista de cupcake, topping de cera batida artesanal y grageas de colores. Perfecta para regalar o celebrar un cumpleaños.",
+    "benefits": [
+      "Diseño realista",
+      "Ideal para cumpleaños"
     ],
     "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Frutos rojos / frambuesa dulce",
-        "color": "Blanco crema + rojo frutal"
+        "aroma": "Vainilla y Caramelo"
+      },
+      {
+        "aroma": "Coco y Dulce de Leche"
       }
     ],
-    "image": "/images/products/mini-torta-ruby.webp"
+    "image": "/images/products/vela-cupcake-confetti.webp"
   }
 ]
