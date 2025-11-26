@@ -78,7 +78,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
                 <div className="space-y-6 sm:space-y-8">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-isaromas-text-main tracking-tight relative inline-block">
-                    Personaliz á tu Experiencia
+                    Personalizá tu Experiencia
                     <div className="absolute -bottom-2 left-0 w-12 sm:w-16 h-1 bg-isaromas-primary/50 rounded-full"></div>
                 </h2>
                 <p className="text-base sm:text-lg text-isaromas-text-secondary font-light leading-relaxed">

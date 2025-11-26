@@ -53,10 +53,10 @@ const Navbar: React.FC = () => {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
         scrolled
-          ? 'bg-white/80 backdrop-blur-2xl border-b border-white/30 shadow-lg shadow-isaromas-pink-light/10'
-          : 'bg-white/60 backdrop-blur-xl border-b border-white/20 shadow-md shadow-isaromas-pink-light/5'
+          ? 'bg-white/95 backdrop-blur-2xl border-b border-white/30 shadow-lg shadow-isaromas-pink-light/10'
+          : 'bg-isaromas-cream/95 backdrop-blur-xl border-b border-white/20 shadow-md shadow-isaromas-pink-light/5'
       }`}
       style={{
         background: scrolled
@@ -65,13 +65,13 @@ const Navbar: React.FC = () => {
               rgba(255, 237, 213, 0.1) 50%,
               rgba(255, 246, 248, 0.12) 100%
             ),
-            linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 246, 248, 0.75))`
+            linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 246, 248, 0.95))`
           : `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 
               rgba(245, 208, 254, 0.2) 0%, 
               rgba(255, 237, 213, 0.15) 50%,
               rgba(255, 246, 248, 0.18) 100%
             ),
-            linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 246, 248, 0.6))`,
+            linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 246, 248, 0.9))`,
       }}
     >
       {/* Floating particles in navbar */}
