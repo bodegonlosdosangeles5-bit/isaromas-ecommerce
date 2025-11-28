@@ -12,16 +12,130 @@
     "imageFit": "cover",
     "variants": [
       {
-        "color": "Rosa Pastel",
-        "aroma": "Jazmín y Rosas"
+        "aroma": "Banana"
       },
       {
-        "color": "Azul Noche",
-        "aroma": "Jazmín y Rosas"
+        "aroma": "Canela"
       },
       {
-        "color": "Blanco Perlado",
-        "aroma": "Jazmín y Rosas"
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Citronela"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Frutos Rojos"
+      },
+      {
+        "aroma": "Bebe"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Lavanda"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa S"
+      },
+      {
+        "aroma": "Violeta"
       }
     ],
     "image": "/images/products/vela-vestido-gala.webp"
@@ -39,8 +153,130 @@
     "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Frutos rojos / frambuesa dulce",
-        "color": "Blanco crema + rojo frutal"
+        "aroma": "Banana"
+      },
+      {
+        "aroma": "Canela"
+      },
+      {
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Citronela"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Frutos Rojos"
+      },
+      {
+        "aroma": "Bebe"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Lavanda"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa S"
+      },
+      {
+        "aroma": "Violeta"
       }
     ],
     "image": "/images/products/mini-torta-ruby.webp"
@@ -48,7 +284,7 @@
   {
     "id": "vela-margarita-001",
     "name": "Vela Cuenco \"Margarita Púrpura\"",
-    "category": "Velas Decorativas",
+    "category": "Velas",
     "price": 4200,
     "description": "Delicada vela de cera de soja con forma de margarita y centro púrpura, presentada en un elegante cuenco acanalado con un pequeño lazo decorativo. Un detalle floral perfecto para iluminar y perfumar.",
     "benefits": [
@@ -58,10 +294,130 @@
     "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Flores Blancas"
+        "aroma": "Banana"
       },
       {
-        "aroma": "Jazmín y Lavanda"
+        "aroma": "Canela"
+      },
+      {
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Citronela"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Frutos Rojos"
+      },
+      {
+        "aroma": "Bebe"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Lavanda"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa S"
+      },
+      {
+        "aroma": "Violeta"
       }
     ],
     "image": "/images/products/vela-margarita-purpura.webp"
@@ -70,7 +426,7 @@
     "id": "perfume-001",
     "name": "Simil Perfume Importado",
     "category": "Perfumería",
-    "price": 5500,
+    "price": 15000,
     "description": "Fragancia persistente inspirada en grandes marcas internacionales.",
     "benefits": [
       "Inspiración premium",
@@ -79,11 +435,71 @@
     "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Floral Intenso",
+        "aroma": "Simil La Vida Es Bella",
         "gender": "Femenino"
       },
       {
-        "aroma": "Amaderado",
+        "aroma": "Simil Good Girl",
+        "gender": "Femenino"
+      },
+      {
+        "aroma": "Simil Blue Light",
+        "gender": "Femenino"
+      },
+      {
+        "aroma": "Simil Ana Abiyedh Leather (Unisex)",
+        "gender": "Unisex"
+      },
+      {
+        "aroma": "Simil Euphoria For Women",
+        "gender": "Femenino"
+      },
+      {
+        "aroma": "Simil Ralph",
+        "gender": "Femenino"
+      },
+      {
+        "aroma": "Simil Burberry Beat",
+        "gender": "Femenino"
+      },
+      {
+        "aroma": "Simil Flower",
+        "gender": "Femenino"
+      },
+      {
+        "aroma": "Simil Lady Million",
+        "gender": "Femenino"
+      },
+      {
+        "aroma": "Simil 9 PM",
+        "gender": "Masculino"
+      },
+      {
+        "aroma": "Simil Khamrah",
+        "gender": "Masculino"
+      },
+      {
+        "aroma": "Simil One Millon",
+        "gender": "Masculino"
+      },
+      {
+        "aroma": "Simil Invictus",
+        "gender": "Masculino"
+      },
+      {
+        "aroma": "Simil Burberry Beat (Masculino)",
+        "gender": "Masculino"
+      },
+      {
+        "aroma": "Simil Black Code Armani Classic",
+        "gender": "Masculino"
+      },
+      {
+        "aroma": "Simil Boss",
+        "gender": "Masculino"
+      },
+      {
+        "aroma": "Simil CH Prive",
         "gender": "Masculino"
       }
     ],
@@ -92,7 +508,7 @@
   {
     "id": "vela-candy-shop-001",
     "name": "Vela Cupcake \"Candy Shop\"",
-    "category": "Velas Gourmand",
+    "category": "Velas",
     "price": 4000,
     "description": "¡Una explosión de dulzura! Vela de soja en base plateada con 'crema' batida rosa, decorada con un mix de golosinas de cera: donas, caramelos y chocolates. El toque divertido que le falta a tu rincón favorito.",
     "benefits": [
@@ -102,13 +518,130 @@
     "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Chicle (Bubblegum)"
+        "aroma": "Banana"
       },
       {
-        "aroma": "Algodón de Azúcar"
+        "aroma": "Canela"
       },
       {
-        "aroma": "Frutos Rojos con Crema"
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Citronela"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Frutos Rojos"
+      },
+      {
+        "aroma": "Bebe"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Lavanda"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa S"
+      },
+      {
+        "aroma": "Violeta"
       }
     ],
     "image": "/images/products/vela-candy-shop.webp"
@@ -117,7 +650,7 @@
     "id": "aceite-001",
     "name": "Aceite Esencial Puro",
     "category": "Aceites",
-    "price": 1800,
+    "price": 3500,
     "description": "Aceite esencial concentrado para hornillos y aromaterapia.",
     "benefits": [
       "Aromaterapia",
@@ -126,41 +659,262 @@
     "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Eucalipto",
-        "size": "10ml"
+        "aroma": "Alcanfor"
       },
       {
-        "aroma": "Naranja",
-        "size": "10ml"
+        "aroma": "Almendra Dulce"
+      },
+      {
+        "aroma": "Ámbar"
+      },
+      {
+        "aroma": "Ananá"
+      },
+      {
+        "aroma": "Azahar (Neroli)"
+      },
+      {
+        "aroma": "Banana"
+      },
+      {
+        "aroma": "Benjuí"
+      },
+      {
+        "aroma": "Bergamota"
+      },
+      {
+        "aroma": "Caléndula"
+      },
+      {
+        "aroma": "Canela"
+      },
+      {
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cedro"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Champagnat"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Chocolate"
+      },
+      {
+        "aroma": "Citronella"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Colonia Inglesa"
+      },
+      {
+        "aroma": "Colonia Internacional"
+      },
+      {
+        "aroma": "Colonia"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Eucaliptus"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Furia"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Geranio"
+      },
+      {
+        "aroma": "Green Apple"
+      },
+      {
+        "aroma": "Herbal"
+      },
+      {
+        "aroma": "Hierbas"
+      },
+      {
+        "aroma": "Incienso"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Jengibre"
+      },
+      {
+        "aroma": "Lavanda Oma"
+      },
+      {
+        "aroma": "Lavanda Poema"
+      },
+      {
+        "aroma": "Lila"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Manzanilla"
+      },
+      {
+        "aroma": "Marina"
+      },
+      {
+        "aroma": "Melisa"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Miel"
+      },
+      {
+        "aroma": "Mirra"
+      },
+      {
+        "aroma": "Musk Especial"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Nardo (Tuberosa)"
+      },
+      {
+        "aroma": "Orquídea"
+      },
+      {
+        "aroma": "Palo Santo"
+      },
+      {
+        "aroma": "Panda Bebe"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Patchouly"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Reina de la Noche"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Ruda"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Simil Arpege"
+      },
+      {
+        "aroma": "Simil Bamboo S"
+      },
+      {
+        "aroma": "Simil Mini Mimo"
+      },
+      {
+        "aroma": "Simil Nina Ricci"
+      },
+      {
+        "aroma": "Simil Sedal"
+      },
+      {
+        "aroma": "Tomillo"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa"
+      },
+      {
+        "aroma": "Verbena (Cedrón)"
+      },
+      {
+        "aroma": "Violeta"
+      },
+      {
+        "aroma": "Ylang Ylang"
       }
     ],
     "image": "/images/products/aceite-esencial-puro.webp"
-  },
-  {
-    "id": "candle-soja-001",
-    "name": "Vela de Soja Premium",
-    "category": "Velas",
-    "price": 3500,
-    "description": "Vela de cera de soja vertida a mano, ecológica y de larga duración.",
-    "benefits": [
-      "Eco friendly",
-      "Larga duración"
-    ],
-    "variants": [
-      {
-        "aroma": "Vainilla y Coco",
-        "color": "Crema"
-      },
-      {
-        "aroma": "Lavanda Relajante",
-        "color": "Lila Suave"
-      },
-      {
-        "aroma": "Frutos Rojos",
-        "color": "Rosa Pastel"
-      }
-    ],
-    "image": "/images/products/vela-premium-600.webp"
   },
   {
     "id": "perfumina-001",
@@ -175,16 +929,259 @@
     "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Coniglio",
-        "size": "250ml"
+        "aroma": "Alcanfor"
       },
       {
-        "aroma": "Wanama",
-        "size": "250ml"
+        "aroma": "Almendra Dulce"
       },
       {
-        "aroma": "Flores Blancas",
-        "size": "250ml"
+        "aroma": "Ámbar"
+      },
+      {
+        "aroma": "Ananá"
+      },
+      {
+        "aroma": "Azahar (Neroli)"
+      },
+      {
+        "aroma": "Banana"
+      },
+      {
+        "aroma": "Benjuí"
+      },
+      {
+        "aroma": "Bergamota"
+      },
+      {
+        "aroma": "Caléndula"
+      },
+      {
+        "aroma": "Canela"
+      },
+      {
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cedro"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Champagnat"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Chocolate"
+      },
+      {
+        "aroma": "Citronella"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Colonia Inglesa"
+      },
+      {
+        "aroma": "Colonia Internacional"
+      },
+      {
+        "aroma": "Colonia"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Eucaliptus"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Furia"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Geranio"
+      },
+      {
+        "aroma": "Green Apple"
+      },
+      {
+        "aroma": "Herbal"
+      },
+      {
+        "aroma": "Hierbas"
+      },
+      {
+        "aroma": "Incienso"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Jengibre"
+      },
+      {
+        "aroma": "Lavanda Oma"
+      },
+      {
+        "aroma": "Lavanda Poema"
+      },
+      {
+        "aroma": "Lila"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Manzanilla"
+      },
+      {
+        "aroma": "Marina"
+      },
+      {
+        "aroma": "Melisa"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Miel"
+      },
+      {
+        "aroma": "Mirra"
+      },
+      {
+        "aroma": "Musk Especial"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Nardo (Tuberosa)"
+      },
+      {
+        "aroma": "Orquídea"
+      },
+      {
+        "aroma": "Palo Santo"
+      },
+      {
+        "aroma": "Panda Bebe"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Patchouly"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Reina de la Noche"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Ruda"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Simil Arpege"
+      },
+      {
+        "aroma": "Simil Bamboo S"
+      },
+      {
+        "aroma": "Simil Mini Mimo"
+      },
+      {
+        "aroma": "Simil Nina Ricci"
+      },
+      {
+        "aroma": "Simil Sedal"
+      },
+      {
+        "aroma": "Tomillo"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa"
+      },
+      {
+        "aroma": "Verbena (Cedrón)"
+      },
+      {
+        "aroma": "Violeta"
+      },
+      {
+        "aroma": "Ylang Ylang"
       }
     ],
     "image": "/images/products/perfumina.webp"
@@ -192,7 +1189,7 @@
   {
     "id": "experiencia-personalizada-001",
     "name": "Experiencia Personalizada",
-    "category": "Kits",
+    "category": "Velas",
     "price": 6500,
     "description": "Creá tu propia combinación de aromas y envases para un regalo único o para tu hogar.",
     "benefits": [
@@ -211,9 +1208,9 @@
   {
     "id": "osito-rose-home",
     "name": "Osito Rosé 'Home'",
-    "category": "Velas",
+    "category": "Souvenirs / Eventos",
     "price": 6500,
-    "description": "Vela artesanal de soja en frasco de vidrio con un osito en relieve. Delicada, romántica y perfecta para regalos especiales o para decorar con ternura cualquier rincón. Hecha a mano con amor por ISAROMAS.",
+    "description": "Vela artesanal de soja en frasco de vidrio con un osito en relieve. Delicada, romántica y perfecta para regalos especiales o para decorar con ternura cualquier rincón. Perfecta para bautismos, baby showers y momentos inolvidables. Hecha a mano con amor por ISAROMAS.",
     "benefits": [
       "Ideal para regalar",
       "Decorativa"
@@ -221,8 +1218,130 @@
     "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Aroma a elección",
-        "color": "Rosado Pastel"
+        "aroma": "Banana"
+      },
+      {
+        "aroma": "Canela"
+      },
+      {
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Citronela"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Frutos Rojos"
+      },
+      {
+        "aroma": "Bebe"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Lavanda"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa S"
+      },
+      {
+        "aroma": "Violeta"
       }
     ],
     "image": "/images/products/osito-rose-home.webp"
@@ -240,8 +1359,130 @@
     "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Frutilla con crema",
-        "color": "Rosado Pastel y Blanco"
+        "aroma": "Banana"
+      },
+      {
+        "aroma": "Canela"
+      },
+      {
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Citronela"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Frutos Rojos"
+      },
+      {
+        "aroma": "Bebe"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Lavanda"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa S"
+      },
+      {
+        "aroma": "Violeta"
       }
     ],
     "image": "/images/products/frutilla-cream.webp"
@@ -259,8 +1500,130 @@
     "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Chocolate vainilla",
-        "color": "Rosado nude + chocolate"
+        "aroma": "Banana"
+      },
+      {
+        "aroma": "Canela"
+      },
+      {
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Citronela"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Frutos Rojos"
+      },
+      {
+        "aroma": "Bebe"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Lavanda"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa S"
+      },
+      {
+        "aroma": "Violeta"
       }
     ],
     "image": "/images/products/muffin-choco-rose.webp"
@@ -278,8 +1641,130 @@
     "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Dulce vainilla / algodón de azúcar",
-        "color": "Mix pastel multicolor"
+        "aroma": "Banana"
+      },
+      {
+        "aroma": "Canela"
+      },
+      {
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Citronela"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Frutos Rojos"
+      },
+      {
+        "aroma": "Bebe"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Lavanda"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa S"
+      },
+      {
+        "aroma": "Violeta"
       }
     ],
     "image": "/images/products/torta-candy-pastel.webp"
@@ -297,8 +1782,130 @@
     "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Frutos rojos con crema / berries dulces",
-        "color": "Tonos nude + rojo frutal + blanco crema"
+        "aroma": "Banana"
+      },
+      {
+        "aroma": "Canela"
+      },
+      {
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Citronela"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Frutos Rojos"
+      },
+      {
+        "aroma": "Bebe"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Lavanda"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa S"
+      },
+      {
+        "aroma": "Violeta"
       }
     ],
     "image": "/images/products/duo-berry-sweet.webp"
@@ -315,12 +1922,259 @@
     ],
     "variants": [
       {
-        "aroma": "Jazmín",
-        "color": "Transparente"
+        "aroma": "Alcanfor"
       },
       {
-        "aroma": "Limón y Jengibre",
-        "color": "Transparente"
+        "aroma": "Almendra Dulce"
+      },
+      {
+        "aroma": "Ámbar"
+      },
+      {
+        "aroma": "Ananá"
+      },
+      {
+        "aroma": "Azahar (Neroli)"
+      },
+      {
+        "aroma": "Banana"
+      },
+      {
+        "aroma": "Benjuí"
+      },
+      {
+        "aroma": "Bergamota"
+      },
+      {
+        "aroma": "Caléndula"
+      },
+      {
+        "aroma": "Canela"
+      },
+      {
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cedro"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Champagnat"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Chocolate"
+      },
+      {
+        "aroma": "Citronella"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Colonia Inglesa"
+      },
+      {
+        "aroma": "Colonia Internacional"
+      },
+      {
+        "aroma": "Colonia"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Eucaliptus"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Furia"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Geranio"
+      },
+      {
+        "aroma": "Green Apple"
+      },
+      {
+        "aroma": "Herbal"
+      },
+      {
+        "aroma": "Hierbas"
+      },
+      {
+        "aroma": "Incienso"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Jengibre"
+      },
+      {
+        "aroma": "Lavanda Oma"
+      },
+      {
+        "aroma": "Lavanda Poema"
+      },
+      {
+        "aroma": "Lila"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Manzanilla"
+      },
+      {
+        "aroma": "Marina"
+      },
+      {
+        "aroma": "Melisa"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Miel"
+      },
+      {
+        "aroma": "Mirra"
+      },
+      {
+        "aroma": "Musk Especial"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Nardo (Tuberosa)"
+      },
+      {
+        "aroma": "Orquídea"
+      },
+      {
+        "aroma": "Palo Santo"
+      },
+      {
+        "aroma": "Panda Bebe"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Patchouly"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Reina de la Noche"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Ruda"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Simil Arpege"
+      },
+      {
+        "aroma": "Simil Bamboo S"
+      },
+      {
+        "aroma": "Simil Mini Mimo"
+      },
+      {
+        "aroma": "Simil Nina Ricci"
+      },
+      {
+        "aroma": "Simil Sedal"
+      },
+      {
+        "aroma": "Tomillo"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa"
+      },
+      {
+        "aroma": "Verbena (Cedrón)"
+      },
+      {
+        "aroma": "Violeta"
+      },
+      {
+        "aroma": "Ylang Ylang"
       }
     ],
     "image": "/images/products/difusor-de-ambiente-con-varilla.webp"
@@ -328,7 +2182,7 @@
   {
     "id": "vela-cupcake-001",
     "name": "Vela Cupcake Confetti",
-    "category": "Velas Gourmand",
+    "category": "Velas",
     "price": 3800,
     "description": "¡La vela más dulce de la tienda! Vela de soja con diseño realista de cupcake, topping de cera batida artesanal y grageas de colores. Perfecta para regalar o celebrar un cumpleaños.",
     "benefits": [
@@ -338,10 +2192,130 @@
     "imageFit": "cover",
     "variants": [
       {
-        "aroma": "Vainilla y Caramelo"
+        "aroma": "Banana"
       },
       {
-        "aroma": "Coco y Dulce de Leche"
+        "aroma": "Canela"
+      },
+      {
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Citronela"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Frutos Rojos"
+      },
+      {
+        "aroma": "Bebe"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Lavanda"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa S"
+      },
+      {
+        "aroma": "Violeta"
       }
     ],
     "image": "/images/products/vela-cupcake-confetti.webp"

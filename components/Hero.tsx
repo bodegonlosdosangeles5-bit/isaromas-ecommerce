@@ -193,7 +193,7 @@ const Hero: React.FC = () => {
         
         {/* Text Content */}
         <div className="w-full max-w-3xl text-left">
-            <ScrollReveal className="space-y-5 md:space-y-6 max-w-3xl relative">
+            <ScrollReveal className="space-y-5 md:space-y-6 max-w-3xl relative -mt-12 md:mt-0">
               {/* Fondo liquid glass solo en móvil */}
               <div 
                 className="md:hidden absolute inset-0 -inset-x-4 -inset-y-3 rounded-2xl -z-10 backdrop-blur-xl"

@@ -20,6 +20,95 @@ import { useCart } from '@/context/CartContext';
 import productsData from '@/data/products.json';
 import { normalizeProduct } from '@/types/product';
 
+const GenderTabs = ({ variants, selectedVariant, onSelect }: { variants: any[], selectedVariant: any, onSelect: (v: any) => void }) => {
+    const [activeTab, setActiveTab] = useState<'Femeninas' | 'Masculinas'>('Femeninas');
+
+    const filteredVariants = variants.filter(v => {
+        if (activeTab === 'Femeninas') {
+            return v.gender === 'Femenino' || v.gender === 'Unisex';
+        } else {
+            return v.gender === 'Masculino';
+        }
+    });
+
+    return (
+        <div>
+            <div className="flex p-1 bg-isaromas-cream rounded-xl mb-4 border border-isaromas-card-border w-fit">
+                <button
+                    onClick={() => setActiveTab('Femeninas')}
+                    className={`px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 ${
+                        activeTab === 'Femeninas'
+                            ? 'bg-isaromas-primary text-white shadow-sm'
+                            : 'text-isaromas-text-secondary hover:text-isaromas-primary'
+                    }`}
+                >
+                    Femeninas
+                </button>
+                <button
+                    onClick={() => setActiveTab('Masculinas')}
+                    className={`px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 ${
+                        activeTab === 'Masculinas'
+                            ? 'bg-isaromas-primary text-white shadow-sm'
+                            : 'text-isaromas-text-secondary hover:text-isaromas-primary'
+                    }`}
+                >
+                    Masculinas
+                </button>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+                {filteredVariants.map((v, idx) => (
+                    <button
+                        key={idx}
+                        onClick={() => onSelect(v)}
+                        className={`px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 border ${
+                            selectedVariant === v
+                                ? 'bg-isaromas-primary text-white border-isaromas-primary shadow-md transform scale-105'
+                                : 'bg-isaromas-cream text-isaromas-text-secondary border-isaromas-card-border hover:border-isaromas-primary hover:text-isaromas-primary'
+                        }`}
+                    >
+                        {v.aroma}
+                    </button>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+const AromaSelector = ({ title, helperText, options, selectedOption, onSelect }: { title: string, helperText: string, options: any[], selectedOption: any, onSelect: (v: any) => void }) => {
+    return (
+        <div className="space-y-6 mb-8">
+            <h3 className="font-bold text-isaromas-text-main tracking-wide uppercase text-sm">
+                {title}
+            </h3>
+            <p className="text-sm text-isaromas-text-secondary mb-3">
+                {helperText}
+            </p>
+            <div className="flex flex-wrap gap-3">
+                {options.map((v, idx) => (
+                    <button
+                        key={idx}
+                        onClick={() => onSelect(v)}
+                        className={`px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 border ${
+                            selectedOption === v
+                                ? 'bg-isaromas-primary text-white border-isaromas-primary shadow-md transform scale-105'
+                                : 'bg-isaromas-cream text-isaromas-text-secondary border-isaromas-card-border hover:border-isaromas-primary hover:text-isaromas-primary'
+                        }`}
+                    >
+                        {/* Mostrar aroma, y si tiene color o tamaño también mostrarlo (para aceites/difusores si aplica, aunque ahora solo tienen aroma en la lista nueva, pero por compatibilidad) */}
+                        {[v.aroma, (v as any).color, (v as any).size].filter(Boolean).join(' - ')}
+                    </button>
+                ))}
+            </div>
+            <p className="text-sm text-isaromas-text-secondary italic mt-2">
+                Si querés un aroma que no veas en la lista, consultanos.
+            </p>
+            {/* Aromas disponibles para perfuminas, aceites puros para hornito y difusores ISAROMAS.
+                El cliente debe elegir un aroma de esta lista antes de completar el pedido. */}
+        </div>
+    );
+};
+
 export default function ProductDetailPage() {
   const params = useParams();
   const id = params?.id as string;
@@ -60,6 +149,9 @@ export default function ProductDetailPage() {
   const handleAddToCart = () => {
     addToCart(product, quantity, selectedVariant || undefined);
   };
+
+  const isCandle = product.category.includes('Velas') || product.name.toLowerCase().includes('vela');
+  const isAromaProduct = ['Perfuminas', 'Aceites', 'Difusores'].includes(product.category);
 
   return (
     <div className="min-h-screen flex flex-col bg-isaromas-cream">
@@ -120,24 +212,57 @@ export default function ProductDetailPage() {
 
               {/* Selectores de Variantes */}
               {product.variants && product.variants.length > 0 && (
-                <div className="space-y-6 mb-8">
-                    <h3 className="font-bold text-isaromas-text-main tracking-wide uppercase text-sm">Elegí tu variante:</h3>
-                    <div className="flex flex-wrap gap-3">
-                        {product.variants.map((v, idx) => (
-                            <button
-                                key={idx}
-                                onClick={() => setSelectedVariant(v)}
-                                className={`px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 border ${
-                                    selectedVariant === v
-                                        ? 'bg-isaromas-primary text-white border-isaromas-primary shadow-md transform scale-105'
-                                        : 'bg-isaromas-cream text-isaromas-text-secondary border-isaromas-card-border hover:border-isaromas-primary hover:text-isaromas-primary'
-                                }`}
-                            >
-                                {[v.aroma, (v as any).color, (v as any).size, (v as any).gender].filter(Boolean).join(' - ')}
-                            </button>
-                        ))}
-                    </div>
-                </div>
+                <>
+                    {/* Pestañas de fragancias: Femeninas (más Ana Abiyedh unisex) y Masculinas. */}
+                    {product.variants.some((v: any) => v.gender) ? (
+                        <div className="space-y-6 mb-8">
+                            <h3 className="font-bold text-isaromas-text-main tracking-wide uppercase text-sm">
+                                {product.id === 'perfume-001' ? 'ELEGÍ TU FRAGANCIA:' : 'ELEGÍ TU VARIANTE:'}
+                            </h3>
+                            <GenderTabs 
+                                variants={product.variants} 
+                                selectedVariant={selectedVariant} 
+                                onSelect={setSelectedVariant} 
+                            />
+                            {product.id === 'perfume-001' && (
+                                <p className="text-sm text-isaromas-text-secondary italic mt-2">
+                                    Consultá por más fragancias.
+                                </p>
+                            )}
+                        </div>
+                    ) : (isCandle || isAromaProduct) ? (
+                        <AromaSelector 
+                            title="ELEGÍ TU AROMA:"
+                            helperText={isCandle 
+                                ? "Podés elegir el aroma de tu vela entre estas opciones disponibles." 
+                                : "Podés elegir el aroma de tu producto entre estas opciones disponibles."}
+                            options={product.variants}
+                            selectedOption={selectedVariant}
+                            onSelect={setSelectedVariant}
+                        />
+                    ) : (
+                        <div className="space-y-6 mb-8">
+                            <h3 className="font-bold text-isaromas-text-main tracking-wide uppercase text-sm">
+                                ELEGÍ TU VARIANTE:
+                            </h3>
+                            <div className="flex flex-wrap gap-3">
+                                {product.variants.map((v, idx) => (
+                                    <button
+                                        key={idx}
+                                        onClick={() => setSelectedVariant(v)}
+                                        className={`px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 border ${
+                                            selectedVariant === v
+                                                ? 'bg-isaromas-primary text-white border-isaromas-primary shadow-md transform scale-105'
+                                                : 'bg-isaromas-cream text-isaromas-text-secondary border-isaromas-card-border hover:border-isaromas-primary hover:text-isaromas-primary'
+                                        }`}
+                                    >
+                                        {[v.aroma, (v as any).color, (v as any).size].filter(Boolean).join(' - ')}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </>
               )}
 
               {/* Controles de Cantidad y Agregar al Carrito */}
