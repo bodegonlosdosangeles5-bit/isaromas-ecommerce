@@ -6,7 +6,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 
 // Iconos
-import { ShoppingCart, Star, Truck, ShieldCheck, ArrowLeft, ShoppingBag } from 'lucide-react';
+import { ShoppingCart, Star, Truck, ShieldCheck, ArrowLeft, ShoppingBag, Search } from 'lucide-react';
 
 // Componentes
 import Navbar from '@/components/Navbar';
@@ -19,6 +19,8 @@ import { useCart } from '@/context/CartContext';
 // Datos
 import productsData from '@/data/products.json';
 import { normalizeProduct } from '@/types/product';
+
+import { formatPrice } from '@/utils/formatPrice';
 
 const GenderTabs = ({ variants, selectedVariant, onSelect }: { variants: any[], selectedVariant: any, onSelect: (v: any) => void }) => {
     const [activeTab, setActiveTab] = useState<'Femeninas' | 'Masculinas'>('Femeninas');
@@ -75,36 +77,87 @@ const GenderTabs = ({ variants, selectedVariant, onSelect }: { variants: any[], 
     );
 };
 
+
+
 const AromaSelector = ({ title, helperText, options, selectedOption, onSelect }: { title: string, helperText: string, options: any[], selectedOption: any, onSelect: (v: any) => void }) => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
+
+    // Sync searchTerm with selectedOption when it changes externally or on initial load
+    useEffect(() => {
+        if (selectedOption) {
+            setSearchTerm(selectedOption.aroma);
+        }
+    }, [selectedOption]);
+
+    const filteredOptions = options.filter(option => 
+        option.aroma.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    const handleSelect = (option: any) => {
+        onSelect(option);
+        setSearchTerm(option.aroma);
+        setIsOpen(false);
+    };
+
     return (
-        <div className="space-y-6 mb-8">
-            <h3 className="font-bold text-isaromas-text-main tracking-wide uppercase text-sm">
-                {title}
-            </h3>
-            <p className="text-sm text-isaromas-text-secondary mb-3">
-                {helperText}
-            </p>
-            <div className="flex flex-wrap gap-3">
-                {options.map((v, idx) => (
-                    <button
-                        key={idx}
-                        onClick={() => onSelect(v)}
-                        className={`px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 border ${
-                            selectedOption === v
-                                ? 'bg-isaromas-primary text-white border-isaromas-primary shadow-md transform scale-105'
-                                : 'bg-isaromas-cream text-isaromas-text-secondary border-isaromas-card-border hover:border-isaromas-primary hover:text-isaromas-primary'
-                        }`}
-                    >
-                        {/* Mostrar aroma, y si tiene color o tamaño también mostrarlo (para aceites/difusores si aplica, aunque ahora solo tienen aroma en la lista nueva, pero por compatibilidad) */}
-                        {[v.aroma, (v as any).color, (v as any).size].filter(Boolean).join(' - ')}
-                    </button>
-                ))}
+        <div className="space-y-4 mb-8">
+            {/* Header */}
+            <div>
+                <h3 className="font-bold text-isaromas-text-main tracking-wide uppercase text-sm mb-1">
+                    {title}
+                </h3>
             </div>
-            <p className="text-sm text-isaromas-text-secondary italic mt-2">
-                Si querés un aroma que no veas en la lista, consultanos.
-            </p>
-            {/* Aromas disponibles para perfuminas, aceites puros para hornito y difusores ISAROMAS.
-                El cliente debe elegir un aroma de esta lista antes de completar el pedido. */}
+
+            {/* Autocomplete Input */}
+            <div className="relative">
+                <div className="relative">
+                    <input
+                        type="text"
+                        placeholder="Buscar aroma..."
+                        value={searchTerm}
+                        onChange={(e) => {
+                            setSearchTerm(e.target.value);
+                            setIsOpen(true);
+                        }}
+                        onFocus={() => setIsOpen(true)}
+                        // Delay hiding to allow click on option
+                        onBlur={() => setTimeout(() => setIsOpen(false), 200)}
+                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-isaromas-card-border focus:border-isaromas-primary focus:ring-2 focus:ring-isaromas-pink-light outline-none transition-all bg-white text-isaromas-text-main placeholder:text-isaromas-text-muted text-sm shadow-sm"
+                    />
+                    <Search className="absolute left-3 top-3.5 text-isaromas-icon-muted" size={18} />
+                </div>
+
+                {/* Dropdown List */}
+                {isOpen && (
+                    <div className="absolute z-20 mt-1 w-full max-h-60 overflow-y-auto rounded-xl border border-isaromas-card-border bg-white shadow-lg custom-scrollbar">
+                        {filteredOptions.length === 0 ? (
+                            <div className="px-4 py-3 text-xs text-isaromas-text-muted italic">
+                                No encontramos ese aroma. Si querés uno especial, consultanos.
+                            </div>
+                        ) : (
+                            filteredOptions.map((v, idx) => {
+                                const isSelected = selectedOption === v;
+                                return (
+                                    <button
+                                        key={idx}
+                                        type="button"
+                                        onClick={() => handleSelect(v)}
+                                        className={`flex w-full items-center justify-between px-4 py-3 text-left text-sm transition-colors border-b border-gray-50 last:border-0 ${
+                                            isSelected
+                                                ? 'bg-isaromas-pink-light/20 text-isaromas-primary font-medium'
+                                                : 'hover:bg-isaromas-pink-light/10 text-isaromas-text-main'
+                                        }`}
+                                    >
+                                        <span>{v.aroma}</span>
+                                        {isSelected && <span className="text-xs text-isaromas-primary ml-2">Seleccionado</span>}
+                                    </button>
+                                );
+                            })
+                        )}
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
@@ -201,7 +254,7 @@ export default function ProductDetailPage() {
                 <div className="flex items-baseline gap-4 mb-6 pb-6 border-b border-isaromas-card-border">
                     {product.id !== 'experiencia-personalizada-001' && (
                         <span className="text-4xl font-bold text-isaromas-text-main">
-                            ${product.price.toLocaleString()}
+                            {formatPrice(product.price)}
                         </span>
                     )}
                 </div>

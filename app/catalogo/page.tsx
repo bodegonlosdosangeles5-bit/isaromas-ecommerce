@@ -74,7 +74,7 @@ export default function CatalogoPage() {
 
           {/* Sidebar Filters */}
           <aside className={`
-            fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 lg:relative lg:transform-none lg:w-64 lg:bg-transparent lg:shadow-none lg:inset-auto lg:max-w-none flex flex-col
+            fixed inset-y-0 left-0 z-30 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 lg:relative lg:transform-none lg:w-64 lg:bg-transparent lg:shadow-none lg:inset-auto lg:max-w-none flex flex-col
             ${isMobileFilterOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
           `}>
             {/* Header con botón cerrar más visible */}
@@ -173,7 +173,7 @@ export default function CatalogoPage() {
           {/* Overlay for mobile */}
           {isMobileFilterOpen && (
             <div 
-              className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+              className="fixed inset-0 bg-black/50 z-20 lg:hidden"
               onClick={() => setIsMobileFilterOpen(false)}
             />
           )}

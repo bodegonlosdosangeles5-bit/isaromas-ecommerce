@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ShoppingCart, ArrowRight } from 'lucide-react';
 import { Product } from '@/types/product';
+import { formatPrice } from '@/utils/formatPrice';
 
 interface ProductCardProps {
   product: Product;
@@ -56,7 +57,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <div className="mt-auto flex items-center justify-between pt-4 border-t border-isaromas-card-border/50">
             {product.id !== 'experiencia-personalizada-001' ? (
                 <span className="text-xl font-bold text-isaromas-text-main">
-                    ${product.price.toLocaleString()}
+                    {formatPrice(product.price)}
                 </span>
             ) : (
                 <span className="text-sm font-bold text-isaromas-primary uppercase tracking-wider">

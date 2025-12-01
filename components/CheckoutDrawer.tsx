@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Trash2, ShoppingBag, MessageCircle, Info } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
+import { formatPrice } from '@/utils/formatPrice';
 
 const CheckoutDrawer: React.FC = () => {
   const { items, isCartOpen, toggleCart, removeFromCart, updateQuantity, totalPrice, clearCart } = useCart();
@@ -32,10 +33,10 @@ const CheckoutDrawer: React.FC = () => {
         ].filter(Boolean).join(', ');
         message += ` (${variantDetails})`;
       }
-      message += ` - $${(item.product.price * item.quantity).toLocaleString()}\n`;
+      message += ` - ${formatPrice(item.product.price * item.quantity)}\n`;
     });
 
-    message += `\n*Total: $${totalPrice.toLocaleString()}*\n\n`;
+    message += `\n*Total: ${formatPrice(totalPrice)}*\n\n`;
     
     message += `*Mis Datos:*\n`;
     message += `Nombre: ${formData.name}\n`;
@@ -95,12 +96,12 @@ const CheckoutDrawer: React.FC = () => {
     <>
       {/* Overlay */}
       <div 
-        className="fixed inset-0 bg-black/50 z-40 transition-opacity"
+        className="fixed inset-0 bg-black/50 z-[90] transition-opacity"
         onClick={toggleCart}
       />
 
       {/* Drawer Mejorado */}
-      <div className="fixed inset-y-0 right-0 z-50 w-full max-w-full sm:max-w-md bg-white shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out">
+      <div className="fixed inset-y-0 right-0 z-[100] w-full max-w-full sm:max-w-md bg-white shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out">
         
         {/* Header Mejorado */}
         <div className="p-4 sm:p-5 border-b border-isaromas-card-border flex justify-between items-center bg-isaromas-cream">
@@ -191,7 +192,7 @@ const CheckoutDrawer: React.FC = () => {
                       <div className="flex flex-row sm:flex-col items-center sm:items-start justify-between sm:justify-start">
                         <span className="text-xs text-isaromas-text-muted font-medium mb-0 sm:mb-0.5">Precio unitario</span>
                         <span className="text-sm font-bold text-isaromas-text-secondary sm:ml-0 ml-2">
-                          ${item.product.price.toLocaleString()}
+                          {formatPrice(item.product.price)}
                         </span>
                       </div>
 
@@ -223,7 +224,7 @@ const CheckoutDrawer: React.FC = () => {
                       <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start">
                         <span className="text-xs text-isaromas-text-muted font-medium mb-0 sm:mb-0.5">Subtotal</span>
                         <span className="text-lg sm:text-xl font-extrabold text-isaromas-primary tracking-tight">
-                          ${(item.product.price * item.quantity).toLocaleString()}
+                          {formatPrice(item.product.price * item.quantity)}
                         </span>
                       </div>
                     </div>
@@ -242,7 +243,7 @@ const CheckoutDrawer: React.FC = () => {
               <div className="flex justify-between items-center mb-3">
                 <span className="text-isaromas-text-main font-bold text-base tracking-tight">Total:</span>
                 <span className="text-2xl font-extrabold text-isaromas-primary tracking-tight">
-                  ${totalPrice.toLocaleString()}
+                  {formatPrice(totalPrice)}
                 </span>
               </div>
               <button 
