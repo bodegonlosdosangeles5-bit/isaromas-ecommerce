@@ -55,8 +55,8 @@ const Navbar: React.FC = () => {
       ref={navRef}
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-2xl border-b border-white/30 shadow-lg shadow-isaromas-pink-light/10'
-          : 'bg-isaromas-cream/95 backdrop-blur-xl border-b border-white/20 shadow-md shadow-isaromas-pink-light/5'
+          ? 'bg-white/95 backdrop-blur-2xl border-b border-white/30 shadow-lg shadow-isaroma-pink-light/10'
+          : 'bg-isaroma-cream/95 backdrop-blur-xl border-b border-white/20 shadow-md shadow-isaroma-pink-light/5'
       }`}
       style={{
         background: scrolled
@@ -112,11 +112,11 @@ const Navbar: React.FC = () => {
                     animation: 'gradient-text 3s ease infinite',
                   }}
                 >
-                  ISAROMAS
+                  ISAROMA
                 </span>
               ) : (
-                <span className="text-xl sm:text-2xl md:text-3xl font-extrabold text-isaromas-text-main relative z-10 transition-all duration-300">
-                  ISAROMAS
+                <span className="text-xl sm:text-2xl md:text-3xl font-extrabold text-isaroma-text-main relative z-10 transition-all duration-300">
+                  ISAROMA
                 </span>
               )}
               <div 
@@ -130,7 +130,7 @@ const Navbar: React.FC = () => {
               />
               {/* Sparkle decoration */}
               {isActive('/') && (
-                <Sparkles className="absolute -top-1 -right-6 w-4 h-4 text-isaromas-primary animate-sparkle opacity-60" />
+                <Sparkles className="absolute -top-1 -right-6 w-4 h-4 text-isaroma-primary animate-sparkle opacity-60" />
               )}
             </div>
           </Link>
@@ -145,7 +145,7 @@ const Navbar: React.FC = () => {
                 className={`relative z-10 transition-all duration-300 ${
                   isActive('/')
                     ? 'font-bold nav-link-active'
-                    : 'text-isaromas-text-menu group-hover:font-semibold'
+                    : 'text-isaroma-text-menu group-hover:font-semibold'
                 }`}
               >
                 INICIO
@@ -164,7 +164,7 @@ const Navbar: React.FC = () => {
                 className={`relative z-10 transition-all duration-300 ${
                   isActive('/catalogo')
                     ? 'font-bold nav-link-active'
-                    : 'text-isaromas-text-menu group-hover:font-semibold'
+                    : 'text-isaroma-text-menu group-hover:font-semibold'
                 }`}
               >
                 CATÁLOGO
@@ -177,14 +177,14 @@ const Navbar: React.FC = () => {
             </Link>
             <Link
               href="/#faq"
-              className="group relative px-4 py-2 font-medium text-sm tracking-wide transition-all duration-300 text-isaromas-text-menu hover:font-semibold nav-link"
+              className="group relative px-4 py-2 font-medium text-sm tracking-wide transition-all duration-300 text-isaroma-text-menu hover:font-semibold nav-link"
             >
               <span className="relative z-10">FAQ</span>
               <div className="absolute bottom-0 left-0 h-0.5 rounded-full nav-underline" />
             </Link>
             <Link
               href="/#contacto"
-              className="group relative px-4 py-2 font-medium text-sm tracking-wide transition-all duration-300 text-isaromas-text-menu hover:font-semibold nav-link"
+              className="group relative px-4 py-2 font-medium text-sm tracking-wide transition-all duration-300 text-isaroma-text-menu hover:font-semibold nav-link"
             >
               <span className="relative z-10">CONTACTO</span>
               <div className="absolute bottom-0 left-0 h-0.5 rounded-full nav-underline" />
@@ -216,7 +216,7 @@ const Navbar: React.FC = () => {
               <ShoppingBag 
                 size={22} 
                 strokeWidth={2}
-                className="text-isaromas-text-main group-hover:text-isaromas-primary transition-colors duration-300"
+                className="text-isaroma-text-main group-hover:text-isaroma-primary transition-colors duration-300"
               />
             )}
             {mounted && totalItems > 0 && (
@@ -258,7 +258,7 @@ const Navbar: React.FC = () => {
                 <ShoppingBag 
                   size={22} 
                   strokeWidth={2}
-                  className="text-isaromas-text-main transition-colors duration-300"
+                  className="text-isaroma-text-main transition-colors duration-300"
                 />
               )}
               {mounted && totalItems > 0 && (
@@ -285,7 +285,7 @@ const Navbar: React.FC = () => {
                 <X 
                   size={24} 
                   strokeWidth={2}
-                  className="text-isaromas-primary transition-colors duration-300"
+                  className="text-isaroma-primary transition-colors duration-300"
                   style={{
                     color: 'transparent',
                     background: 'linear-gradient(135deg, #DB2777, #EC4899)',
@@ -297,7 +297,7 @@ const Navbar: React.FC = () => {
                 <Menu 
                   size={24} 
                   strokeWidth={2}
-                  className="text-isaromas-text-main hover:text-isaromas-primary transition-colors duration-300"
+                  className="text-isaroma-text-main hover:text-isaroma-primary transition-colors duration-300"
                 />
               )}
             </button>
@@ -319,7 +319,7 @@ const Navbar: React.FC = () => {
                 className={`group px-4 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden ${
                   isActive('/')
                     ? 'text-white shadow-lg'
-                    : 'text-isaromas-text-secondary hover:text-white'
+                    : 'text-isaroma-text-secondary hover:text-white'
                 }`}
                 style={
                   isActive('/')
@@ -353,7 +353,7 @@ const Navbar: React.FC = () => {
                 className={`group px-4 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden ${
                   isActive('/catalogo')
                     ? 'text-white shadow-lg'
-                    : 'text-isaromas-text-secondary hover:text-white'
+                    : 'text-isaroma-text-secondary hover:text-white'
                 }`}
                 style={
                   isActive('/catalogo')
@@ -381,7 +381,7 @@ const Navbar: React.FC = () => {
               <Link
                 href="/#faq"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="group px-4 py-3 rounded-xl font-semibold text-isaromas-text-secondary hover:text-white transition-all duration-300 relative overflow-hidden"
+                className="group px-4 py-3 rounded-xl font-semibold text-isaroma-text-secondary hover:text-white transition-all duration-300 relative overflow-hidden"
                 style={{
                   background: 'rgba(255, 255, 255, 0.3)',
                 }}

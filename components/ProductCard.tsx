@@ -13,16 +13,16 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <Link href={`/productos/${product.id}`} className="block group h-full">
-      <div className="bg-white rounded-2xl overflow-hidden border border-isaromas-card-border shadow-sm hover-card h-full flex flex-col relative">
+      <div className="bg-white rounded-2xl overflow-hidden border border-isaroma-card-border shadow-sm hover-card h-full flex flex-col relative">
         {/* Badge de Categoría */}
         <div className="absolute top-3 left-3 z-10">
-            <span className="px-3 py-1.5 bg-white/90 backdrop-blur-sm text-xs font-semibold text-isaromas-primary rounded-full shadow-sm border border-isaromas-pink-light">
+            <span className="px-3 py-1.5 bg-white/90 backdrop-blur-sm text-xs font-semibold text-isaroma-primary rounded-full shadow-sm border border-isaroma-pink-light">
                 {product.category}
             </span>
         </div>
 
         {/* Imagen */}
-        <div className="aspect-[4/5] bg-gradient-to-br from-isaromas-cream to-pink-50 relative overflow-hidden p-6 flex items-center justify-center hover-image">
+        <div className="aspect-[4/5] bg-gradient-to-br from-isaroma-cream to-pink-50 relative overflow-hidden p-6 flex items-center justify-center hover-image">
           <img 
             src={product.image} 
             alt={product.name} 
@@ -32,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
         {/* Contenido */}
         <div className="p-5 flex flex-col flex-grow">
-          <h3 className="font-bold text-lg text-isaromas-text-main mb-2 leading-tight tracking-tight group-hover:text-isaromas-primary transition-colors">
+          <h3 className="font-bold text-lg text-isaroma-text-main mb-2 leading-tight tracking-tight group-hover:text-isaroma-primary transition-colors">
             {product.name}
           </h3>
           
@@ -42,7 +42,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               {product.benefits.map((benefit, index) => (
                 <span 
                   key={index}
-                  className="px-2.5 py-1 bg-isaromas-bg-hover text-xs font-medium text-isaromas-primary-hover rounded-full border border-isaromas-card-border"
+                  className="px-2.5 py-1 bg-isaroma-bg-hover text-xs font-medium text-isaroma-primary-hover rounded-full border border-isaroma-card-border"
                 >
                   {benefit}
                 </span>
@@ -50,21 +50,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </div>
           )}
           
-          <p className="text-sm text-isaromas-text-secondary line-clamp-2 mb-4 font-light">
+          <p className="text-sm text-isaroma-text-secondary line-clamp-2 mb-4 font-light">
             {product.description}
           </p>
           
-          <div className="mt-auto flex items-center justify-between pt-4 border-t border-isaromas-card-border/50">
+          <div className="mt-auto flex items-center justify-between pt-4 border-t border-isaroma-card-border/50">
             {product.id !== 'experiencia-personalizada-001' ? (
-                <span className="text-xl font-bold text-isaromas-text-main">
+                <span className="text-xl font-bold text-isaroma-text-main">
                     {formatPrice(product.price)}
                 </span>
             ) : (
-                <span className="text-sm font-bold text-isaromas-primary uppercase tracking-wider">
+                <span className="text-sm font-bold text-isaroma-primary uppercase tracking-wider">
                     Personalizar
                 </span>
             )}
-            <div className="bg-isaromas-primary text-white p-2 rounded-full shadow-md hover-button group-hover:bg-isaromas-primary-hover">
+            <div className="bg-isaroma-primary text-white p-2 rounded-full shadow-md hover-button group-hover:bg-isaroma-primary-hover">
                 <ArrowRight size={18} strokeWidth={2.5} />
             </div>
           </div>

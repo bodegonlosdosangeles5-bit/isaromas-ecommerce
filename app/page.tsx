@@ -19,7 +19,7 @@ import productsData from '@/data/products.json';
 import { normalizeProduct } from '@/types/product';
 
 export const metadata: Metadata = {
-  title: 'ISAROMAS | Esencias que iluminan',
+  title: 'ISAROMA | Esencias que iluminan',
   description: 'Velas de soja, difusores y esencias artesanales personalizadas.',
 };
 
@@ -42,11 +42,11 @@ export default function Home() {
             <div className="container mx-auto px-4 sm:px-6">
             <ScrollReveal>
             <div className="text-center mb-8 sm:mb-12 md:mb-16 max-w-2xl mx-auto">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-isaromas-text-main mb-3 sm:mb-4 tracking-tight relative inline-block">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-isaroma-text-main mb-3 sm:mb-4 tracking-tight relative inline-block">
                 Productos Destacados
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 sm:w-16 h-1 bg-isaromas-primary/50 rounded-full"></div>
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 sm:w-16 h-1 bg-isaroma-primary/50 rounded-full"></div>
                 </h2>
-                <p className="text-isaromas-text-secondary text-base sm:text-lg font-light mt-4 sm:mt-6 px-4">
+                <p className="text-isaroma-text-secondary text-base sm:text-lg font-light mt-4 sm:mt-6 px-4">
                 Las fragancias favoritas de nuestros clientes, creadas para perdurar.
                 </p>
             </div>
@@ -63,7 +63,7 @@ export default function Home() {
             <div className="text-center mt-8 sm:mt-12 md:mt-16">
                 <Link 
                     href="/catalogo" 
-                    className="inline-flex items-center gap-2 text-isaromas-primary font-bold text-base sm:text-lg hover:text-isaromas-primary-hover link-underline transition-all"
+                    className="inline-flex items-center gap-2 text-isaroma-primary font-bold text-base sm:text-lg hover:text-isaroma-primary-hover link-underline transition-all"
                 >
                     Ver todos los productos <ArrowRight size={18} className="sm:w-5 sm:h-5" />
                 </Link>
@@ -72,17 +72,17 @@ export default function Home() {
         </section>
 
         {/* Personalization Section */}
-        <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-isaromas-cream border-t border-isaromas-card-border">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-isaroma-cream border-t border-isaroma-card-border">
             <div className="container mx-auto px-4 sm:px-6">
             <ScrollReveal>
             <div className="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
                 <div className="space-y-6 sm:space-y-8">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-isaromas-text-main tracking-tight relative inline-block">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-isaroma-text-main tracking-tight relative inline-block">
                     Personalizá tu Experiencia
-                    <div className="absolute -bottom-2 left-0 w-12 sm:w-16 h-1 bg-isaromas-primary/50 rounded-full"></div>
+                    <div className="absolute -bottom-2 left-0 w-12 sm:w-16 h-1 bg-isaroma-primary/50 rounded-full"></div>
                 </h2>
-                <p className="text-base sm:text-lg text-isaromas-text-secondary font-light leading-relaxed">
-                    En ISAROMAS creemos que cada hogar es único. Por eso te ofrecemos la posibilidad de personalizar tus fragancias favoritas.
+                <p className="text-base sm:text-lg text-isaroma-text-secondary font-light leading-relaxed">
+                    En ISAROMA creemos que cada hogar es único. Por eso te ofrecemos la posibilidad de personalizar tus fragancias favoritas.
                 </p>
                 
                 <div className="space-y-4 sm:space-y-6">
@@ -91,13 +91,13 @@ export default function Home() {
                     { title: "Seleccioná el Envase", desc: "Diseños que decoran tu espacio." },
                     { title: "Creá tu Momento", desc: "Disfrutá de un ambiente único." }
                     ].map((item, idx) => (
-                    <div key={idx} className="flex gap-3 sm:gap-4 p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl border border-isaromas-card-border shadow-sm hover:shadow-md transition-all hover:border-isaromas-primary/30">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-isaromas-pink-light/30 rounded-full flex items-center justify-center text-isaromas-primary font-bold text-lg sm:text-xl shrink-0">
+                    <div key={idx} className="flex gap-3 sm:gap-4 p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl border border-isaroma-card-border shadow-sm hover:shadow-md transition-all hover:border-isaroma-primary/30">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-isaroma-pink-light/30 rounded-full flex items-center justify-center text-isaroma-primary font-bold text-lg sm:text-xl shrink-0">
                         {idx + 1}
                         </div>
                         <div>
-                        <h3 className="font-bold text-isaromas-text-main text-base sm:text-lg tracking-tight">{item.title}</h3>
-                        <p className="text-sm sm:text-base text-isaromas-text-secondary font-light">{item.desc}</p>
+                        <h3 className="font-bold text-isaroma-text-main text-base sm:text-lg tracking-tight">{item.title}</h3>
+                        <p className="text-sm sm:text-base text-isaroma-text-secondary font-light">{item.desc}</p>
                         </div>
                     </div>
                     ))}

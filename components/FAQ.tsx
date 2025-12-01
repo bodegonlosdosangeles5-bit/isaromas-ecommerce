@@ -50,14 +50,14 @@ const FAQ: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <ScrollReveal>
           <div className="text-center mb-8 sm:mb-12 md:mb-16 max-w-2xl mx-auto">
-            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-isaromas-pink-light/30 rounded-full mb-4 sm:mb-6">
-              <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-isaromas-primary" />
+            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-isaroma-pink-light/30 rounded-full mb-4 sm:mb-6">
+              <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-isaroma-primary" />
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-isaromas-text-main mb-3 sm:mb-4 tracking-tight relative inline-block">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-isaroma-text-main mb-3 sm:mb-4 tracking-tight relative inline-block">
               Preguntas Frecuentes
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 sm:w-16 h-1 bg-isaromas-primary/50 rounded-full"></div>
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 sm:w-16 h-1 bg-isaroma-primary/50 rounded-full"></div>
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-isaromas-text-secondary font-light mt-4 sm:mt-6 px-4">
+            <p className="text-sm sm:text-base md:text-lg text-isaroma-text-secondary font-light mt-4 sm:mt-6 px-4">
               Encontrá respuestas a las consultas más comunes sobre nuestros productos y servicios.
             </p>
           </div>
@@ -70,14 +70,14 @@ const FAQ: React.FC = () => {
                 className={`
                   bg-white border-2 rounded-2xl overflow-hidden transition-all duration-300
                   ${openItem === item.id
-                    ? 'border-isaromas-primary shadow-lg shadow-isaromas-pink-light/30'
-                    : 'border-isaromas-card-border hover:border-isaromas-primary/50 hover:shadow-md'
+                    ? 'border-isaroma-primary shadow-lg shadow-isaroma-pink-light/30'
+                    : 'border-isaroma-card-border hover:border-isaroma-primary/50 hover:shadow-md'
                   }
                 `}
               >
                 <button
                   onClick={() => toggleItem(item.id)}
-                  className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 sm:gap-4 text-left focus:outline-none focus:ring-2 focus:ring-isaromas-primary/50 rounded-xl sm:rounded-2xl transition-colors"
+                  className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 sm:gap-4 text-left focus:outline-none focus:ring-2 focus:ring-isaroma-primary/50 rounded-xl sm:rounded-2xl transition-colors"
                   aria-expanded={openItem === item.id}
                   aria-controls={`faq-answer-${item.id}`}
                 >
@@ -86,8 +86,8 @@ const FAQ: React.FC = () => {
                       className={`
                         shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center transition-all duration-300
                         ${openItem === item.id
-                          ? 'bg-isaromas-primary text-white'
-                          : 'bg-isaromas-pink-light/30 text-isaromas-primary'
+                          ? 'bg-isaroma-primary text-white'
+                          : 'bg-isaroma-pink-light/30 text-isaroma-primary'
                         }
                       `}
                     >
@@ -95,8 +95,8 @@ const FAQ: React.FC = () => {
                     </div>
                     <h3
                       className={`
-                        text-base sm:text-lg md:text-xl font-bold text-isaromas-text-main tracking-tight
-                        ${openItem === item.id ? 'text-isaromas-primary' : ''}
+                        text-base sm:text-lg md:text-xl font-bold text-isaroma-text-main tracking-tight
+                        ${openItem === item.id ? 'text-isaroma-primary' : ''}
                       `}
                     >
                       {item.question}
@@ -104,8 +104,8 @@ const FAQ: React.FC = () => {
                   </div>
                   <ChevronDown
                     className={`
-                      flex-shrink-0 w-6 h-6 text-isaromas-text-secondary transition-transform duration-300
-                      ${openItem === item.id ? 'transform rotate-180 text-isaromas-primary' : ''}
+                      flex-shrink-0 w-6 h-6 text-isaroma-text-secondary transition-transform duration-300
+                      ${openItem === item.id ? 'transform rotate-180 text-isaroma-primary' : ''}
                     `}
                   />
                 </button>
@@ -118,7 +118,7 @@ const FAQ: React.FC = () => {
                   `}
                 >
                   <div className="px-4 sm:px-6 pb-4 sm:pb-6 pl-16 sm:pl-20 md:pl-24">
-                    <p className="text-sm sm:text-base md:text-lg text-isaromas-text-secondary font-light leading-relaxed">
+                    <p className="text-sm sm:text-base md:text-lg text-isaroma-text-secondary font-light leading-relaxed">
                       {item.answer}
                     </p>
                   </div>
@@ -133,4 +133,3 @@ const FAQ: React.FC = () => {
 };
 
 export default FAQ;
-

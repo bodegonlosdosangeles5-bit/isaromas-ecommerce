@@ -28,7 +28,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "ISAROMAS | Esencias que iluminan",
+  title: "ISAROMA | Esencias que iluminan",
   description: "Velas de soja, difusores y esencias artesanales personalizadas.",
 };
 
@@ -39,7 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${playfair.variable} ${poppins.variable}`}>
-      <body className="antialiased bg-isaromas-cream text-isaromas-text-main">
+      <body className="antialiased bg-isaroma-cream text-isaroma-text-main">
         <CartProvider>
           {children}
           <CheckoutDrawer />

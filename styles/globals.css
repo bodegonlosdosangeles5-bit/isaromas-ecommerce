@@ -12,34 +12,34 @@
   --font-sans: var(--font-poppins);
   --font-serif: var(--font-playfair);
 
-  /* Paleta de colores ISAROMAS Modernizada */
-  --color-isaromas-cream: #FFF6F8;
-  --color-isaromas-white: #FFFFFF;
-  --color-isaromas-card-border: #F1E6EA;
-  --color-isaromas-text-main: #2B2B2B;
-  --color-isaromas-text-secondary: #555555;
+  /* Paleta de colores ISAROMA Modernizada */
+  --color-isaroma-cream: #FFF6F8;
+  --color-isaroma-white: #FFFFFF;
+  --color-isaroma-card-border: #F1E6EA;
+  --color-isaroma-text-main: #2B2B2B;
+  --color-isaroma-text-secondary: #555555;
   /* Mejorado para mejor contraste */
-  --color-isaromas-text-menu: #444444;
+  --color-isaroma-text-menu: #444444;
   /* Nuevo para menú */
 
-  --color-isaromas-primary: #EFA3B6;
-  --color-isaromas-primary-hover: #E58EA5;
+  --color-isaroma-primary: #EFA3B6;
+  --color-isaroma-primary-hover: #E58EA5;
 
-  --color-isaromas-pink: #EFA3B6;
-  --color-isaromas-pink-light: #F7DDE4;
-  --color-isaromas-pink-lighter: #FCE7F3;
-  --color-isaromas-rose: #F43F5E;
-  --color-isaromas-rose-light: #FDA4AF;
-  --color-isaromas-gray: #F9FAFB;
+  --color-isaroma-pink: #EFA3B6;
+  --color-isaroma-pink-light: #F7DDE4;
+  --color-isaroma-pink-lighter: #FCE7F3;
+  --color-isaroma-rose: #F43F5E;
+  --color-isaroma-rose-light: #FDA4AF;
+  --color-isaroma-gray: #F9FAFB;
 
   /* Nuevos colores para refinamiento estético */
-  --color-isaromas-icon-muted: #C9A7B1;
-  --color-isaromas-text-muted: #888888;
+  --color-isaroma-icon-muted: #C9A7B1;
+  --color-isaroma-text-muted: #888888;
   /* Mejorado para placeholders */
-  --color-isaromas-badge-new: #F7DDE4;
-  --color-isaromas-border-focus: #EFD7DE;
+  --color-isaroma-badge-new: #F7DDE4;
+  --color-isaroma-border-focus: #EFD7DE;
   /* Nuevo para inputs */
-  --color-isaromas-bg-hover: #FFF0F4;
+  --color-isaroma-bg-hover: #FFF0F4;
   /* Nuevo para botones secundarios */
 }
 
@@ -220,6 +220,7 @@ select {
 
 /* Hero Animations */
 @keyframes float {
+
   0%,
   100% {
     transform: translate(0, 0) scale(1);
@@ -235,6 +236,7 @@ select {
 }
 
 @keyframes float-glass {
+
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
@@ -246,6 +248,7 @@ select {
 }
 
 @keyframes float-particle {
+
   0%,
   100% {
     transform: translate(0, 0);
@@ -259,6 +262,7 @@ select {
 }
 
 @keyframes gradient-text {
+
   0%,
   100% {
     background-position: 0% 50%;
@@ -270,6 +274,7 @@ select {
 }
 
 @keyframes sparkle {
+
   0%,
   100% {
     opacity: 0.3;
@@ -283,6 +288,7 @@ select {
 }
 
 @keyframes bounce-slow {
+
   0%,
   100% {
     transform: translateY(0);
@@ -435,6 +441,8 @@ select {
 .hover-image {
   overflow: hidden;
   border-radius: inherit;
+  width: 100%;
+  height: 100%;
 }
 
 .hover-image img {
@@ -472,7 +480,7 @@ select {
   left: 0;
   width: 0;
   height: 1px;
-  background-color: var(--color-isaromas-primary);
+  background-color: var(--color-isaroma-primary);
   opacity: 0;
   transition: width 0.25s ease-out, opacity 0.25s ease-out;
 }

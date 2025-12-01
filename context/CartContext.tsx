@@ -38,7 +38,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   // Initialize state from localStorage using lazy initialization
   const [items, setItems] = useState<CartItem[]>(() => {
     if (typeof window !== 'undefined') {
-      const savedCart = localStorage.getItem('isaromas-cart');
+      const savedCart = localStorage.getItem('isaroma-cart');
       if (savedCart) {
         try {
           return JSON.parse(savedCart);
@@ -53,7 +53,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   // Save to localStorage on change
   useEffect(() => {
-    localStorage.setItem('isaromas-cart', JSON.stringify(items));
+    localStorage.setItem('isaroma-cart', JSON.stringify(items));
   }, [items]);
 
   const addToCart = (product: Product, quantity: number, variant?: CartItem['variant']) => {

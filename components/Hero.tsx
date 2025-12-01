@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
         <div className="hidden md:block absolute inset-0 w-full h-full">
           <Image
             src="/images/hero-isaromas-desktop.webp"
-            alt="Velas de soja artesanales ISAROMAS"
+            alt="Velas de soja artesanales ISAROMA"
             fill
             className="object-cover object-center w-full h-full"
             priority
@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
         <div className="block md:hidden absolute inset-0 w-full h-full">
           <Image
             src="/images/hero-isaromas-mobile.webp"
-            alt="Velas de soja artesanales ISAROMAS"
+            alt="Velas de soja artesanales ISAROMA"
             fill
             className="object-cover object-center w-full h-full"
             priority
@@ -209,7 +209,7 @@ const Hero: React.FC = () => {
               {/* Title */}
               <div className="mb-4">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-tight">
-                  <span className="text-isaromas-text-main">Aromas que</span>{' '}
+                  <span className="text-isaroma-text-main">Aromas que</span>{' '}
                   <span className="relative inline-block">
                     <span 
                       className="text-transparent bg-clip-text animate-gradient-text"
@@ -249,7 +249,7 @@ const Hero: React.FC = () => {
 
               {/* Subtitle */}
               <div className="max-w-xl">
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-isaromas-text-main font-light leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-isaroma-text-main font-light leading-relaxed">
                   Descubrí nuestra línea exclusiva de fragancias artesanales para transformar cada rincón de tu hogar.
                 </p>
               </div>
@@ -308,10 +308,10 @@ const Hero: React.FC = () => {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
         <div className="flex flex-col items-center gap-2 animate-bounce-slow">
-          <div className="w-6 h-10 rounded-full border-2 border-isaromas-primary/50 flex justify-center">
-            <div className="w-1 h-3 bg-isaromas-primary rounded-full mt-2 animate-scroll-dot" />
+          <div className="w-6 h-10 rounded-full border-2 border-isaroma-primary/50 flex justify-center">
+            <div className="w-1 h-3 bg-isaroma-primary rounded-full mt-2 animate-scroll-dot" />
           </div>
-          <span className="text-xs text-isaromas-text-secondary font-light">Scroll</span>
+          <span className="text-xs text-isaroma-text-secondary font-light">Scroll</span>
         </div>
       </div>
 
