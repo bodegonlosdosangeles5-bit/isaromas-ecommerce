@@ -114,7 +114,7 @@ const AromaSelector = ({ title, helperText, options, selectedOption, onSelect }:
                 <div className="relative">
                     <input
                         type="text"
-                        placeholder="Buscar aroma..."
+                        placeholder="Seleccioná tu aroma..."
                         value={searchTerm}
                         onChange={(e) => {
                             setSearchTerm(e.target.value);
@@ -178,12 +178,7 @@ export default function ProductDetailPage() {
   } | null>(null);
   const [quantity, setQuantity] = useState(1);
 
-  // Inicializar variante por defecto cuando se carga el producto
-  useEffect(() => {
-    if (product && product.variants.length > 0 && !selectedVariant) {
-      setSelectedVariant(product.variants[0]);
-    }
-  }, [product, selectedVariant]);
+
 
   if (!product) {
     return (
@@ -200,10 +195,14 @@ export default function ProductDetailPage() {
   }
 
   const handleAddToCart = () => {
-    addToCart(product, quantity, selectedVariant || undefined);
+    if (product?.variants && product.variants.length > 0 && !selectedVariant) {
+      alert('Por favor, seleccioná una variante antes de agregar al carrito.');
+      return;
+    }
+    addToCart(product!, quantity, selectedVariant || undefined);
   };
 
-  const isCandle = product.category.includes('Velas') || product.name.toLowerCase().includes('vela');
+  const isCandle = product.category.includes('Velas') || product.name.toLowerCase().includes('vela') || product.description.toLowerCase().includes('vela');
   const isAromaProduct = ['Perfuminas', 'Aceites', 'Difusores'].includes(product.category);
 
   return (

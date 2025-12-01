@@ -1,7 +1,7 @@
 'use client';
 
 // React
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 // Iconos
 import { Search, Filter, X } from 'lucide-react';
@@ -21,6 +21,29 @@ export default function CatalogoPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  // Cargar filtros guardados al montar
+  useEffect(() => {
+    const savedSearch = localStorage.getItem('isaroma_catalog_search');
+    const savedCategory = localStorage.getItem('isaroma_catalog_category');
+    
+    if (savedSearch) setSearchTerm(savedSearch);
+    if (savedCategory) setSelectedCategory(savedCategory);
+    setIsInitialized(true);
+  }, []);
+
+  // Guardar filtros cuando cambian
+  useEffect(() => {
+    if (!isInitialized) return;
+
+    localStorage.setItem('isaroma_catalog_search', searchTerm);
+    if (selectedCategory) {
+      localStorage.setItem('isaroma_catalog_category', selectedCategory);
+    } else {
+      localStorage.removeItem('isaroma_catalog_category');
+    }
+  }, [searchTerm, selectedCategory, isInitialized]);
 
   // Normalize products to ensure proper typing
   const products: Product[] = productsData.map(normalizeProduct);
@@ -76,7 +99,8 @@ export default function CatalogoPage() {
 
           {/* Sidebar Filters */}
           <aside className={`
-            fixed inset-y-0 left-0 z-30 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 lg:relative lg:transform-none lg:w-64 lg:bg-transparent lg:shadow-none lg:inset-auto lg:max-w-none flex flex-col
+            fixed inset-y-0 left-0 z-30 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 
+            lg:sticky lg:top-32 lg:h-fit lg:max-h-[calc(100vh-9rem)] lg:shrink-0 lg:w-72 lg:transform-none lg:bg-transparent lg:shadow-none lg:inset-auto lg:max-w-none flex flex-col
             ${isMobileFilterOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
           `}>
             {/* Header con botón cerrar más visible */}
@@ -92,7 +116,7 @@ export default function CatalogoPage() {
             </div>
 
             {/* Contenido scrolleable */}
-            <div className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-0 space-y-6 sm:space-y-8">
+            <div className="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-6 lg:p-0 space-y-4 sm:space-y-6 custom-scrollbar pr-2">
               {/* Search */}
               <div>
                 <label className="block text-sm font-bold text-isaroma-text-main mb-3 uppercase tracking-wide">Buscar</label>
@@ -100,7 +124,7 @@ export default function CatalogoPage() {
                   <input 
                     type="text" 
                     placeholder="Velas, aromas..." 
-                    className="w-full pl-11 pr-4 py-3 rounded-xl border border-isaroma-card-border focus:border-isaroma-primary focus:ring-2 focus:ring-isaroma-pink-light outline-none transition-all bg-white shadow-sm hover:shadow-md text-isaroma-text-main placeholder:text-isaroma-text-muted"
+                    className="w-full pl-10 pr-3 py-2 rounded-lg border border-isaroma-card-border focus:border-isaroma-primary focus:ring-2 focus:ring-isaroma-pink-light outline-none transition-all bg-white shadow-sm hover:shadow-md text-isaroma-text-main placeholder:text-isaroma-text-muted text-sm"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     onKeyDown={(e) => {
@@ -109,7 +133,7 @@ export default function CatalogoPage() {
                       }
                     }}
                   />
-                  <Search className="absolute left-4 top-3.5 text-isaroma-icon-muted" size={18} />
+                  <Search className="absolute left-3 top-2.5 text-isaroma-icon-muted" size={16} />
                 </div>
               </div>
 
@@ -120,10 +144,10 @@ export default function CatalogoPage() {
                 </h3>
                 <div className="space-y-2">
                   <button 
-                    className={`w-full text-left px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-300 tracking-wide ${
+                    className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 tracking-wide truncate ${
                       selectedCategory === null 
-                        ? 'bg-isaroma-primary text-white shadow-lg scale-105' 
-                        : 'text-isaroma-text-secondary hover:bg-isaroma-pink-light/50 hover:text-isaroma-primary hover:scale-105 border border-isaroma-card-border'
+                        ? 'bg-isaroma-primary text-white shadow-md scale-[1.02]' 
+                        : 'text-isaroma-text-secondary hover:bg-isaroma-pink-light/50 hover:text-isaroma-primary hover:scale-[1.02] border border-isaroma-card-border'
                     }`}
                     onClick={() => {
                       setSelectedCategory(null);
@@ -135,10 +159,10 @@ export default function CatalogoPage() {
                   {categories.map(category => (
                     <button 
                       key={category}
-                      className={`w-full text-left px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-300 tracking-wide ${
+                      className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 tracking-wide truncate ${
                         selectedCategory === category 
-                          ? 'bg-isaroma-primary text-white shadow-lg scale-105' 
-                          : 'text-isaroma-text-secondary hover:bg-isaroma-pink-light/50 hover:text-isaroma-primary hover:scale-105 border border-isaroma-card-border'
+                          ? 'bg-isaroma-primary text-white shadow-md scale-[1.02]' 
+                          : 'text-isaroma-text-secondary hover:bg-isaroma-pink-light/50 hover:text-isaroma-primary hover:scale-[1.02] border border-isaroma-card-border'
                       }`}
                       onClick={() => {
                         setSelectedCategory(category);

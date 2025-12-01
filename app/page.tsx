@@ -12,6 +12,7 @@ import ProductCard from '@/components/ProductCard';
 import ScrollReveal from '@/components/ScrollReveal';
 import FAQ from '@/components/FAQ';
 import Hero from '@/components/Hero';
+import ContactSection from '@/components/ContactSection';
 
 
 // Datos
@@ -118,6 +119,9 @@ export default function Home() {
 
         {/* FAQ Section */}
         <FAQ />
+
+        {/* Contact Section */}
+        <ContactSection />
       </main>
 
       <Footer />

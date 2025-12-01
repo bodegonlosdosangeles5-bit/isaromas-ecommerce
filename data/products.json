@@ -1,4 +1,148 @@
 [
+   {
+    "id": "vela-premium-600",
+    "name": "Vela Premium",
+    "category": "Velas",
+    "price": 13000,
+    "description": "Nuestra vela más exclusiva en presentación de 600g. Elaborada con cera de soja de alta calidad y triple pabilo para una experiencia aromática intensa y duradera. Ideal para grandes espacios.",
+    "benefits": [
+      "Triple pabilo",
+      "Larga duración"
+    ],
+    "tags": [
+      "Velas"
+    ],
+    "imageFit": "cover",
+    "variants": [
+      {
+        "aroma": "Banana"
+      },
+      {
+        "aroma": "Canela"
+      },
+      {
+        "aroma": "Carrousel"
+      },
+      {
+        "aroma": "Cereza"
+      },
+      {
+        "aroma": "Cherry"
+      },
+      {
+        "aroma": "Chicle"
+      },
+      {
+        "aroma": "Child"
+      },
+      {
+        "aroma": "Citronela"
+      },
+      {
+        "aroma": "Coco"
+      },
+      {
+        "aroma": "Cony"
+      },
+      {
+        "aroma": "Durazno"
+      },
+      {
+        "aroma": "Feria"
+      },
+      {
+        "aroma": "Fresia"
+      },
+      {
+        "aroma": "Frutilla"
+      },
+      {
+        "aroma": "Frutos Rojos"
+      },
+      {
+        "aroma": "Bebe"
+      },
+      {
+        "aroma": "Gardenia"
+      },
+      {
+        "aroma": "Jazmín"
+      },
+      {
+        "aroma": "Jazmín Pomada"
+      },
+      {
+        "aroma": "Lavanda"
+      },
+      {
+        "aroma": "Limón"
+      },
+      {
+        "aroma": "Magnolia"
+      },
+      {
+        "aroma": "Mandarina"
+      },
+      {
+        "aroma": "Mango"
+      },
+      {
+        "aroma": "Manzana"
+      },
+      {
+        "aroma": "Manzana Verde"
+      },
+      {
+        "aroma": "Melón"
+      },
+      {
+        "aroma": "Melón Dulce"
+      },
+      {
+        "aroma": "Menta"
+      },
+      {
+        "aroma": "Naranja"
+      },
+      {
+        "aroma": "Papaya"
+      },
+      {
+        "aroma": "Maracuyá"
+      },
+      {
+        "aroma": "Pera"
+      },
+      {
+        "aroma": "Pomelo"
+      },
+      {
+        "aroma": "Romero"
+      },
+      {
+        "aroma": "Rosa"
+      },
+      {
+        "aroma": "Sándalo Dulce"
+      },
+      {
+        "aroma": "Sandía"
+      },
+      {
+        "aroma": "Uva"
+      },
+      {
+        "aroma": "Vainilla"
+      },
+      {
+        "aroma": "Vainilla Spa S"
+      },
+      {
+        "aroma": "Violeta"
+      }
+    ],
+    "image": "/images/products/vela-premium-600.webp"
+  },
   {
     "id": "vela-vestido-001",
     "name": "Vela Vestido \"Noche de Gala\"",
@@ -1348,7 +1492,7 @@
     "name": "Copa Frutilla Cream",
     "category": "Velas",
     "price": 16000,
-    "description": "Vela gourmet de soja en copa tipo postre, con frutillas en relieve y efecto crema rosada. Súper decorativa, ideal para regalar o darle un toque dulce y delicado a tu espacio. Hecha a mano por ISAROMA.",
+    "description": "Vela gourmet de soja en copa tipo postre, con frutillas en relieve y efecto crema rosada. Súper decorativa, ideal para regalar o darle un toque dulce y delicado a tu espacio. Hecha a mano por ISAROMAS.",
     "benefits": [
       "Decorativa",
       "Ideal para regalar"
@@ -1489,7 +1633,7 @@
     "name": "Muffin Choco Rosé",
     "category": "Velas",
     "price": 5500,
-    "description": "Vela gourmet de soja estilo muffin, con detalles de chocolate en relieve y moño delicado. Súper realista, decorativa y perfecta para regalos dulces o para darle un toque cálido y elegante a tu espacio. Hecha a mano por ISAROMA.",
+    "description": "Vela gourmet de soja estilo muffin, con detalles de chocolate en relieve y moño delicado. Súper realista, decorativa y perfecta para regalos dulces o para darle un toque cálido y elegante a tu espacio. Hecha a mano por ISAROMAS.",
     "benefits": [
       "Súper realista",
       "Ideal para regalar"
@@ -1630,7 +1774,7 @@
     "name": "Torta Candy Pastel",
     "category": "Velas",
     "price": 10000,
-    "description": "Vela gourmet de soja estilo torta decorada con confites y dulces en tonos pastel. Alegre, delicada y súper llamativa para regalar o decorar mesas dulces y rincones especiales. Hecha a mano por ISAROMA.",
+    "description": "Vela gourmet de soja estilo torta decorada con confites y dulces en tonos pastel. Alegre, delicada y súper llamativa para regalar o decorar mesas dulces y rincones especiales. Hecha a mano por ISAROMAS.",
     "benefits": [
       "Alegre y delicada",
       "Ideal para regalar"
@@ -1771,7 +1915,7 @@
     "name": "Dúo Berry Sweet",
     "category": "Velas",
     "price": 8000,
-    "description": "Vela gourmet de soja estilo postre con crema y frutos rojos en relieve. Súper realista, dulce y llamativa, ideal para regalar o decorar espacios especiales. Hecha a mano por ISAROMA.",
+    "description": "Vela gourmet de soja estilo postre con crema y frutos rojos en relieve. Súper realista, dulce y llamativa, ideal para regalar o decorar espacios especiales. Hecha a mano por ISAROMAS.",
     "benefits": [
       "Súper realista",
       "Ideal para regalar"
@@ -2380,6 +2524,20 @@
     ],
     "imageFit": "cover",
     "variants": [],
-    "image": "/images/products/collar-orbita-dorada.webp.webp"
+    "image": "/images/products/collar-orbita-dorada.webp"
+  },
+  {
+    "id": "collar-corazon-dorado",
+    "name": "Collar Corazón Dorado",
+    "category": "Joyería",
+    "price": 25000,
+    "description": "Un toque de elegancia que enamora. Este delicado collar con dije de corazón dorado es el complemento perfecto para resaltar tu brillo interior. Ideal para un regalo especial o para consentirte con un detalle único y sofisticado.",
+    "benefits": [
+      "Diseño minimalista",
+      "Cristales brillantes"
+    ],
+    "imageFit": "cover",
+    "variants": [],
+    "image": "/images/products/collar-corazon-dorado.webp"
   }
 ]

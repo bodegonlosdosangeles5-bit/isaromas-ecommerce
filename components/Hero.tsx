@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
             fill
             className="object-cover object-center w-full h-full"
             priority
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 1px"
             quality={90}
             style={{
               objectFit: 'cover',

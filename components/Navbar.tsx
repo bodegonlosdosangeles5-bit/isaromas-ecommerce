@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ShoppingBag, Menu, X, Home, HelpCircle, Sparkles } from 'lucide-react';
+import { ShoppingBag, Menu, X, Home, HelpCircle, Sparkles, Mail } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
 const Navbar: React.FC = () => {
@@ -389,6 +389,26 @@ const Navbar: React.FC = () => {
                 <div className="flex items-center gap-2 relative z-10">
                   <HelpCircle size={18} />
                   FAQ
+                </div>
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background: 'linear-gradient(135deg, #DB2777, #EC4899, #F472B6)',
+                    backgroundSize: '200% 200%',
+                  }}
+                />
+              </Link>
+              <Link
+                href="/#contacto"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="group px-4 py-3 rounded-xl font-semibold text-isaroma-text-secondary hover:text-white transition-all duration-300 relative overflow-hidden"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.3)',
+                }}
+              >
+                <div className="flex items-center gap-2 relative z-10">
+                  <Mail size={18} />
+                  Contacto
                 </div>
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
