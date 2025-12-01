@@ -9,6 +9,9 @@
       "Souvenir ideal",
       "Alta costura"
     ],
+    "tags": [
+      "Velas"
+    ],
     "imageFit": "cover",
     "variants": [
       {
@@ -2361,147 +2364,6 @@
       },
       {
         "aroma": "Ylang Ylang"
-      }
-    ],
-    "image": "/images/products/difusor-de-ambiente-con-varilla.webp"
-  },
-  {
-    "id": "vela-cupcake-001",
-    "name": "Vela Cupcake Confetti",
-    "category": "Velas",
-    "price": 9000,
-    "description": "¡La vela más dulce de la tienda! Vela de soja con diseño realista de cupcake, topping de cera batida artesanal y grageas de colores. Perfecta para regalar o celebrar un cumpleaños.",
-    "benefits": [
-      "Diseño realista",
-      "Ideal para cumpleaños"
-    ],
-    "imageFit": "cover",
-    "variants": [
-      {
-        "aroma": "Banana"
-      },
-      {
-        "aroma": "Canela"
-      },
-      {
-        "aroma": "Carrousel"
-      },
-      {
-        "aroma": "Cereza"
-      },
-      {
-        "aroma": "Cherry"
-      },
-      {
-        "aroma": "Chicle"
-      },
-      {
-        "aroma": "Child"
-      },
-      {
-        "aroma": "Citronela"
-      },
-      {
-        "aroma": "Coco"
-      },
-      {
-        "aroma": "Cony"
-      },
-      {
-        "aroma": "Durazno"
-      },
-      {
-        "aroma": "Feria"
-      },
-      {
-        "aroma": "Fresia"
-      },
-      {
-        "aroma": "Frutilla"
-      },
-      {
-        "aroma": "Frutos Rojos"
-      },
-      {
-        "aroma": "Bebe"
-      },
-      {
-        "aroma": "Gardenia"
-      },
-      {
-        "aroma": "Jazmín"
-      },
-      {
-        "aroma": "Jazmín Pomada"
-      },
-      {
-        "aroma": "Lavanda"
-      },
-      {
-        "aroma": "Limón"
-      },
-      {
-        "aroma": "Magnolia"
-      },
-      {
-        "aroma": "Mandarina"
-      },
-      {
-        "aroma": "Mango"
-      },
-      {
-        "aroma": "Manzana"
-      },
-      {
-        "aroma": "Manzana Verde"
-      },
-      {
-        "aroma": "Melón"
-      },
-      {
-        "aroma": "Melón Dulce"
-      },
-      {
-        "aroma": "Menta"
-      },
-      {
-        "aroma": "Naranja"
-      },
-      {
-        "aroma": "Papaya"
-      },
-      {
-        "aroma": "Maracuyá"
-      },
-      {
-        "aroma": "Pera"
-      },
-      {
-        "aroma": "Pomelo"
-      },
-      {
-        "aroma": "Romero"
-      },
-      {
-        "aroma": "Rosa"
-      },
-      {
-        "aroma": "Sándalo Dulce"
-      },
-      {
-        "aroma": "Sandía"
-      },
-      {
-        "aroma": "Uva"
-      },
-      {
-        "aroma": "Vainilla"
-      },
-      {
-        "aroma": "Vainilla Spa S"
-      },
-      {
-        "aroma": "Violeta"
       }
     ],
     "image": "/images/products/vela-cupcake-confetti.webp"

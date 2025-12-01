@@ -15,6 +15,7 @@ export interface Product {
   imageFit?: "contain" | "cover";
   variants: ProductVariant[];
   image: string;
+  tags?: string[];
 }
 
 /**

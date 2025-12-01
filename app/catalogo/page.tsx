@@ -36,7 +36,9 @@ export default function CatalogoPage() {
     return products.filter(product => {
       const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                             product.description.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory = selectedCategory ? product.category === selectedCategory : true;
+      const matchesCategory = selectedCategory 
+        ? (product.category === selectedCategory || (product.tags && product.tags.includes(selectedCategory)))
+        : true;
       
       return matchesSearch && matchesCategory;
     });
