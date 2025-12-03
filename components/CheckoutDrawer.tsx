@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Trash2, ShoppingBag, MessageCircle, Info } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { formatPrice } from '@/utils/formatPrice';
+import { generateCartMessage } from '@/utils/whatsapp';
 
 const CheckoutDrawer: React.FC = () => {
   const { items, isCartOpen, toggleCart, removeFromCart, updateQuantity, totalPrice, clearCart } = useCart();
@@ -21,22 +22,7 @@ const CheckoutDrawer: React.FC = () => {
   };
 
   const generateWhatsAppMessage = () => {
-    let message = `*Hola ISAROMA! Quiero realizar el siguiente pedido:*\n\n`;
-    
-    items.forEach(item => {
-      message += `• ${item.quantity}x ${item.product.name}`;
-      if (item.variant) {
-        const variantDetails = [
-            item.variant.aroma,
-            item.variant.color,
-            item.variant.size
-        ].filter(Boolean).join(', ');
-        message += ` (${variantDetails})`;
-      }
-      message += ` - ${formatPrice(item.product.price * item.quantity)}\n`;
-    });
-
-    message += `\n*Total: ${formatPrice(totalPrice)}*\n\n`;
+    let message = generateCartMessage(items, totalPrice);
     
     message += `*Mis Datos:*\n`;
     message += `Nombre: ${formData.name}\n`;
@@ -45,7 +31,7 @@ const CheckoutDrawer: React.FC = () => {
     if (formData.notes) message += `Notas: ${formData.notes}\n`;
     
     message += `\n*Forma de Pago:*\n`;
-    message += `Transferencia al Alias: ISAROMA.VENTAS\n`;
+    message += `Transferencia al Alias: isa.1391\n`;
     message += `(Envío comprobante a la brevedad)\n\n`;
 
     message += `*Importante:*\n`;
@@ -302,7 +288,7 @@ const CheckoutDrawer: React.FC = () => {
 
               {/* Información de Pago Compacta */}
               <div className="bg-white p-3 rounded-lg border border-isaroma-card-border text-xs text-isaroma-text-main shadow-sm">
-                <p className="font-bold mb-1.5 text-xs">Pago: <span className="font-mono font-bold bg-isaroma-pink-light/30 px-2 py-0.5 rounded text-isaroma-primary">ISAROMA.VENTAS</span></p>
+                <p className="font-bold mb-1.5 text-xs">Pago: <span className="font-mono font-bold bg-isaroma-pink-light/30 px-2 py-0.5 rounded text-isaroma-primary">isa.1391</span></p>
                 <p className="text-xs text-isaroma-text-muted font-medium flex items-start gap-1 leading-tight">
                   <Info size={11} className="mt-0.5 flex-shrink-0" /> 
                   <span>Envía el comprobante por WhatsApp al finalizar</span>
