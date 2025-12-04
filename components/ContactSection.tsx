@@ -16,7 +16,7 @@ export default function ContactSection() {
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/isaroma5/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-white border border-isaroma-card-border text-isaroma-text-main font-bold rounded-xl shadow-sm hover:shadow-md hover:border-isaroma-primary hover:text-isaroma-primary transition-all duration-300 group"
@@ -26,11 +26,11 @@ export default function ContactSection() {
               </a>
               
               <a 
-                href="mailto:info@isaroma.com"
+                href="mailto:isaroma.ventas@gmail.com?subject=Consulta%20desde%20la%20web%20ISAROMA&body=Hola%20ISAROMA,%20quería%20hacer%20una%20consulta%20sobre..."
                 className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-isaroma-primary text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:bg-isaroma-primary-hover transition-all duration-300 hover:-translate-y-1"
               >
                 <Mail size={24} />
-                Envianos un Mail
+                Envíanos un Mail
               </a>
             </div>
           </div>
