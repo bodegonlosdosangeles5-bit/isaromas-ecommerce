@@ -5,6 +5,8 @@ import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Playfair_Display, Poppins } from "next/font/google";
 
+import Script from "next/script";
+
 // Contextos
 import { CartProvider } from "@/context/CartContext";
 
@@ -43,6 +45,21 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${playfair.variable} ${poppins.variable}`}>
       <body className="antialiased bg-isaroma-cream text-isaroma-text-main">
+        {/* Google Analytics 4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-JV907175PQ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-JV907175PQ');
+          `}
+        </Script>
+
         <CartProvider>
           {children}
           <CheckoutDrawer />
