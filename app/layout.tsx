@@ -30,10 +30,12 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "ISAROMA | Esencias que iluminan",
-  description: "Velas de soja, difusores y esencias artesanales personalizadas.",
+  title: "ISAROMA",
+  description: "Tienda ISAROMA - Velas, difusores y perfumes finos",
   icons: {
-    icon: '/favicon.png',
+    icon: "/images/products/favicon.png",
+    shortcut: "/images/products/favicon.png",
+    apple: "/images/products/favicon.png",
   },
 };
 
