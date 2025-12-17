@@ -33,9 +33,12 @@ export const metadata: Metadata = {
   title: "ISAROMA",
   description: "Tienda ISAROMA - Velas, difusores y perfumes finos",
   icons: {
-    icon: "/images/products/favicon.png",
-    shortcut: "/images/products/favicon.png",
-    apple: "/images/products/favicon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-48x48.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
 };
 
